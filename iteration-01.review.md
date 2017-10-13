@@ -39,11 +39,11 @@ We are planning to host bi-weekly meetings as the development of the project con
 Completion of the artifact (template of the cue card as well as the website) was completed as planned.
 
 * Artifacts that visualize parts of the product we wish to implement
-    * [`Front of cue card`] (/mockups/questionFront.png)
-    * [`Back of cue card`] (/mockups/questionBack.png)
-    * [`Multiple choice card`] (/mockups/quiz.png)
-    * [`User Interface`] (/mockups/userInterface.png)
-    * [`Group interface`] (/mockups/groupInterface.png)
+    * [`Front of cue card`](/mockups/questionFront.png)
+    * [`Back of cue card`](/mockups/questionBack.png)
+    * [`Multiple choice card`](/mockups/quiz.png)
+    * [`User Interface`](/mockups/userInterface.png)
+    * [`Group interface`](/mockups/groupInterface.png)
 * Finalization and approval of the project idea.
 * Complete design of interfaces
 * Very detailed plans on what technologies we are using, in terms of database, api, programming languages
@@ -60,4 +60,4 @@ We have completed all the tasks that we intended to complete by the end of the i
     * We decided to have more meetings every week in order to speed up the process of work - By only meeting once every week, we limited ourselves to the amount of work that we were able to complete as well as the discussion that we were able to have due to time constraints. By allocating more time for meetings (i.e. scheduling bi-weekly meetings), we increase our productivity.
 
 * Prototype Development
-    * In addition, we have decided to begin working on the website itself and implement some of the basics, for example, the general interface as well as some of the logistics. For this concept, we must also come up with detailed plans on what technologies such as which Frameworks we are using, what product we are using in order to deploy the website, and any additional APIs. We also assign each person relevant tasks. 
+    * In addition, we have decided to begin working on the website itself and implement some of the basics, for example, the general interface as well as some of the logistics. For this concept, we must also come up with detailed plans on what technologies such as which Frameworks we are using, what product we are using in order to deploy the website, and any additional APIs. We also assign each person relevant tasks.
