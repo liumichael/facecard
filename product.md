@@ -46,7 +46,7 @@ Users should choose our product as it is able to hone study habits while providi
 
     2. Auto-scheduler
         * Input a list of tasks and arranges them automatically in your free time
-Helps people with busy schedules make time for important tasks
+        * Helps people with busy schedules make time for important tasks
 
     3. Repetition cue cards
         * A learning environment to help students study by automatically giving study cards through spaced-out notifications
