@@ -1,6 +1,25 @@
 Michael:
 Perferred:
+JavaScript
+HTML
+CSS
+Java
+Python
+MySQL
+Rails?
+BootStrap?
+React/Angular/Vue?
+
 Know:
+Java
+Python
+C
+HTML
+CSS
+JavaScript
+MySQL
+
+
 
 Bryan:
 Perferred:
