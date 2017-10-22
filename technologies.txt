@@ -39,7 +39,18 @@ Racket
 
 Chris:
 Perferred:
-Know:
+-Java 
+-JavaScript 
+
+Know: 
+-C
+-C#
+-Java 
+-Python
+-Turing
+-JavaScript (learning)
+-SQL (learning)
+-MatLab (learning) 
 
 Jenna:
 Perferred:
@@ -47,4 +58,17 @@ Know:
 
 Eric:
 Perferred:
+Ruby on Rails
+HTML
+CSS
+JavaScript
 Know:
+C
+C++
+Java
+Python
+Ruby on Rails
+HTML
+JavaScript
+CSS
+
