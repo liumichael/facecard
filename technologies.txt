@@ -23,7 +23,19 @@ MySQL
 
 Bryan:
 Perferred:
+Java 
+NodeJS
+Python
+Ruby on Rails? 
+HTML
+CSS
+
 Know:
+Java 
+C
+JavaScript
+Python
+Racket
 
 Chris:
 Perferred:
