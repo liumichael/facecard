@@ -1,0 +1,86 @@
+Michael:
+Perferred:
+JavaScript
+HTML
+CSS
+Java
+Python
+MySQL
+Rails?
+BootStrap?
+React/Angular/Vue?
+
+Know:
+Java
+Python
+C
+HTML
+CSS
+JavaScript
+MySQL
+
+
+
+Bryan:
+Perferred:
+Java
+NodeJS
+Python
+Ruby on Rails?
+HTML
+CSS
+
+Know:
+Java
+C
+JavaScript
+Python
+Racket
+
+Chris:
+Perferred:
+-Java
+-JavaScript
+
+Know:
+-C
+-C#
+-Java
+-Python
+-Turing
+-JavaScript (learning)
+-SQL (learning)
+-MatLab (learning)
+
+Jenna:
+Perferred:
+Ruby on Rails
+HTML
+CSS
+JavaScript
+
+Know:
+Node.js
+C
+Java
+Python
+Ruby on Rails
+HTML
+CSS
+JavaScript
+
+Eric:
+Perferred:
+Ruby on Rails
+HTML
+CSS
+JavaScript
+Know:
+C
+C++
+Java
+Python
+Ruby on Rails
+HTML
+JavaScript
+CSS
