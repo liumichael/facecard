@@ -31,7 +31,7 @@ HTML
 CSS
 
 Know:
-Java 
+Java
 C
 JavaScript
 Python
@@ -45,7 +45,7 @@ Perferred:
 Know: 
 -C
 -C#
--Java 
+-Java
 -Python
 -Turing
 -JavaScript (learning)
@@ -54,7 +54,20 @@ Know:
 
 Jenna:
 Perferred:
+Ruby on Rails
+HTML
+CSS
+JavaScript
+
 Know:
+Node.js
+C
+Java
+Python
+Ruby on Rails
+HTML
+CSS
+JavaScript
 
 Eric:
 Perferred:
@@ -62,6 +75,7 @@ Ruby on Rails
 HTML
 CSS
 JavaScript
+
 Know:
 C
 C++
@@ -71,4 +85,3 @@ Ruby on Rails
 HTML
 JavaScript
 CSS
-
