@@ -47,4 +47,17 @@ Know:
 
 Eric:
 Perferred:
+Ruby on Rails
+HTML
+CSS
+JavaScript
 Know:
+C
+C++
+Java
+Python
+Ruby on Rails
+HTML
+JavaScript
+CSS
+
