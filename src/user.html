@@ -1,6 +1,125 @@
 <!DOCTYPE html>
+
+<style> 
+	.groups li {
+		list-style-type:none;
+		padding:10px;
+		margin-left:0px;
+		font-size:25px;
+	}
+	
+	.cards {
+		background-image:url('../public/images/card.png');
+		background-size:cover;
+		background-repeat:no-repeat;
+		width:20%;
+		height:20%;
+		border:none;
+		margin:20px;
+		position:relative;
+		float:left;
+	}
+		
+	.cards button {
+		background:none;
+		border:none;
+		height:100%;
+		width:100%;
+		padding:21%;
+	}
+	
+	.container {
+		min-width:100%;
+		min-height:100%;
+		padding:0;
+		margin:0;
+	}
+
+
+</style>
+
 <html>
-<head><h1>USER</head>
-<body></body>
+<head>
+	<link rel="stylesheet" href="../public/css/style.css" type="text/css">
+    <link href="../public/css/bootstrap.min.css"rel="stylesheet">
+</head>
+<body>
+	<nav class="navbar background">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand menu-writing" href="/" style="font-size:27px;"><strong>facecard</strong></a>
+        </div>
+		<img src="../public/images/profilepic.png" style="float:left;width:42px;height:42px;">
+		<h1><strong style="padding-left:20px;">John Smith</strong></h1>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+          </ul>
+        </div>
+      </div>
+    </nav>
+	
+	<div class="container">
+		<div class="groups" style="float:left;">
+			<h1><strong>Groups</strong</h1>
+			<ul style="height:700px;overflow-y:auto;">
+				<li><a class="group"><span><strong>BIO100</strong></span></a></li>
+				<li><a class="group"><span><strong>BIO101</strong></span></a></li>
+				<li><a class="group"><span><strong>BIO102</strong></span></a></li>
+				<li><a class="group"><span><strong>BIO103</strong></span></a></li>
+				<li><a class="group"><span><strong>BIO104</strong></span></a></li>
+			</ul>
+		
+		</div>
+		
+		<div class="deck-view" style="float:right;width:85%">
+			<h1><strong>YOUR DECKS</strong></h1>
+			  <ul class="decks">
+				<div class="cards">				
+					<button>
+						<h1><strong>BIOLOGY</strong></h1>
+					</button>
+				</div>
+				<div class="cards">				
+					<button>
+						<h1><strong>BIOLOGY</strong></h1>
+					</button>
+				</div>
+				<div class="cards">				
+					<button>
+						<h1><strong>BIOLOGY</strong></h1>
+					</button>
+				</div>
+				<div class="cards">				
+					<button>
+						<h1><strong>BIOLOGY</strong></h1>
+					</button>
+				</div>
+				<div class="cards">				
+					<button>
+						<h1><strong>BIOLOGY</strong></h1>
+					</button>
+				</div>
+				<div class="cards">				
+					<button>
+						<h1><strong>BIOLOGY</strong></h1>
+					</button>
+				</div>
+				<div class="cards">				
+					<button>
+						<h1><strong>BIOLOGY</strong></h1>
+					</button>
+				</div>
+				<div class="cards">				
+					<button>
+						<h1><strong>BIOLOGY</strong></h1>
+					</button>
+				</div>
+				
+			  </ul>
+		</div>
+	</div>
+	
+</body>
 
 </html>
