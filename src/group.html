@@ -1,18 +1,105 @@
 <!DOCTYPE html>
+
+<style> 
+	.announcements li {
+		list-style-type:none;
+		padding:10px;
+		margin-left:0px;
+		font-size:25px;
+	}
+	
+	.cards {
+		background-image:url('../public/images/card.png');
+		background-size:cover;
+		background-repeat:no-repeat;
+		width:20%;
+		height:20%;
+		border:none;
+		margin:20px;
+		position:relative;
+		float:left;
+	}
+		
+	.cards button {
+		background:none;
+		border:none;
+		height:100%;
+		width:100%;
+		padding:21%;
+	}
+	
+	.container {
+		min-width:100%;
+		min-height:100%;
+		padding:0;
+		margin:0;
+	}
+
+
+</style>
+
 <html>
-
-<link rel="stylesheet" type="text/css" href="todo.css">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>TODO LIST</title>
+	<link rel="stylesheet" href="../public/css/style.css" type="text/css">
+    <link href="../public/css/bootstrap.min.css"rel="stylesheet">
 </head>
-
 <body>
+	<nav class="navbar background">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand menu-writing" href="/" style="font-size:27px;"><strong>facecard</strong></a>
+        </div>
+		<img src="../public/images/profilepic.png" style="float:right;width:42px;height:42px;">
+		<h1><strong style="float:right; padding-right: 5px">John Smith</strong></h1>
 
-<h1> Group Page </h1>
-<h2> Group name </h2>
-
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+          </ul>
+        </div>
+      </div>
+    </nav>
+	
+	<div class="container">
+		<div class="announcements" style="float:left;">
+			<h1><strong>Welcome to BIO100!</strong</h1>
+			<h2><strong>Anouncements:</strong</h2>
+			<ul>
+				<li><a class="announcement"><span><strong>TEST 1: October 31st, 2017</strong></span></a></li>
+				<li><a class="announcement"><span><strong>TEST 2: To be decided</strong></span></a></li>
+				<li><a class="announcement"><span><strong>FINAL EXAM: February 9th, 2018</strong></span></a></li>
+			</ul>
+		
+		</div>
+		
+		
+	</div>
+	<div class="deck-view" style="style="float:right;width: 100%;height: auto;">
+		<h1><strong>Class Decks</strong></h1>
+			  <ul class="decks">
+				<div class="cards">				
+					<button>
+						<h1><strong>TEST 1</strong></h1>
+					</button>
+				</div>
+				<div class="cards">				
+					<button>
+						<h1><strong>TEST 2</strong></h1>
+					</button>
+				</div>
+				<div class="cards">				
+					<button>
+						<h1><strong>TEST 3</strong></h1>
+					</button>
+				</div>
+				<div class="cards">				
+					<button>
+						<h1><strong>EXAM</strong></h1>
+					</button>
+				</div>
+				
+			  </ul>
+		</div>
+	
 </body>
+
+</html>
