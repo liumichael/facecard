@@ -50,6 +50,10 @@ app.get('/contact', function(req, res) {
   res.render('contact');
 })
 
+app.get('/user', function(req, res) {
+  res.render('user');
+})
+
 app.get('/auth/logout', function(req, res){
   req.logout();
   req.session.save(function(){
