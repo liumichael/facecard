@@ -92,3 +92,7 @@ span {
   color:white;
   background-color: #5CB3FF;
 }
+
+.col-center{
+  margin:0 auto;
+}
