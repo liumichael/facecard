@@ -54,15 +54,38 @@
 	.content {
 		background: rgba(255,255,255,1);
 		padding: 15px;
-		-webkit-animation-name: animatefade;
-		-webkit-animation-duration: 0.5s;
-		animation-name: animatefade;
-		animation-duration: 0.5s;
 		
 	}
 	
 	.card {
 		list-style-type:none;
+	}
+	
+	.card button:hover{
+		box-shadow: 0px 10px 10px grey;
+	}
+	
+	.card button {
+		background: none;
+		border: 1px solid black;
+		border-radius: 20px;
+		margin:5vw 5vh;
+		padding: 20%;
+		transition:0.2s;
+	}
+	
+	#close {
+		background:none;
+		border:none;
+		color:red;
+		float:right;
+		font-size:20px;
+		transition:0.2s;
+	}
+	
+	#close:hover{
+		background:red;
+		color:white;
 	}
 
 
@@ -80,6 +103,7 @@
 
 	<div id="deck-overlay">
 		<div class="content">
+			<button id="close" onclick="hideOverlay()"> X </button>
 			<ul id="catalog">
 			</ul>
 		</div>

@@ -1,7 +1,7 @@
 var groups = ["BIO100", "BIO101", "BIO102", "BIO103", "BIO104", "BIO105"];
 
 
-var decks = {"BIO100 test 1":["hi"], "BIO100 test 2":["hello"], "BIO100 test 3":["hello"], "BIO100 final": ["hello"]};
+var decks = {"BIO100 test 1":["midochondria 1", "midochondria 2"], "BIO100 test 2":["membrane 1"], "BIO100 test 3":["enzymes 1"], "BIO100 final": ["virus 1"]};
 
 
 $(function() {
@@ -30,7 +30,14 @@ function showOverlay(id) {
 	
 	for (index in listOfCards) {
 		console.log(listOfCards[index]);
-		$('#catalog').append("<li class='card' id='" + listOfCards[index] + "'><h1><strong>" + listOfCards[index] + "</strong></h1></li>");
+		$('#catalog').append("<li class='card' id='" + listOfCards[index] + "'><button><h1><strong>Click to show card</strong></h1></button></li>");
 	}
+}
+
+function hideOverlay() {
+	
+	document.getElementById("catalog").innerHTML = '';
+	
+	document.getElementById("deck-overlay").style.display = "none";
 }
 
