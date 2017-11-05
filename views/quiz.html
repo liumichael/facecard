@@ -7,6 +7,9 @@
         <script>
             var x = setInterval(function(){
                 document.getElementById("timer").innerHTML = parseInt(document.getElementById("timer").textContent) - 1;    
+                if (document.getElementById("timer").textContent == "0"){
+                    clearInterval(x);
+                }
             }, 1000);
 
         </script>
