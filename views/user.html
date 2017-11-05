@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 
 <style>
+
+	#navbar {
+		box-shadow: 0px 5px 5px grey;
+	}
+
 	.groups li {
 		list-style-type:none;
 		padding:10px;
@@ -26,6 +31,7 @@
 		height:100%;
 		width:100%;
 		padding:18%;
+		padding-top:10%;
 	}
 
 	.container {
@@ -67,12 +73,13 @@
 	
 	.card button {
 		background: none;
-		border: 1px solid black;
+		border: 1px solid gray;
 		border-radius: 20px;
 		margin:5vw 5vh;
 		padding: 20%;
 		transition:0.2s;
 	}
+	
 	
 	#close {
 		background:none;
@@ -90,7 +97,7 @@
 	
 	#add-card {
 		background:none;
-		border:1px solid black;
+		border:none;
 		border-radius:5px;
 		font-size:20px;
 		transition:0.2s;
@@ -116,14 +123,14 @@
 	<div id="deck-overlay">
 		<div class="content">
 			<button id="close" onclick="hideOverlay()"> X </button>
-			<button id="add-card">Add New Card</button>
+			<button id="add-card"><span><Strong>Add New Card</strong></span></button>
 			<ul id="catalog">
 			</ul>
 		</div>
 	</div>
 
 	<nav class="navbar background">
-		<div class="container-fluid">
+		<div  id="navbar" class="container-fluid">
 			<div class="navbar-header">
 				<a class="navbar-brand menu-writing" href="/" style="font-size:27px;"><strong>facecard</strong></a>
 			</div>
