@@ -5,18 +5,27 @@
     <meta charset="utf-8">
     <title>facecard: remembering tool</title>
     <link rel="stylesheet" href="css/style.css" type="text/css">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap4/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
 </head>
 
 <body>
-    <nav class="navbar background">
+    <nav class="navbar navbar-expand-md background">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand menu-writing" href="/" style="font-size:27px;"><strong>facecard</strong></a>
             </div>
 
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="navbar-collapse collapse show" id="navbarsExampleDefault" style="">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-link"><a class="menu-writing" href="/about">   About</a></li>
+                    <li class="nav-link"><a class="menu-writing" href="/contact">   Contact</a></li>
+                    <li class="nav-link"><a class="menu-writing" href="/login">   Log in</a></li>
+                    <li class="nav-link"><a class="menu-writing" href="/signup">   Sign Up</a></li>
+                </ul>
+            </div>
+
+            <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -25,7 +34,7 @@
                     <li><a class="menu-writing" href="/login">   Log in</a></li>
                     <li><a class="menu-writing" href="/signup">   Sign Up</a></li>
                 </ul>
-            </div>
+            </div> -->
         </div>
     </nav>
 
@@ -53,6 +62,42 @@
         <div class="col-md-1"></div>
       </div>
     </div> -->
+    <!-- <div class="container-fluid"> -->
+    <div class="row flex-xl-nowrap">
+        <main role="main" class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content">
+
+            <div class="bd-example">
+                <!-- <div class="card text-white text-center bg-dark border-dark mb-3"> -->
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h2>Biology</h2>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="card-top-buttons">
+                            <a href="#" class="btn btn-primary float-left">Edit</a>
+                            <a href="#" class="btn btn-primary float-right">Back</a>
+                        </div> <br> <br>
+                        <h3 class="card-title text-center">What is the powerhouse of the cell?</h3>
+                        <!-- <p class="card-text text-center">With supporting text below as a natural lead-in to additional content.</p> -->
+
+                        <br><br><br>
+                        <div class="card-bottom-buttons">
+                            <div class="text-center">
+                            <a href="#" class="btn btn-primary col-md-offset-3">Reveal Answer</a>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="card-footer text-muted">
+                        2 days ago
+                    </div>
+                </div>
+            </div>
+    </div>
+    <!-- </div> -->
+
+
+    </main>
 
 
     <br>
