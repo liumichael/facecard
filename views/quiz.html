@@ -4,8 +4,27 @@
         <link rel="stylesheet" href="css/style.css" type="text/css">
         <link href="css/bootstrap.min.css"rel="stylesheet">
       	<link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
-        <link href="css/style.css" type="text/css">
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <script>
+            var x = setInterval(function(){
+                document.getElementById("timer").innerHTML = parseInt(document.getElementById("timer").textContent) - 1;    
+            }, 1000);
+
+        </script>
+        <style>
+            .flex-container{
+                justify-content: center;
+                align-items: center;
+                min-height: 24em;
+                display: flex;
+            }
+
+            .quiz-btn{
+                margin-right:5px;
+                margin-left:5px;
+            }
+
+        </style>
+    
     </head>
     <body>
         <nav class="navbar background">
@@ -15,21 +34,32 @@
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                    <li><a href="#">Home</a></li>
+                    <!--
+			<li><a href="#">Home</a></li>
                     <li><a href="#">Profile</a></li>
                     <li><a href="#">Group</a></li>
                     <li class="active"><a href="#">Quiz</a></li>
+                    -->
                     </ul>
+
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a class="menu-writing" href="/quiz">   Quiz</a></li>
+       			<li><a class="menu-writing" href="/"><i class="fa fa-user fa-1x"></i>   John Smith</a></li>
+       	            </ul>               
                 </div>
             </div>
         </nav>
 
         <div class="container">
-            <h2 style="float:left;">Quiz Page</h2>
-            <button type="button" class="btn btn-success">Create Quiz</button>
-            <div class="btn-group-vertical">
-                <button type="button" class="btn btn-primary">Load Quiz</button>
-                <button type="button" class="btn btn-primary">Join Quiz</button>
+            <h2 style="text-align:center;">Quiz Page</h2>
+            <p id="timer">30</p>
+            <div class="flex-container">
+                <button type="button" class="btn btn-success quiz-btn">Create Quiz</button>
+                <div class="btn-group-vertical">
+                    <button type="button" class="btn btn-primary">Load Quiz</button>
+                    <button type="button" class="btn btn-primary">Join Quiz</button>
+                </div>
             </div>
         </div>
 
