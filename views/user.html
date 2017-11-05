@@ -87,6 +87,18 @@
 		background:red;
 		color:white;
 	}
+	
+	#add-card {
+		background:none;
+		border:1px solid black;
+		border-radius:5px;
+		font-size:20px;
+		transition:0.2s;
+	}
+	
+	#add-card:hover {
+		background:lightgray;
+	}
 
 
 </style>
@@ -104,6 +116,7 @@
 	<div id="deck-overlay">
 		<div class="content">
 			<button id="close" onclick="hideOverlay()"> X </button>
+			<button id="add-card">Add New Card</button>
 			<ul id="catalog">
 			</ul>
 		</div>
