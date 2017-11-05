@@ -10,7 +10,7 @@
 
 	.cards {
 		background-image:url('images/card.png');
-		background-size:cover;
+		background-size:16vw 21vh;
 		background-repeat:no-repeat;
 		width:20%;
 		height:20%;
@@ -25,7 +25,7 @@
 		border:none;
 		height:100%;
 		width:100%;
-		padding:21%;
+		padding:18%;
 	}
 
 	.container {
@@ -33,6 +33,36 @@
 		min-height:100%;
 		padding:0;
 		margin:0;
+	}
+	
+	#deck-overlay {
+		width: 100%;
+		position:fixed;
+		left: 0;
+		top: 0;
+		height: 100vh;
+		background: rgba(100,100,100,0.5);
+		padding-left: 25%;
+		padding-right: 25%;
+		padding-top: 25vh;
+		padding-bottom: 25vh;
+		z-index: 900;
+		display:none;
+		overflow-y: auto;
+	}
+	
+	.content {
+		background: rgba(255,255,255,1);
+		padding: 15px;
+		-webkit-animation-name: animatefade;
+		-webkit-animation-duration: 0.5s;
+		animation-name: animatefade;
+		animation-duration: 0.5s;
+		
+	}
+	
+	.card {
+		list-style-type:none;
 	}
 
 
@@ -47,6 +77,14 @@
 	<script src="js/user.js"></script>
 </head>
 <body>
+
+	<div id="deck-overlay">
+		<div class="content">
+			<ul id="catalog">
+			</ul>
+		</div>
+	</div>
+
 	<nav class="navbar background">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -73,47 +111,7 @@
 
 		<div class="deck-view" style="float:right;width:85%">
 			<h1><strong>YOUR DECKS</strong></h1>
-			  <ul class="decks">
-				<div class="cards">
-					<button>
-						<h1><strong>BIOLOGY</strong></h1>
-					</button>
-				</div>
-				<div class="cards">
-					<button>
-						<h1><strong>BIOLOGY</strong></h1>
-					</button>
-				</div>
-				<div class="cards">
-					<button>
-						<h1><strong>BIOLOGY</strong></h1>
-					</button>
-				</div>
-				<div class="cards">
-					<button>
-						<h1><strong>BIOLOGY</strong></h1>
-					</button>
-				</div>
-				<div class="cards">
-					<button>
-						<h1><strong>BIOLOGY</strong></h1>
-					</button>
-				</div>
-				<div class="cards">
-					<button>
-						<h1><strong>BIOLOGY</strong></h1>
-					</button>
-				</div>
-				<div class="cards">
-					<button>
-						<h1><strong>BIOLOGY</strong></h1>
-					</button>
-				</div>
-				<div class="cards">
-					<button>
-						<h1><strong>BIOLOGY</strong></h1>
-					</button>
-				</div>
+			  <ul id="deck-list" class="decks">
 
 			  </ul>
 		</div>
