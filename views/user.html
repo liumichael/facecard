@@ -41,8 +41,10 @@
 <html>
 <head>
 	<link rel="stylesheet" href="css/style.css" type="text/css">
-  <link href="css/bootstrap.min.css"rel="stylesheet">
+	<link href="css/bootstrap.min.css"rel="stylesheet">
 	<link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="js/user.js"></script>
 </head>
 <body>
 	<nav class="navbar background">
@@ -62,14 +64,9 @@
 	</nav>
 
 	<div class="container">
-		<div class="groups" style="float:left;">
+		<div class="groups" id="group-pane" style="float:left;">
 			<h1><strong>Groups</strong</h1>
-			<ul style="height:700px;overflow-y:auto;">
-				<li><a class="group"><span><strong>BIO100</strong></span></a></li>
-				<li><a class="group"><span><strong>BIO101</strong></span></a></li>
-				<li><a class="group"><span><strong>BIO102</strong></span></a></li>
-				<li><a class="group"><span><strong>BIO103</strong></span></a></li>
-				<li><a class="group"><span><strong>BIO104</strong></span></a></li>
+			<ul id="group-list" style="height:700px;overflow-y:auto;">
 			</ul>
 
 		</div>
