@@ -71,6 +71,10 @@ app.post('/register', function(req, res){
 
 });
 
+app.get('/cue', function(req, res){
+    res.render('cue_card_front');
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Facecard is running on port ${ PORT }`);
