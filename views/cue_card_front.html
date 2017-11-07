@@ -5,8 +5,10 @@
     <meta charset="utf-8">
     <title>facecard: remembering tool</title>
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <!-- <link rel="stylesheet" href="css/cue.css" type="text/css"> -->
     <link href="css/bootstrap4/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+    <script type="text/javascript" src="js/cue.js"></script>
 </head>
 
 <body>
@@ -68,39 +70,106 @@
 
         <div class="bd-example">
             <!-- <div class="card text-white text-center bg-dark border-dark mb-3"> -->
-            <div class="card">
-                <div class="card-header text-center">
-                    <h2>Biology</h2>
-                </div>
+            <div class="cue-card-flip">
+                <div class="flip">
+                    <div class="front">
+                        <div class="card">
+                            <div class="card-header text-center">
+                                <h2>Biology</h2>
+                            </div>
 
-                <div class="card-body">
-                    <div id="card-top-buttons">
-                        <a href="#" class="btn btn-primary float-left">Edit</a>
-                        <a href="#" class="btn btn-primary float-right">Back</a>
-                    </div>
+                            <div class="card-body">
+                                <div id="card-top-buttons">
+                                    <a href="#" class="btn btn-primary float-left">Edit</a>
+                                    <a href="#" class="btn btn-primary float-right">Back</a>
+                                </div>
 
-                    <div id="card-count" class = "text-center">
-                        <p>1/30</p>
-                    </div>
+                                <div id="card-count" class="text-center">
+                                    <p>1/30</p>
+                                </div>
 
-                    <br> <br> <br> <br>
+                                <br> <br> <br> <br>
 
-                    <div id="card-content">
-                        <h3 class="card-title text-center">What is the powerhouse of the cell?</h3>
-                        <!-- <p class="card-text text-center">With supporting text below as a natural lead-in to additional content.</p> -->
+                                <div id="card-content">
+                                    <h3 class="card-title text-center">What is the powerhouse of the cell?</h3>
+                                    <!-- <p class="card-text text-center">With supporting text below as a natural lead-in to additional content.</p> -->
 
-                    </div>
+                                </div>
 
-                    <br><br><br>
+                                <br><br><br>
 
-                    <div id="card-bottom-buttons">
-                        <div class="text-center">
-                            <a href="#" class="btn btn-primary col-md-offset-3">Reveal Answer</a>
+                                <div id="card-bottom">
+                                    <div id="card-bottom-buttons">
+                                        <div class="text-center">
+                                            <form class="form-group" id="revealAnswer">
+                                                <buttom class="btn btn-primary col-md-offset-3" id="revealButton">Reveal Answer</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer text-muted">
+                                2 days ago
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="card-footer text-muted">
-                    2 days ago
+
+
+
+                    <div class="back">
+                        <div class="card">
+                            <div class="card-header text-center">
+                                <h2>Biology</h2>
+                            </div>
+
+                            <div class="card-body">
+                                <div id="card-top-buttons">
+                                    <a href="#" class="btn btn-primary float-left">Edit</a>
+                                    <a href="#" class="btn btn-primary float-right">Back</a>
+                                </div>
+
+                                <div id="card-count" class="text-center">
+                                    <p>1/30</p>
+                                </div>
+
+                                <br> <br> <br> <br>
+
+                                <div id="card-content">
+                                    <h3 class="card-title text-center">Mitocondira</h3>
+                                    <!-- <p class="card-text text-center">With supporting text below as a natural lead-in to additional content.</p> -->
+
+                                </div>
+
+                                <br><br><br>
+
+                                <div id="card-bottom">
+                                    <div id="card-bottom-text">
+                                        <div class="text-center">
+                                            <h4> How well did you remember? </h4>
+                                        </div>
+                                    </div>
+
+                                    <hr> <br>
+
+                                    <div id="card-bottom-buttons">
+                                        <div class="text-center">
+                                            <a href="#" class="btn btn-primary col-md-offset-3"> 1 </a>
+                                            <a href="#" class="btn btn-primary col-md-offset-3"> 2 </a>
+                                            <a href="#" class="btn btn-primary col-md-offset-3"> 3 </a>
+                                            <a href="#" class="btn btn-primary col-md-offset-3"> 4 </a>
+                                            <a href="#" class="btn btn-primary col-md-offset-3"> 5 </a>
+                                        </div>
+                                    </div>
+
+                                    <br> <br>
+
+                                </div>
+                            </div>
+                            <div class="card-footer text-muted">
+                                2 days ago
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
