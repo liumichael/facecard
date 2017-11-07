@@ -8,7 +8,9 @@
     <!-- <link rel="stylesheet" href="css/cue.css" type="text/css"> -->
     <link href="css/bootstrap4/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/cue.js"></script>
+
 </head>
 
 <body>
@@ -72,7 +74,7 @@
             <!-- <div class="card text-white text-center bg-dark border-dark mb-3"> -->
             <div class="cue-card-flip">
                 <div class="flip">
-                    <div class="front">
+                    <div class="front" id="cueCardFront">
                         <div class="card">
                             <div class="card-header text-center">
                                 <h2>Biology</h2>
@@ -102,7 +104,7 @@
                                     <div id="card-bottom-buttons">
                                         <div class="text-center">
                                             <form class="form-group" id="revealAnswer">
-                                                <buttom class="btn btn-primary col-md-offset-3" id="revealButton">Reveal Answer</button>
+                                                <buttom class="btn btn-primary col-md-offset-3" id="revealButton" onclick=$("#cueCardBack").show()>Reveal Answer</button>
                                             </form>
                                         </div>
                                     </div>
@@ -116,7 +118,7 @@
 
 
 
-                    <div class="back">
+                    <div class="back" id="cueCardBack">
                         <div class="card">
                             <div class="card-header text-center">
                                 <h2>Biology</h2>
