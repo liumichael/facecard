@@ -2,12 +2,13 @@
     <head>
         <title> Quiz </title>
         <link rel="stylesheet" href="css/style.css" type="text/css">
-        <link href="css/bootstrap.min.css"rel="stylesheet">
+        <!--<link href="css/bootstrap.min.css"rel="stylesheet">-->
+        <link href="css/bootstrap4/bootstrap.min.css" rel="stylesheet">
       	<link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
         <script>
             var x = setInterval(function(){
-                document.getElementById("timer").innerHTML = parseInt(document.getElementById("timer").textContent) - 1;    
-                if (document.getElementById("timer").textContent == "0"){
+                document.getElementById("timer-quiz").innerHTML = parseInt(document.getElementById("timer-quiz").textContent) - 1;    
+                if (document.getElementById("timer-quiz").textContent == "0"){
                     clearInterval(x);
                 }
             }, 1000);
@@ -25,6 +26,11 @@
                 margin-right:5px;
                 margin-left:5px;
             }
+            
+            #card-count h3{
+                margin:0;
+                display:inline-block;               
+            }
 
         </style>
     
@@ -37,7 +43,9 @@
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                    <!--
+                        <li><a class="menu-writing" href="/about"> About</a></li>
+                        <li><a class="menu-writing" href="/contact"> Contact</a></li>
+                        <!--
 			<li><a href="#">Home</a></li>
                     <li><a href="#">Profile</a></li>
                     <li><a href="#">Group</a></li>
@@ -54,6 +62,8 @@
             </div>
         </nav>
 
+        <div class="view" id="view-main">
+
         <div class="container">
             <h2 style="text-align:center;">Quiz Page</h2>
             <p id="timer">30</p>
@@ -64,6 +74,57 @@
                     <button type="button" class="btn btn-primary">Join Quiz</button>
                 </div>
             </div>
+        </div>
+        </div>
+
+        <div class="view" id="quiz-example">
+            <main role="main" class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content col-center">
+                        <div class="card">
+                            <div class="card-header text-center">
+                                <h2>Biology Quiz</h2>
+                            </div>
+                            <div class="card-body">
+                                <!--<div class="text-right">
+                                    <a href="#" class="btn btn-primary float-right">Skip</a>
+                                </div>
+                                -->  
+                                <div class="view" id="view-begin-quiz">
+                                
+                                </div>
+
+                                <div class="view" id="view-quiz-page">
+                                <div id="card-count">
+                                    
+                                    <h3 style="float:left;width:33%" id="timer-quiz" class="text-left">30</h3>
+                                    <a href="#" class="btn btn-primary float-right">Skip</a>
+                                    <h3 style="float:left;width:33%" class="text-center">1/30</h3>
+                                </div>
+                                <div class="text-right"> 
+                                </div>
+                                <br> <br> <br> <br>
+                                <div id="card-content">
+                                    <h3 class="card-title text-center">What is the powerhouse of the cell?</h3>
+                                </div>
+                                <br><br><br>
+                                <div id="card-bottom">
+                                    <div id="card-bottom-buttons">
+                                        <div class="text-center">
+                                            <form class="form-group" id="revealAnswer">
+                                                <buttom class="btn btn-primary col-md-offset-3" id="revealButton" onclick=$("#cueCardBack").show()>Reveal Answer</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="card-footer text-muted">
+                                2 days ago
+                            </div>
+                        </div>
+
+
+            </main>
+    </div>
         </div>
 
 
