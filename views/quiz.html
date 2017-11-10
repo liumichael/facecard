@@ -7,7 +7,13 @@
       	<link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script>
-                var x = setInterval(function(){
+            $(function(){
+                $(".view").hide();
+                $("#quiz-example").show();
+                $("#view-quiz-page").show();
+            });
+
+            var x = setInterval(function(){
                 var timer = document.getElementById("timer-quiz"); 
                 timer.innerHTML = parseInt(timer.textContent) - 1;    
                 if (timer.textContent == "0"){
