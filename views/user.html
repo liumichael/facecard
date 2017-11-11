@@ -142,10 +142,22 @@
 </head>
 <body>
 
+	<div id="new-card-overlay" class="popup" style="z-index:901;">
+		<div class="content">
+			<button class="close-button" onclick="hideOverlay('', 'new-card-overlay')"> X </button>
+			<form>
+				<input id="new-card-name" class="text-box-input" type="text" value="Card name here" name="fname"><br></br>
+				<input id="new-card-question" class="text-box-input" type="text" value="Question here" name="fname"><br></br>
+				<input id="new-card-answer" class="text-box-input" type="text" value="Answer here" name="fname"><br></br>
+				<input value="CREATE DECK" type="button" onclick="addNewCard()">
+			</form> 
+		</div>
+	</div>
+
 	<div id="deck-overlay" class="popup">
 		<div class="content">
 			<button class="close-button" onclick="hideOverlay('catalog', 'deck-overlay')"> X </button>
-			<button class="add-button" id="add-card"><span><Strong>Add New Card</strong></span></button>
+			<button class="add-button" id="add-card" onclick="showPopup('new-card-overlay')"><span><Strong>Add New Card</strong></span></button>
 			<ul id="catalog">
 			</ul>
 		</div>
@@ -156,7 +168,7 @@
 			<button class="close-button" onclick="hideOverlay('', 'new-deck-overlay')"> X </button>
 			
 			<form>
-				<input id="new-deck-name" class="text-box-input" type="text" value="DECK NAME" name="fname"><br>
+				<input id="new-deck-name" class="text-box-input" type="text" value="Deck name" name="fname"><br></br>
 				<input value="CREATE DECK" type="button" onclick="addNewDeck()">
 			</form> 
 		</div>
@@ -187,7 +199,7 @@
 		</div>
 
 		<div class="deck-view" style="float:right;width:85%">
-			<h1><strong>YOUR DECKS</strong><button id="new-deck-button" onclick="showAddCardPage()">+</button></h1>
+			<h1><strong>YOUR DECKS</strong><button id="new-deck-button" onclick="showPopup('new-deck-overlay')">+</button></h1>
 			  <ul id="deck-list" class="decks">
 
 			  </ul>

@@ -3,6 +3,8 @@ var groups = ["BIO100", "BIO101", "BIO102", "BIO103", "BIO104", "BIO105"];
 
 var decks = {"BIO100 test 1":["midochondria 1", "midochondria 2"], "BIO100 test 2":["membrane 1"], "BIO100 test 3":["enzymes 1"], "BIO100 final": ["virus 1"]};
 
+var openedDeck = "";
+
 
 $(function() {
 	makeGroupList();
@@ -22,11 +24,12 @@ function makeDecks() {
 	}
 }
 
-function showAddCardPage() {
-	document.getElementById("new-deck-overlay").style.display = "block";
+function showPopup(id) {
+	document.getElementById(id).style.display = "block";
 }
 
 function showOverlay(id) {
+	document.getElementById("catalog").innerHTML = '';
 	document.getElementById("deck-overlay").style.display = "block";
 	
 	var listOfCards = decks[id];
@@ -36,6 +39,8 @@ function showOverlay(id) {
 		console.log(listOfCards[index]);
 		$('#catalog').append("<li class='card' id='" + listOfCards[index] + "'><button><h1><strong>Click to show card</strong></h1></button></li>");
 	}
+	
+	openedDeck = id;
 }
 
 
@@ -48,6 +53,7 @@ function hideOverlay(erase, overlay) {
 	}
 	
 	document.getElementById(overlay).style.display = "none";
+	openedDeck = "";
 }
 
 function addNewDeck() {
@@ -60,5 +66,15 @@ function addNewDeck() {
 	makeDecks();
 	
 	hideOverlay('', 'new-deck-overlay');
+}
+
+function addNewCard() {
+	var deckName = document.getElementById("new-deck-name").value;
+	
+	
+	decks[openedDeck].push(deckName);
+	
+	showOverlay(openedDeck);
+	hideOverlay('', 'new-card-overlay');
 }
 
