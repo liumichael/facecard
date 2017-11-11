@@ -22,6 +22,10 @@ function makeDecks() {
 	}
 }
 
+function showAddCardPage() {
+	document.getElementById("new-deck-overlay").style.display = "block";
+}
+
 function showOverlay(id) {
 	document.getElementById("deck-overlay").style.display = "block";
 	
@@ -34,10 +38,27 @@ function showOverlay(id) {
 	}
 }
 
-function hideOverlay() {
+
+function hideOverlay(erase, overlay) {
 	
-	document.getElementById("catalog").innerHTML = '';
+	var el = document.getElementById(erase);
 	
-	document.getElementById("deck-overlay").style.display = "none";
+	if (el != null) {
+		el.innerHTML = '';
+	}
+	
+	document.getElementById(overlay).style.display = "none";
+}
+
+function addNewDeck() {
+	var deckName = document.getElementById("new-deck-name").value;
+	
+	decks[deckName] = [];
+	
+	document.getElementById("deck-list").innerHTML = '';
+	
+	makeDecks();
+	
+	hideOverlay('', 'new-deck-overlay');
 }
 
