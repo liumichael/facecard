@@ -37,7 +37,7 @@ function showOverlay(id) {
 	
 	for (index in listOfCards) {
 		console.log(listOfCards[index]);
-		$('#catalog').append("<li class='card' id='" + listOfCards[index] + "'><button><h1><strong>Click to show card</strong></h1></button></li>");
+		$('#catalog').append("<li class='card' id='" + listOfCards[index] + "'><a href='/cue'><button><h1><strong>Click to show card</strong></h1></button></a></li>");
 	}
 	
 	openedDeck = id;
