@@ -11,24 +11,68 @@
                 $(".view").hide();
                 $("#quiz-example").show();
                 $("#view-quiz-page").show();
-
+                var x = timerFunc();
+                
+                $("#cont-skip-btn").click(function(){
+                    //var timer = document.getElementById("timer-quiz"); 
+                    $("#timer-quiz").text("30");
+                    var timer = document.getElementById("timer-quiz"); 
+                    var page = parseInt($("#page_number").text().trim().split("/", 1)) + 1;
+                    timer.style.color = "black";
+                    clearInterval(x);
+                    x = timerFunc();
+                    $(".card-title").text("What does an animal cell not have?");
+                    //$(".btn-quiz").removeClass("disabled");
+                    $(".btn-quiz").prop("disabled", false);
+                    $("#a1").text("Lysosome");
+                    $("#a2").text("Ribosomes");
+                    $("#a3").text("Vacuole");
+                    $("#a4").text("Cell Wall");
+                    $("#page_number").text(page + "/30");
+                     
+                });
+                
                 $(".btn-quiz").click(function(event){
                     var ans = $("#" + event.target.id).text().trim(); 
-                    if (ans != "Mitochondria"){
+                    var quest = $(".card-title").text().trim();
+                    if (quest == "What is the powerhouse of the cell?" && ans != "Mitochondria"){
                         $(".card-title").text("Incorrect: Mitochondria");
                     }
-                    else{
+                    else if (quest == "What does an animal cell not have?" && ans != "Cell Wall"){    
+                        var timer = document.getElementById("timer-quiz"); 
+                        timer.style.color = "black";
+                    }
+                    else if (quest == "What is the powerhouse of the cell?"){
                         $(".card-title").text("Correct: Mitochondria");
                     }
-                    $(".btn-quiz").addClass("disabled");
+                    else {
+                        $(".card-title").text("Correct: Cell Wall");
+                    }
                     $(".btn-quiz").attr("disabled", "disabled");
                     
                     document.getElementById("cont-skip-btn").textContent = "Continue";    
                     clearInterval(x)
-                });        
+                });                     
             });
-
-
+            
+            function timerFunc(){
+                var x = setInterval(function(){
+                    var timer = document.getElementById("timer-quiz"); 
+                    timer.innerHTML = parseInt(timer.textContent) - 1;    
+                    if (timer.textContent == "0"){
+                        clearInterval(x);
+                        document.getElementById("cont-skip-btn").textContent = "Continue";    
+                        $(".btn-quiz").addClass("disabled");
+                        $(".btn-quiz").attr("disabled", "disabled");
+                        $(".card-title").text("Incorrect: Mitochondria");
+                    }
+                    else if (timer.textContent == "10"){
+                        timer.style.color = "red";
+                    }
+                }, 1000);
+                return x;
+            }            
+            /**
             var x = setInterval(function(){
                 var timer = document.getElementById("timer-quiz"); 
                 timer.innerHTML = parseInt(timer.textContent) - 1;    
@@ -43,6 +87,7 @@
                     timer.style.color = "red";
                 }
             }, 1000);
+            */
 
         </script>
         <style>
@@ -133,7 +178,7 @@
                                     
                                     <h3 style="float:left;width:33%" id="timer-quiz" class="text-left">30</h3>
                                     <a href="#" class="btn btn-primary float-right" id="cont-skip-btn">Skip</a>
-                                    <h3 style="float:left;width:33%" class="text-center">1/30</h3>
+                                    <h3 style="float:left;width:33%" class="text-center" id="page_number">1/30</h3>
                                 </div>
                                 <div class="text-right"> 
                                 </div>
