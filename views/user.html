@@ -68,11 +68,11 @@
 		list-style-type:none;
 	}
 	
-	.card button:hover{
+	.card a button:hover{
 		box-shadow: 0px 10px 10px grey;
 	}
 	
-	.card button {
+	.card a button {
 		background: none;
 		border: 1px solid gray;
 		border-radius: 20px;
@@ -128,6 +128,16 @@
 		width: 40vw;
 		font-size: 30px;
 	}
+	
+	.create-button {
+		background: none;
+		border: 1px solid black;
+		border-radius: 5px;
+	}
+	
+	.create-button:hover {
+		background: lightgray;
+	}
 
 
 </style>
@@ -144,19 +154,19 @@
 
 	<div id="new-card-overlay" class="popup" style="z-index:901;">
 		<div class="content">
-			<button class="close-button" onclick="hideOverlay('', 'new-card-overlay')"> X </button>
+			<button class="close-button" onclick="hideOverlay('new-card-overlay')"> X </button>
 			<form>
 				<input id="new-card-name" class="text-box-input" type="text" value="Card name here" name="fname"><br></br>
 				<input id="new-card-question" class="text-box-input" type="text" value="Question here" name="fname"><br></br>
 				<input id="new-card-answer" class="text-box-input" type="text" value="Answer here" name="fname"><br></br>
-				<input value="CREATE DECK" type="button" onclick="addNewCard()">
+				<input class="create-button" value="CREATE DECK" type="button" onclick="addNewCard()">
 			</form> 
 		</div>
 	</div>
 
 	<div id="deck-overlay" class="popup">
 		<div class="content">
-			<button class="close-button" onclick="hideOverlay('catalog', 'deck-overlay')"> X </button>
+			<button class="close-button" onclick="hideOverlay('deck-overlay')"> X </button>
 			<button class="add-button" id="add-card" onclick="showPopup('new-card-overlay')"><span><Strong>Add New Card</strong></span></button>
 			<ul id="catalog">
 			</ul>
@@ -165,11 +175,11 @@
 	
 	<div id="new-deck-overlay" class="popup">
 		<div class="content">
-			<button class="close-button" onclick="hideOverlay('', 'new-deck-overlay')"> X </button>
+			<button class="close-button" onclick="hideOverlay('new-deck-overlay')"> X </button>
 			
 			<form>
 				<input id="new-deck-name" class="text-box-input" type="text" value="Deck name" name="fname"><br></br>
-				<input value="CREATE DECK" type="button" onclick="addNewDeck()">
+				<input value="CREATE DECK" class="create-button" type="button" onclick="addNewDeck()">
 			</form> 
 		</div>
 	</div>

@@ -3,6 +3,8 @@ var groups = ["BIO100", "BIO101", "BIO102", "BIO103", "BIO104", "BIO105"];
 
 var decks = {"BIO100 test 1":["midochondria 1", "midochondria 2"], "BIO100 test 2":["membrane 1"], "BIO100 test 3":["enzymes 1"], "BIO100 final": ["virus 1"]};
 
+var cards = {"midochondria 1": {}, "midochondria 2": {}, "membrane 1": {}, "enzymes 1": {}, "virus 1": {}};
+
 var openedDeck = "";
 
 
@@ -13,6 +15,8 @@ $(function() {
 
 
 function makeGroupList() {
+	document.getElementById('group-list').innerHTML = '';
+	
 	for (index in groups) {
 		$('#group-list').append("<li><a href='/group' class='group'><span><strong>" + groups[index] + "</strong></span></a></li>");
 	}
@@ -44,14 +48,7 @@ function showOverlay(id) {
 }
 
 
-function hideOverlay(erase, overlay) {
-	
-	var el = document.getElementById(erase);
-	
-	if (el != null) {
-		el.innerHTML = '';
-	}
-	
+function hideOverlay(overlay) {
 	document.getElementById(overlay).style.display = "none";
 	openedDeck = "";
 }
@@ -65,16 +62,19 @@ function addNewDeck() {
 	
 	makeDecks();
 	
-	hideOverlay('', 'new-deck-overlay');
+	hideOverlay('new-deck-overlay');
 }
 
 function addNewCard() {
-	var deckName = document.getElementById("new-deck-name").value;
+	var deckName = document.getElementById("new-card-name").value;
+	var question = document.getElementById("new-card-question").value;
+	var answer = document.getElementById("new-card-answer").value;
 	
 	
 	decks[openedDeck].push(deckName);
+	cards[deckName] = {"question": question, "answer": answer};
 	
 	showOverlay(openedDeck);
-	hideOverlay('', 'new-card-overlay');
+	hideOverlay('new-card-overlay');
 }
 
