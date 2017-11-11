@@ -11,7 +11,23 @@
                 $(".view").hide();
                 $("#quiz-example").show();
                 $("#view-quiz-page").show();
+
+                $(".btn-quiz").click(function(event){
+                    var ans = $("#" + event.target.id).text().trim(); 
+                    if (ans != "Mitochondria"){
+                        $(".card-title").text("Incorrect: Mitochondria");
+                    }
+                    else{
+                        $(".card-title").text("Correct: Mitochondria");
+                    }
+                    $(".btn-quiz").addClass("disabled");
+                    $(".btn-quiz").attr("disabled", "disabled");
+                    
+                    document.getElementById("cont-skip-btn").textContent = "Continue";    
+                    clearInterval(x)
+                });        
             });
+
 
             var x = setInterval(function(){
                 var timer = document.getElementById("timer-quiz"); 
@@ -19,8 +35,9 @@
                 if (timer.textContent == "0"){
                     clearInterval(x);
                     document.getElementById("cont-skip-btn").textContent = "Continue";    
-                    $(".btn-quiz").css("visibility", "hidden");
-                    $(".card-title").text("Mitochondria");
+                    $(".btn-quiz").addClass("disabled");
+                    $(".btn-quiz").attr("disabled", "disabled");
+                    $(".card-title").text("Incorrect: Mitochondria");
                 }
                 else if (timer.textContent == "10"){
                     timer.style.color = "red";
@@ -144,7 +161,7 @@
                                         <div class="row text-center">
                                             <div class="col-md-12">
                                                 <button type="button" class="btn btn-primary btn-quiz" id="a3">Mitochondria</button>
-                                                <button type="button" class="btn btn-primary btn-quiz" id="a4">Cell wall</button>
+                                                <button type="button" class="btn btn-primary btn-quiz" id="a4">Cell Wall</button>
                                             </div>
                                         </div>
                                         </div>
