@@ -15,7 +15,7 @@ var path = require('path');
 var mongoose = require('mongoose');
 var app = express();
 var app = express();
-var PORT = process.env.PORT || 8000;
+var PORT = process.env.PORT || 3000;
 
 // configuration ======================================================================
 //mongoose.Promise = global.Promise;
