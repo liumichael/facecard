@@ -21,11 +21,24 @@
   },
   "homepage": "https://github.com/csc301-fall-2017/project-team-27#readme",
   "dependencies": {
-    "body-parser": "^1.18.2",
-    "ejs": "^2.5.7",
-    "express": "^4.16.2",
-    "express-session": "^1.15.6",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.17.0",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "dotenv": "^4.0.0",
+    "ejs": "^1.0.0",
+    "express": "^4.14.0",
+    "express-session": "^1.15.1",
+    "express-validator": "^3.1.2",
     "fs": "0.0.1-security",
-    "path": "^0.12.7"
+    "hasher": "^1.2.0",
+    "mongoose": "^4.8.3",
+    "passport": "^0.3.2",
+    "passport-facebook": "^2.1.1",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7",
+    "req-flash": "0.0.3",
+    "salt": "^0.5.5",
+    "slugify": "^1.1.0"
   }
 }

@@ -1,81 +1,50 @@
+// environment variables ======================================================================
+require('dotenv').config();
+
+// set up ======================================================================
+// get all the tools we need
+var fs = require('fs');
 var express = require('express');
 var session = require('express-session');
-var path = require('path');
+var passport = require('passport');
+var expressValidator = require('express-validator');
+var flash = require('connect-flash');
 var bodyParser = require('body-parser');
-var fs = require('fs');
+var cookieParser = require('cookie-parser');
+var path = require('path');
+var mongoose = require('mongoose');
 var app = express();
+var app = express();
+var PORT = process.env.PORT || 3000;
 
+// configuration ======================================================================
+//mongoose.Promise = global.Promise;
+//mongoose.connect(process.env.DB_URI);
 
+require('./config/passport')(passport); // pass passport for configuration
+
+app.use(expressValidator());
+app.use(cookieParser()); // read cookies (needed for auth)
+app.use(bodyParser.json()); // get information from html forms
+app.use(bodyParser.urlencoded({ extended: true }));
 app.engine('.html', require('ejs').__express);
 app.set('views', __dirname + '/views');
-app.set('view engine', 'html');
-app.use(bodyParser.urlencoded({extended:false}));
-app.use(bodyParser.text({ type: 'text/html' }));
+app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, '/public')));
+// required for passport
+app.use(session({
+  secret: 'apfepaijfpoaijsopefi',
+  resave: true,
+  saveUninitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
 
+// routes ======================================================================
+require('./router/main.routes.js')(app, passport);
 
-app.get('/', function(req, res){
-  if(req.user && req.user.displayName) {
-    res.render('user', {user:req.user.displayName});
-  } else {
-    res.render('login');
-  }
-});
-
-app.get('/tryagain', function(req, res) {
-  res.render('tryagain');
-})
-
-app.get('/login', function(req, res) {
-  res.render('login');
-})
-
-app.get('/signup', function(req, res) {
-  res.render('signup');
-})
-
-app.get('/group', function(req, res) {
-  res.render('group');
-})
-
-app.get('/quiz', function(req, res) {
-  res.render('quiz');
-})
-
-app.get('/about', function(req, res) {
-  res.render('about');
-})
-
-app.get('/contact', function(req, res) {
-  res.render('contact');
-})
-
-app.get('/user', function(req, res) {
-  res.render('user');
-})
-
-app.get('/auth/logout', function(req, res){
-  req.logout();
-  req.session.save(function(){
-    res.redirect('/login');
-  });
-});
-
-
-app.post('/login', function(req, res) {
-
-});
-
-
-app.post('/register', function(req, res){
-
-});
-
-app.get('/cue', function(req, res){
-    res.render('cue_card_front');
-});
-
-const PORT = process.env.PORT || 3000;
+// launch ======================================================================
 app.listen(PORT, () => {
     console.log(`Facecard is running on port ${ PORT }`);
 });
