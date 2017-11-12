@@ -21,7 +21,7 @@ var PORT = process.env.PORT || 8000;
 //mongoose.Promise = global.Promise;
 //mongoose.connect(process.env.DB_URI);
 
-//require('./config/passport')(passport); // pass passport for configuration
+require('./config/passport')(passport); // pass passport for configuration
 
 app.use(expressValidator());
 app.use(cookieParser()); // read cookies (needed for auth)
@@ -37,8 +37,8 @@ app.use(session({
   resave: true,
   saveUninitialized: true
 }));
-//app.use(passport.initialize());
-//app.use(passport.session());
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(flash());
 
 // routes ======================================================================

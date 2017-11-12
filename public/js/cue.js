@@ -1,8 +1,47 @@
+var content = [{
+    "question": "What is the powerhouse of the cell?",
+    "answer": "Mitocondira"
+}, {
+    "question": "What type of cell have cell walls?",
+    "answer": "Plant Cells"
+}, {
+    "question": "What type of cells produces energy by Photosynthesis?",
+    "answer": "Plant Cells"
+}]
+
+var currentId;
+
 $(document).ready(function() {
-    $("#cueCardBack").hide();
+    currentId = 0
+    setContent(currentId);
+    hideAnswer();
 });
 
-function showBack() {
-    $("#cueCardBack").show()
-    $("#cueCardFront").hide()
+function setContent(id) {
+    var num = id + 1;
+    $("#card-count").html('<p>' + num + '/' + content.length + '</p>');
+    $("#card-question").html('<h2 class="card-title text-center">' + content[id].question + '</h2>');
+    $("#card-answer").html("<h3 class='card-title text-center'>" + content[id].answer + "</h3>");
+
+}
+
+function rate(rating) {
+    if (currentId + 1 < content.length){
+        currentId = currentId + 1;
+        setContent(currentId);
+        hideAnswer();
+    }
+}
+
+function hideAnswer() {
+    $("#card-answer").hide();
+    $("#card-bottom-answer").hide();
+    $("#card-bottom-question").show();
+}
+
+
+function showAnswer() {
+    $("#card-answer").show();
+    $("#card-bottom-question").hide();
+    $("#card-bottom-answer").show();
 }
