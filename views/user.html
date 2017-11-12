@@ -59,7 +59,7 @@
 	
 	.content {
 		background: rgba(255,255,255,1);
-		padding: 15px;
+		padding: 25px;
 		border-radius:10px;
 		min-height: 18vh;
 	}
@@ -73,11 +73,12 @@
 	}
 	
 	.card a button {
-		background: none;
+		background: white;
 		border: 1px solid gray;
 		border-radius: 20px;
 		margin:5vw 5vh;
 		padding: 20%;
+		box-shadow: 0px 1px 5px grey;
 		transition:0.2s;
 	}
 	
@@ -124,9 +125,12 @@
 	
 	.text-box-input {
 		border: none;
+		border-radius: 5px;
 		height: 10vh;
 		width: 40vw;
+		padding: 20px;
 		font-size: 30px;
+		box-shadow: 0px 1px 5px grey;
 	}
 	
 	.create-button {
@@ -138,6 +142,42 @@
 	.create-button:hover {
 		background: lightgray;
 	}
+	
+	#notifications {
+		margin-top:2vh;
+		list-style:none;
+		padding-left:0;
+	}
+	
+	.notif-card {
+		padding: 20px;
+		margin-top:1vh;
+		margin-left: 0px;
+	}
+	
+	.notif-card div {
+		box-shadow: 0px 1px 5px grey;
+		padding: 20px;
+		border-radius:5px;
+	}
+	
+	.notif-card div h2 {
+		font-size:20px;
+	}
+	
+	#notification-button {
+		background:none;
+		border:none;
+		border-radius:5px;
+		float:right;
+	}
+	#notification-button p span {
+		border-radius:50%;
+	}
+	#notification-button p span:hover {
+		background:lightgray;
+	}
+
 
 
 </style>
@@ -146,20 +186,28 @@
 <head>
 	<link rel="stylesheet" href="css/style.css" type="text/css">
 	<link href="css/bootstrap.min.css"rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="js/user.js"></script>
 </head>
 <body>
-
+	<div id="notification-center" class="popup" style="z-index:901;">
+		<div class="content">
+			<button class="close-button" onclick="hideOverlay('notification-center')"> X </button>
+			<ul id="notifications">
+			</ul>
+		</div>
+	</div>
+	
 	<div id="new-card-overlay" class="popup" style="z-index:901;">
 		<div class="content">
 			<button class="close-button" onclick="hideOverlay('new-card-overlay')"> X </button>
 			<form>
-				<input id="new-card-name" class="text-box-input" type="text" value="Card name here" name="fname"><br></br>
-				<input id="new-card-question" class="text-box-input" type="text" value="Question here" name="fname"><br></br>
-				<input id="new-card-answer" class="text-box-input" type="text" value="Answer here" name="fname"><br></br>
-				<input class="create-button" value="CREATE DECK" type="button" onclick="addNewCard()">
+				<input id="new-card-name" class="text-box-input" type="text" value="Card name here.." name="fname"><br></br>
+				<input id="new-card-question" class="text-box-input" type="text" value="Question here.." name="fname"><br></br>
+				<input id="new-card-answer" class="text-box-input" type="text" value="Answer here.." name="fname"><br></br>
+				<input class="create-button" value="CREATE CARD" type="button" onclick="addNewCard()">
 			</form> 
 		</div>
 	</div>
@@ -178,7 +226,7 @@
 			<button class="close-button" onclick="hideOverlay('new-deck-overlay')"> X </button>
 			
 			<form>
-				<input id="new-deck-name" class="text-box-input" type="text" value="Deck name" name="fname"><br></br>
+				<input id="new-deck-name" class="text-box-input" type="text" value="Deck name here.." name="fname"><br></br>
 				<input value="CREATE DECK" class="create-button" type="button" onclick="addNewDeck()">
 			</form> 
 		</div>
@@ -209,7 +257,12 @@
 		</div>
 
 		<div class="deck-view" style="float:right;width:85%">
-			<h1><strong>YOUR DECKS</strong><button id="new-deck-button" onclick="showPopup('new-deck-overlay')">+</button></h1>
+			<h1>
+				<strong>YOUR DECKS</strong>
+				<button id="new-deck-button" onclick="showPopup('new-deck-overlay')">+</button>
+				<button id="notification-button" onclick="showPopup('notification-center'); getNotifications();"><p><span class="glyphicon glyphicon-bell"></span></p></button>
+				
+			</h1>
 			  <ul id="deck-list" class="decks">
 
 			  </ul>

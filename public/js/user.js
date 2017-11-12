@@ -5,6 +5,11 @@ var decks = {"BIO100 test 1":["midochondria 1", "midochondria 2"], "BIO100 test 
 
 var cards = {"midochondria 1": {}, "midochondria 2": {}, "membrane 1": {}, "enzymes 1": {}, "virus 1": {}};
 
+var notifications = {
+					"Prep-quiz from BIO101":{"sender":"Film Sherwood", "content": "<a href='/quiz'><span>Click here to start the quiz</span></a>"},
+					"Invititation to join BIO106": {"sender": "Taylor Glock", "content": "<a href='/group'><span>Click here accept the invitation</span></a>"}
+					}
+
 var openedDeck = "";
 
 
@@ -76,5 +81,15 @@ function addNewCard() {
 	
 	showOverlay(openedDeck);
 	hideOverlay('new-card-overlay');
+}
+
+function getNotifications() {
+	var notifList = $('#notifications');
+	
+	document.getElementById("notifications").innerHTML = '';
+	
+	for (notif in notifications) {
+		notifList.append("<li class='notif-card'><div id='" + notif + "'><h1><strong>" + notif + "</strong></h1><h2>From " + notifications[notif]["sender"] + "</h2><br></br>" + notifications[notif]["content"] + "</div></li>");
+	}
 }
 
