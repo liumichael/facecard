@@ -1,11 +1,11 @@
 var content = [{
     "question": "What is the powerhouse of the cell?",
-    "answer": "Mitocondira"
+    "answer": "Mitochondria"
 }, {
-    "question": "What type of cell have cell walls?",
+    "question": "What type of cells have cell walls?",
     "answer": "Plant Cells"
 }, {
-    "question": "What type of cells produces energy by Photosynthesis?",
+    "question": "What type of cells produce energy by Photosynthesis?",
     "answer": "Plant Cells"
 }]
 
