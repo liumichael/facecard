@@ -12,7 +12,7 @@ There was definitely some pressure to get the product finished within the constr
 
 #### Decisions that turned out well
 
-List process-related (i.e. team organization) decisions that, in retrospect, turned out to be successful.
+<!-- List process-related (i.e. team organization) decisions that, in retrospect, turned out to be successful. -->
 
 1.	Assigning each other’s work in team
 Since this project is involving many team members, assigning each other’s work and collaborating with each other is one of the most important aspects. We made sure to initially identify which features and functions we need to implement for the upcoming demo and assigned each other work. We deliberately implemented our own assigned work and set the deadline. None of our team members failed to finish their own task within the set deadline. We also made sure to ask each other questions if there any difficulties along the way. Therefore, we were able to efficiently manage our own task.
@@ -20,19 +20,19 @@ Since this project is involving many team members, assigning each other’s work
 2.	Discord Pin
        We initially figured Trello would be a very nice way to manage our work and set up our goals and tasks. However, we haven’t really integrated Trello to our project to the extent. This has caused team members to ask other team members what their tasks were. Eventually, along the development process, we have found a way to make sure everyone can remind themselves easily of their task. We decided to use discord pin to make announcements to every teammate and let them know individual’s task. Discord pin is very efficient because it is fast and convenient for scrum master to let other teammates any specific information that we should know of during the development.
 
- * 2 - 4 decisions.
+ <!-- * 2 - 4 decisions.
  * Ordered from most to least important.
  * Explain why (i.e. give a supporting argument) you consider a decision to be successful.
- * Feel free to refer/link to process artifact(s).
+ * Feel free to refer/link to process artifact(s). -->
 
 #### Decisions that did not turn out as well as we hoped
 
 List process-related (i.e. team organization) decisions that, in retrospect, were not as successful as you thought they would be.
 
-* 2 - 4 decisions.
+<!-- * 2 - 4 decisions.
  * Ordered from most to least important.
  * Explain why (i.e. give a supporting argument) you consider a decision to be not as successful.
- * Feel free to refer/link to process artifact(s).
+ * Feel free to refer/link to process artifact(s). -->
 
 1.	Git workflow: No Pull Request
 At the beginning of our development phase, we didn’t use pull request, but instead we pushed our own work directly to the master branch. This has caused the repo’s server to temporarily break and not being able to render the website. We decided to make sure that we make a pull request to merge our work instead of directly pushing our work.
@@ -47,10 +47,10 @@ Use of branches and merge requests?
 
 #### Planned changes
 
-List any process-related changes you are planning to make (if there are any)
+<!-- List any process-related changes you are planning to make (if there are any)
 
  * Ordered from most to least important.
- * Explain why you are making a change.
+ * Explain why you are making a change. -->
 
 
 ## Product - Review
