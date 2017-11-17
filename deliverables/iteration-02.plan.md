@@ -1,4 +1,5 @@
-﻿# FACECARD
+
+# FACECARD
 
  > _Note:_ This document is meant to be written during (or shortly after) your initial planning meeting.     
  > It does not really make sense for you to edit this document much (if at all) while working on the project - Instead, at the end of the planning phase, you can refer back to this document and decide which parts of your plan you are happy with and which parts you would like to change.
@@ -27,9 +28,10 @@ Describe meetings (and other events) you are planning to have:
  
 We generally have 2 meetings a week held on Discord voice chat. One meeting on Friday and one on Saturday. The Friday meeting allows us 
 to update other members of the group about our progress. This allows us to determine the current status of the application 
-and help determine our goals for the next week. During our Satuday meeting, we actively discuss our goals for the next week. We discuss What each member will implement and how they will implement it.
+and help determine our goals for the next week. During our Satuday meeting, we actively discuss our goals for the next week. We discuss what each member will implement and how they will implement it.
 
 planned events:
+
 -Saturday October 14: Discord
 	We discuss what we have to implement and how we will do so for the next week. Our goal for this week was to hard code HTML/CSS 		pages so we can have a general idea of what the end product will look like
 
