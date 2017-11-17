@@ -29,20 +29,32 @@ We generally have 2 meetings a week held on Discord voice chat. One meeting on F
 to update other members of the group about our progress. This allows us to determine the current status of the application 
 and help determine our goals for the next week. During our Satuday meeting, we actively discuss our goals for the next week. We discuss What each member will implement and how they will implement it.
 
-Future events:
+planned events:
+-Saturday October 14: Discord
+	We discuss what we have to implement and how we will do so for the next week. Our goal for this week was to hard code HTML/CSS 		pages so we can have a general idea of what the end product will look like
 
--Friday November 17: Discord
-	We will discuss Our progress for this week. Much of our effort was put into making this deliverable, so we don't expect too much
-	code progress here.
+-Friday October 20: Discord
+	We discuss Our progress for this week. Most of us met the tasks discussed on Saturday of the previous week.
 	
--Saturday November 18: Discord
-	We discuss what we have to implement and how we will do so for the next week.
+-Saturday October 21: Discord
+	We discuss what we have to implement and how we will do so for the next week. We decided to move a lot of the hard coded HTML
+	elements to JavaScript, so that we can prepare pre-made JavaScript objects for when a backend is implemented.
 	
--Friday November 24: Discord
-	We will discuss Our progress for this week.
+-Friday November 3: Discord
+	We discuss Our progress for this week. Most of us had completed their tasks discussed on Saturday of the previous week.
 	
--Saturday November 25: Discord
-	We discuss what we have to implement and how we will do so for the next week.
+-Saturday November 4: Discord
+	We discuss what we have to implement and how we will do so for the next week. We discussed how many of the features needed to be
+	implemented so we can demo the general functionality of the app. We also decided to implement a backend using nodejs for proper linking between pages.
+	
+-Friday November 10: Discord
+	We discuss Our progress for this week. Most of us had completed their tasks discussed on Saturday of the previous week.
+	
+-Saturday November 11: Discord
+	We discuss what we have to implement and how we will do so for the next week. We decided to focus on the production of the demo 	video. Script writing, recording and editing would be done for the next week.
+	
+- Thursday November 16: Discord
+	One last meeting before deliverable to ensure all our parts are known and will be completed.
 
 #### Artifacts
 
