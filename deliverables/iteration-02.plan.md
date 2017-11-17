@@ -2,8 +2,8 @@
 
 # FACECARD
 
- > _Note:_ This document is meant to be written during (or shortly after) your initial planning meeting.     
- > It does not really make sense for you to edit this document much (if at all) while working on the project - Instead, at the end of the planning phase, you can refer back to this document and decide which parts of your plan you are happy with and which parts you would like to change.
+ <!-- > _Note:_ This document is meant to be written during (or shortly after) your initial planning meeting.     
+ > It does not really make sense for you to edit this document much (if at all) while working on the project - Instead, at the end of the planning phase, you can refer back to this document and decide which parts of your plan you are happy with and which parts you would like to change. -->
 
 
 ## Iteration 02
@@ -34,19 +34,19 @@ Deliverable specific responsibilities
 
 * Bryan is responsible for developing the quiz feature. He is also responsible for editing the video.
 
-* Jenna is responsible for developing the log-in/landing page and the networking for the product and she is also responsible for the screen recording of the video.
+* Jenna is responsible for developing the log-in/landing page and the basic backend for the product. She is also responsible for the screen recording of the video.
 
-* Eric is responsible for developing the user page of the product and he is also responsible for doing the voice-over for the video.
+* Eric is responsible for developing the user page of the product. He is also responsible for doing the voice-over for the video.
 
-* Chris is responsible for creating the group page of the product and she is also responsible for writing the script for the video along with Zhen.
+* Chris is responsible for creating the group page of the product. She is also responsible for writing the script for the video along with Zhen.
 
 #### Events
 
-Describe meetings (and other events) you are planning to have:
+<!-- Describe meetings (and other events) you are planning to have:
 
  * When and where? In-person or online?
  * What's the purpose of each meeting?
- * Other events could be coding sessions, code reviews, quick weekly sync' meeting online, etc.
+ * Other events could be coding sessions, code reviews, quick weekly sync' meeting online, etc. -->
 
  We generally have 2 meetings a week held on Discord voice chat. One meeting on Friday and one on Saturday. The Friday meeting allows us
 to update other members of the group about our progress. This allows us to determine the current status of the application
@@ -89,13 +89,23 @@ One last meeting before deliverable to ensure all our parts are known and will b
 
 #### Artifacts
 
-List/describe the artifacts you will produce in order to organize your team.       
+<!-- List/describe the artifacts you will produce in order to organize your team.       
 
  * Artifacts can be To-do lists, Task boards, schedule(s), etc.
  * We want to understand:
    * How do you keep track of what needs to get done?
    * How do you prioritize tasks?
-   * How do tasks get assigned to team members?
+   * How do tasks get assigned to team members? -->
+
+* Facebook Messenger: Messenger is used for communication between members and to notify others in case of any changes in the codebase or change in meeting times.
+
+* Discord: Discord is used for meetings and also for keeping track of our responsibilities. We use the voice chat for our bi-weekly online meetings where we discuss the project progress and assign tasks for each group member. We also use the text chat to keep track of everyone's responsibilities. Occasionally, the text chat is also used to share our progress or interesting possible tools found online that we could possibly use in our product. Discord also has this ability to pin certain messages which makes the text with everyone's responsibility and the things that we need to get done be more visible.
+
+* Google Docs: We used google docs to write the script and to share it with group members who are making the video. It is used for the shared editing ability so the members working on the script can work on the script together and edit it if we have any changes to make. It is also used to keep in page between all group members regarding the details of the video.
+
+* Github: A code repository for code management
+
+
 
 #### Git / GitHub workflow
 
