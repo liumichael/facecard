@@ -61,11 +61,27 @@ List any process-related changes you are planning to make (if there are any)
  * Refer/link to artifact(s) that show that a goal/task was met/completed.
  * If a goal/task was not part of the original iteration plan, please mention it.
 
+* Skeleton of the features of our website, features are hardcoded:
+    * [`page to create and login to accounts`] (/views/login.ejs and /views/user.ejs)
+    * [`page to create cue cards`] (/views/cue_card_back.ejs and /views/cue_card_front.ejs) 
+    * [`page to create quizzes`] (/views/quiz.ejs)
+    * [`page to join groups with users and share cue cards and quizzes`] (/views/group.ejs)
+* [`Demo video`] (/deliverable/demo.avi)
+
+
 #### Goals and/or tasks that were planned but not met/completed:
 
  * From most to least important.
  * For each goal/task, explain why it was not met/completed.      
    e.g. Did you change your mind, or did you just not get to it yet?
+
+* Database and SQL
+    * focus was placed on implementing the front end rather than worrying about the backend
+    * time restrictions prevented us from implmenting backend as well 
+* Feedback - ability to add feedback on cue cards, informing users of its correctness
+    * prioritized features that were more integral to the FaceCard application
+    * wanted to make sure other features could be used in the demo video
+
 
 ## Meeting Highlights
 
@@ -76,3 +92,9 @@ Going into the next iteration, our main insights are:
  * High-level concepts that should guide your work for the next iteration.
  * These concepts should help you decide on where to focus your efforts.
  * Can be related to product and/or process.
+
+* Workflow
+    * Due to problems encounted by pushing directly on master, we have decided to enforce the use of branches and pull-requests when implementing the features of our application. Pull-requests should be only made when a feature is implemented on a branch correctly, and ready to be tested on master. At least two members, one using a mac, and one using windows should approve of the merge-request before it is accepted. Master should always contain a working version of our application. 
+
+* Backend
+    * We have decided to use mongoDB as our SQL processor. Using this database, we plan to implement our previously hardcoded features to work as intended. Users should be able to create accounts, create and join groups, share cue cards, and create quizzes. Groups, cue cards and quizzes should be linked to user accounts which can be accessed using the id and password created in the account creation proccessor. 
