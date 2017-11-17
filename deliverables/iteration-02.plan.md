@@ -25,10 +25,9 @@ Describe meetings (and other events) you are planning to have:
  * What's the purpose of each meeting?
  * Other events could be coding sessions, code reviews, quick weekly sync' meeting online, etc.
  
-We generally have 2 meeting a week held on Discord voice chat. One meeting on Friday and one on Saturday. The Friday meeting allows us 
-to update other members members of the group about our progress. This allows us to determine the current status of the application 
-and help determine our goals for the next week. During our Satuday meeting, we discuss our goals for the next week. What each member
-will implement and how they will implement it.
+We generally have 2 meetings a week held on Discord voice chat. One meeting on Friday and one on Saturday. The Friday meeting allows us 
+to update other members of the group about our progress. This allows us to determine the current status of the application 
+and help determine our goals for the next week. During our Satuday meeting, we actively discuss our goals for the next week. We discuss What each member will implement and how they will implement it.
 
 Future events:
 
