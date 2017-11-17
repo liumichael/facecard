@@ -24,6 +24,26 @@ Describe meetings (and other events) you are planning to have:
  * When and where? In-person or online?
  * What's the purpose of each meeting?
  * Other events could be coding sessions, code reviews, quick weekly sync' meeting online, etc.
+ 
+We generally have 2 meeting a week held on Discord voice chat. One meeting on Friday and one on Saturday. The Friday meeting allows us 
+to update other members members of the group about our progress. This allows us to determine the current status of the application 
+and help determine our goals for the next week. During our Satuday meeting, we discuss our goals for the next week. What each member
+will implement and how they will implement it.
+
+Future events:
+
+-Friday November 17: Discord
+	We will discuss Our progress for this week. Much of our effort was put into making this deliverable, so we don't expect too much
+	code progress here.
+	
+-Saturday November 18: Discord
+	We discuss what we have to implement and how we will do so for the next week.
+	
+-Friday November 24: Discord
+	We will discuss Our progress for this week.
+	
+-Saturday November 25: Discord
+	We discuss what we have to implement and how we will do so for the next week.
 
 #### Artifacts
 
@@ -44,6 +64,21 @@ Essentially, we want to understand how your team members share a codebase and av
 For example, "we use pull-requests" is not a precise statement since it leaves too many open questions - Pull-requests from where to where? Who reviews the pull-requests? Who is responsible for merging them? etc.
  * If applicable, specify any naming conventions or standards you decide to adopt.
  * Don't forget to **explain why** you chose this workflow.
+ 
+ Our Git workflow works as follows:
+- Each member has their own branch to work on. They are free to make commits and push to it.
+- When a member feels their work is ready to be merged with the main branch, they will make a pull request and message
+	on Facebook messenger
+- At least 2 other members will do a checkout of the requested branch. They will test the changes on their machine to ensure that
+	the code will not break existing workor create. The two other members also must have different machines to ensure the change
+	works on different subsystems (Mac or Windows)
+- When at least 2 people confirm that the pull request is safe, our product owner merges the pull request with the main branch
+- Then every other member will update their branch with the new changes from main.
+
+
+We decided to follow this workflow because it ensures changes made by the individual will not break the main branch. Before adopting
+this workflow, we ran into issues where the changes made only worked on the PR owner's computer. This lead to the program breaking
+for other members of the group, forcing us to roll back the main branch. After adopting this method, this became a non-issue.
 
 ## Product
 
