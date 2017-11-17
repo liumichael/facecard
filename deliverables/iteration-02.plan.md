@@ -83,48 +83,58 @@ for other members of the group, forcing us to roll back the main branch. After a
 
 #### Goals and tasks
 
+## Product
+
+#### Goals and tasks
+
 The goals and tasks of this iteration include implementing the features that were described in the deliverable video. We have hard coded some of the final features in the application demo in order to simulate how the final product is to look and behave. Currently, the SQL processor we will be using is MongoDB – This may change after some experimentation. During this iteration, each member will be working on one or more of the following features (note that all features will require HTML to implement):  
 
-1. Make the website abstract in terms of profile, group, decks, quiz, duel etc.
-Currently, our web application only demonstrates how it is supposed to behave given that the information has been specified and created by users. Our views and pages are not abstract in a sense that users can insert desired information. For example, the group page that is seen (BIO100) is hard coded and needs to be turned into an abstract page where users can create, modify, and adjust announcements, decks and group name. We will achieve this by using JavaScript in order to allow users to enter their desired information. There are similar issues within the profile, deck and quiz page. We will use SQL in order to keep track of the information.
+1) Make the website abstract in terms of profile, group, decks, quiz, duel etc.
 
-2. Create deck and cue card
+Currently, our web application only demonstrates how it is supposed to behave given that the information has been specified and created by users. Our views and pages are not abstract in a sense that users can insert desired information. For example, the group page that is seen (BIO100) is hard coded and needs to be turned into an abstract page where users can create, modify, and adjust announcements, decks and group name. We will achieve this by using JavaScript in order to allow users to enter their desired information. There are similar issues within the profile, deck and quiz page. We will use SQL in order to keep track of the information. 
+
+2) Create deck and cue card
+
 Cue cards are not yet an abstract type such that users can create customized cards and decks with desired information on the front and back. We will be implementing this feature using JavaScript, and SQL in order to receive the information from the user, and store it on the database so that it can be loaded at a different time of usage.
 
-3. Log in
-As demonstrated, FaceCard offers users an option to create and log into their personal account, where they can view decks, groups, and edit a profile that is specific to themselves. This has not yet been implemented and will be implemented using a SQL database, where users can enter their information, have it recorded, and be able to log into their account in order to load their specifics.
+3) Feedback 
 
-3. Feedback
-Feedback was described in one of our user stories – Users do not know if their cue cards contain valid information or not when they are studying alone. An important feature of FaceCard is for users and teacher to be able to offer feedback on incorrect cards, or “verify” cue cards if they are correct. This feature is to be implemented using JavaScript, and SQL.
+Feedback was described in one of our user stories – Users do not know if their cue cards contain valid information or not when they are studying alone. An important feature of FaceCard is for users and teacher to be able to offer feedback on incorrect cards, or “verify” cue cards if they are correct. This feature is to be implemented using JavaScript, and SQL. 
 
-4. Edit cue cards
+4) Edit cue cards
+
 After receiving feedback, users may wish to edit their cue cards in order to update it with new and correct information. This can be implemented using SQL by modifying the information in the database correlating to that specific cue card.
 
-5. Reminders/joining groups
-Users may often forget to review and study on a daily basis. This problem can be solved by FaceCard sending customized notifications to the user if they have not studied or used the app in a certain amount of time. This can be implemented using a SQL database that stores when the user has last reviewed their cards. The programmer can then calculate the amount of time that has elapsed, and send notifications to the user accordingly. In addition, users can send group invites to other users, and users can choose to decline or accept the invitation – This must also be implemented using SQL.
+5) Reminders/joining groups 
 
-6. Progress report
+Users may often forget to review and study on a daily basis. This problem can be solved by FaceCard sending customized notifications to the user if they have not studied or used the app in a certain amount of time. This can be implemented using a SQL database that stores when the user has last reviewed their cards. The programmer can then calculate the amount of time that has elapsed, and send notifications to the user accordingly. In addition, users can send group invites to other users, and users can choose to decline or accept the invitation – This must also be implemented using SQL. 
+
+6) Progress report
+
 Users can easily forget which cue cards they have failed on, especially if they have been stumbling on many. The progress report can report to the user which cue cards that they have gotten incorrect the most times, and therefore need the most review on. This can be helpful and beneficial to the user as they will be aware on which facts and cards that they may need to study harder for. This can be implemented using SQL where entries of cue cards is stored with number of incorrect answers given to the card.   
 
-7. Log in
-As demonstrated, FaceCard offers users an option to create and log into their personal account, where they can view decks, groups, and edit a profile that is specific to themselves. This has not yet been implemented and will be implemented using a SQL database, where users can enter their information, have it recorded, and be able to log into their account in order to load their specifics.
+7) Log in 
 
-Other goals and tasks that are not as important as the above include the following:
-1. Mounting the website onto an online source, such as herokuapp, so that users online are able to access the website
+As demonstrated, FaceCard offers users an option to create and log into their personal account, where they can view decks, groups, and edit a profile that is specific to themselves. This has not yet been implemented and will be implemented using a SQL database, where users can enter their information, have it recorded, and be able to log into their account in order to load their specifics. 
+ 
+Other goals and tasks that are not as important as the above include the following: 
+1. Mounting the website onto an online source, such as herokuapp, so that users online are able to access the website 
 2. Creating a broader web application to cater to students outside of biology
-3. Complete and perfect most, if not all, of the features that we have described in the video in full
+3. Complete and perfect most, if not all, of the features that we have described in the video in full 
 4. Emphasize on consistency so the web application looks professional and does not differ between pages
 
 #### Artifacts
 
-The artifacts that we will produce in order to present the project idea include the following (not ordered based on importance)
+The artifacts that we will produce in order to present the project idea include the following (not ordered based on importance) 
 
-1. Code
+1) Code 
+
 Code is very important to the project as the developers need to work with one another’s code in order to keep the web application consistent and looking professional (i.e. displays of the same deck should not look different varying across pages). At the end of the iteration, we look to have a large portion of the code for the final project to be complete.
 
-2. Website mounting
-We plan to mount parts of our website online so we can see how it differs from the code that we have produced and tested on our own machine. This will allow the developers to minimalize the differences seen between the mock ups and the website that we have mounted online. We plan on using herokuapp for mounting our website.
+2) Website mounting
 
+We plan to mount parts of our website online so we can see how it differs from the code that we have produced and tested on our own machine. This will allow the developers to minimalize the differences seen between the mock ups and the website that we have mounted online. We plan on using herokuapp for mounting our website. 
 
-3. Interactive mock up
+3) Interactive mock up
+
 This is useful as it gives us a general idea of how the website is supposed to behave in the real world, before it is mounted to a server online and available for public use. The interactive mock-up is meant to simulate a user-level experience so the developer can easily and readily identify problems or issues with the website that need to be changed (i.e. font size, typos, etc).  
