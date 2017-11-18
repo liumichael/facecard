@@ -50,7 +50,7 @@ Use of branches and merge requests?
     * [`code for the front of cue cards`](/views/cue_card_front.ejs) 
     * [`code for the quiz page`](/views/quiz.ejs)
     * [`code to join groups with users and share cue cards`](/views/group.ejs)
-* [`Demo video`](/deliverable/demo.avi)
+* [`Demo video`](https://youtu.be/YbvlnutqZDA) 
 
 
 #### Goals and/or tasks that were planned but not met/completed:
