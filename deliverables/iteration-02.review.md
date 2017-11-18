@@ -80,7 +80,7 @@ Going into the next iteration, our main insights are:
  * Can be related to product and/or process. -->
 
 * Workflow
-    * Due to problems encounted by pushing directly on master, we have decided to enforce the use of branches and pull-requests when implementing the features of our application. Pull-requests should be only made when a feature is implemented on a branch correctly, and ready to be tested on master. At least two members, one using a mac, and one using windows should approve of the merge-request before it is accepted. Master should always contain a working version of our application.
+    * Due to problems encounted by pushing directly on master, we have decided to enforce the use of branches and pull-requests when implementing the features of our application. Pull-requests should be only made when a feature is implemented on a branch correctly, and ready to be tested on master. At least two members (one using a mac, and one using windows) should approve of the merge-request before it is accepted. Master should always contain a working version of our application.
 
 * Backend
-    * We have decided to use mongoDB as our SQL processor. Using this database, we plan to implement our previously hardcoded features to work as intended. Users should be able to create accounts, create and join groups, share cue cards, and create quizzes. Groups, cue cards and quizzes should be linked to user accounts which can be accessed using the id and password created in the account creation proccessor.
+    * We have decided to use mongoDB as our SQL processor. Using this database, we plan to implement our previously hardcoded features to work with user interactions. Users should be able to create accounts, create and join groups, share cue cards, and create quizzes. Groups, cue cards and quizzes should be linked to user accounts which can be accessed using the id and password created in the account creation procces.
