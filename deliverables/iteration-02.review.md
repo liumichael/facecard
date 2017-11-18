@@ -44,10 +44,12 @@ Use of branches and merge requests?
  * If a goal/task was not part of the original iteration plan, please mention it.
 
 * Skeleton of the features of our website, features are hardcoded:
-    * [`page to create and login to accounts`](/views/login.ejs and /views/user.ejs)
-    * [`page to create cue cards`](/views/cue_card_back.ejs and /views/cue_card_front.ejs) 
-    * [`page to create quizzes`](/views/quiz.ejs)
-    * [`page to join groups with users and share cue cards and quizzes`](/views/group.ejs)
+    * [`code to create and login to accounts`](/views/login.ejs) 
+    * [`code for user page](/views/user.ejs)
+    * [`code for the back of cue cards`](/views/cue_card_back.ejs)
+    * [`code for the front of cue cards`](/views/cue_card_front.ejs) 
+    * [`code for the quiz page`](/views/quiz.ejs)
+    * [`code to join groups with users and share cue cards`](/views/group.ejs)
 * [`Demo video`](/deliverable/demo.avi)
 
 
