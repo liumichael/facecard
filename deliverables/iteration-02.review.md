@@ -45,7 +45,7 @@ Use of branches and merge requests?
 
 * Skeleton of the features of our website, features are hardcoded:
     * [`code to create and login to accounts`](/views/login.ejs) 
-    * [`code for user page](/views/user.ejs)
+    * [`code for user page`](/views/user.ejs)
     * [`code for the back of cue cards`](/views/cue_card_back.ejs)
     * [`code for the front of cue cards`](/views/cue_card_front.ejs) 
     * [`code for the quiz page`](/views/quiz.ejs)
