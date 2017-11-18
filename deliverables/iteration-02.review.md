@@ -10,6 +10,8 @@
 
 There was definitely some pressure to get the product finished within the constrained amount of time. But the weekly meeting, feedback on each other’s work, efficiently splitting up the work between teammates helped us to push forward the work and successfully manage to come up with the demo product for deliverable 2 with the set deadline.
 
+* [`Demo video`](https://youtu.be/YbvlnutqZDA)
+
 #### Decisions that turned out well
 
 1.	Assigning each other’s work in team
@@ -20,7 +22,7 @@ Since this project is involving many team members, assigning each other’s work
 
 #### Decisions that did not turn out as well as we hoped
 
-List process-related (i.e. team organization) decisions that, in retrospect, were not as successful as you thought they would be.
+<!-- List process-related (i.e. team organization) decisions that, in retrospect, were not as successful as you thought they would be. -->
 
 1.	Git workflow: No Pull Request
 At the beginning of our development phase, we didn’t use pull request, but instead we pushed our own work directly to the master branch. This has caused the repo’s server to temporarily break and not being able to render the website. We decided to make sure that we make a pull request to merge our work instead of directly pushing our work.
@@ -39,29 +41,29 @@ Use of branches and merge requests?
 
 #### Goals and/or tasks that were met/completed:
 
- * From most to least important.
+ <!-- * From most to least important.
  * Refer/link to artifact(s) that show that a goal/task was met/completed.
- * If a goal/task was not part of the original iteration plan, please mention it.
+ * If a goal/task was not part of the original iteration plan, please mention it. -->
 
 * Skeleton of the features of our website, features are hardcoded:
-    * [`code to create and login to accounts`](/views/login.ejs) 
+    * [`code to create and login to accounts`](/views/login.ejs)
     * [`code for user page`](/views/user.ejs)
     * [`code for the back of cue cards`](/views/cue_card_back.ejs)
-    * [`code for the front of cue cards`](/views/cue_card_front.ejs) 
+    * [`code for the front of cue cards`](/views/cue_card_front.ejs)
     * [`code for the quiz page`](/views/quiz.ejs)
     * [`code to join groups with users and share cue cards`](/views/group.ejs)
-* [`Demo video`](https://youtu.be/YbvlnutqZDA) 
+* [`Demo video`](https://youtu.be/YbvlnutqZDA)
 
 
 #### Goals and/or tasks that were planned but not met/completed:
 
- * From most to least important.
+ <!-- * From most to least important.
  * For each goal/task, explain why it was not met/completed.      
-   e.g. Did you change your mind, or did you just not get to it yet?
+   e.g. Did you change your mind, or did you just not get to it yet? -->
 
 * Database and SQL
     * focus was placed on implementing the front end rather than worrying about the backend
-    * time restrictions prevented us from implmenting backend as well 
+    * time restrictions prevented us from implmenting backend as well
 * Feedback - ability to add feedback on cue cards, informing users of its correctness
     * prioritized features that were more integral to the FaceCard application
     * wanted to make sure other features could be used in the demo video
@@ -71,14 +73,14 @@ Use of branches and merge requests?
 
 Going into the next iteration, our main insights are:
 
- * 2 - 4 items
+ <!-- * 2 - 4 items
  * Short (no more than one short paragraph per item)
  * High-level concepts that should guide your work for the next iteration.
  * These concepts should help you decide on where to focus your efforts.
- * Can be related to product and/or process.
+ * Can be related to product and/or process. -->
 
 * Workflow
-    * Due to problems encounted by pushing directly on master, we have decided to enforce the use of branches and pull-requests when implementing the features of our application. Pull-requests should be only made when a feature is implemented on a branch correctly, and ready to be tested on master. At least two members, one using a mac, and one using windows should approve of the merge-request before it is accepted. Master should always contain a working version of our application. 
+    * Due to problems encounted by pushing directly on master, we have decided to enforce the use of branches and pull-requests when implementing the features of our application. Pull-requests should be only made when a feature is implemented on a branch correctly, and ready to be tested on master. At least two members, one using a mac, and one using windows should approve of the merge-request before it is accepted. Master should always contain a working version of our application.
 
 * Backend
-    * We have decided to use mongoDB as our SQL processor. Using this database, we plan to implement our previously hardcoded features to work as intended. Users should be able to create accounts, create and join groups, share cue cards, and create quizzes. Groups, cue cards and quizzes should be linked to user accounts which can be accessed using the id and password created in the account creation proccessor. 
+    * We have decided to use mongoDB as our SQL processor. Using this database, we plan to implement our previously hardcoded features to work as intended. Users should be able to create accounts, create and join groups, share cue cards, and create quizzes. Groups, cue cards and quizzes should be linked to user accounts which can be accessed using the id and password created in the account creation proccessor.
