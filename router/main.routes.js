@@ -1,4 +1,4 @@
-const mainController = require('../controllers/main.controller.js')
+//const mainController = require('../controllers/main.controller.js')
 
 // export router
 module.exports = function(app, passport) {
