@@ -2,11 +2,11 @@
 // load the things we need
 var mongoose = require('mongoose');
 
-// define the schema for our user model
+// define the schema for our announcement model
 var announcementSchema = mongoose.Schema({
 
-    id 		 : String,
-    title        : String,
+    id 		 : Number,
+    title        : String, 
     content      : String,
     username     : String,
     date         : Date,
