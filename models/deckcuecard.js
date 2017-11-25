@@ -7,3 +7,5 @@ var deckCuecardSchema = mongoose.Schema({
     cardId: String,
 
 });
+
+module.exports = mongoose.model('DeckCuecard', deckCuecardSchema);

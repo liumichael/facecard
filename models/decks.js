@@ -6,3 +6,5 @@ var deckSchema = mongoose.Schema({
     id: String,
     name: String,
 });
+
+module.exports = mongoose.model('Deck', deckSchema);

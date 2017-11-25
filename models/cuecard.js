@@ -9,3 +9,5 @@ var cuecardSchema = mongoose.Schema({
     rating: Number,
     lastAccessed: Date,
 });
+
+module.exports = mongoose.model('Cuecard', cuecardSchema);
