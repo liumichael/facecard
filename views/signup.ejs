@@ -37,11 +37,12 @@
         </div>
         <!-- signup -->
         <div class="col-md-5 signup">
-          <form action="/" method="get">
+          <form action="/signup" method="post">
             <h4> <span>facecard</span> helps you remember.</h4>
             <p> Have midterm coming up? Use <span>facecard</span>.</p>
             <h3> Create an account </h3>
-            <input class="form-control" type="email" name="username" placeholder="email" autofocus>
+            <input class="form-control" type="email" name="email" placeholder="email" autofocus>
+            <input class="form-control" type="text" name="username" placeholder="username">
             <input class="form-control" type="password" name="password" placeholder="password">
             <input class="form-control" id = "submit" type="submit" name="submit"><br>
             <h4> Returning user? Click <a href="/login">here</a> to log in.</h4>

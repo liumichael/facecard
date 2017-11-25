@@ -1,3 +1,5 @@
+const mainController = require('../controllers/main.controller.js')
+
 // export router
 module.exports = function(app, passport) {
   app.get('/', function(req, res){
@@ -48,17 +50,81 @@ module.exports = function(app, passport) {
   });
 
 
-  app.post('/login', function(req, res) {
+  // process the login form
+  app.post('/login', passport.authenticate('local-login', {
+      successRedirect : '/user', // redirect to the secure profile section
+      failureRedirect : '/login', // redirect back to the signup page if there is an error
+      failureFlash : true // allow flash messages
+  }));
 
+  // SIGNUP =================================
+  // show the signup form
+  app.get('/signup', function(req, res) {
+      res.render('index.ejs', {
+        message: req.flash('signupMessage'),
+        loggedIn: req.user,
+        user: req.user,
+        status: 'signup',
+
+      });
   });
 
-
-  app.post('/register', function(req, res){
-
-  });
+  // process the signup form
+  app.post('/signup', passport.authenticate('local-signup', {
+      successRedirect : '/user', // redirect to the secure profile section
+      failureRedirect : '/signup', // redirect back to the signup page if there is an error
+      failureFlash : true // allow flash messages
+  }));
 
   app.get('/cue', function(req, res){
       res.render('cue_card_front');
   });
 
 };
+
+
+
+function loggedIn(req, res, next) {
+    if (req.user) {
+        next();
+        return true;
+    } else {
+        res.redirect('/login');
+        return false;
+    }
+}
+
+function authorized(req, res, next) {
+    Post.findOne({slug: req.params.slug}, (err, post) => {
+      if (err) {
+        res.status(404);
+        res.send('Posts not found!');
+      }
+      if(!req.user){
+        res.redirect('/login');
+        return false;
+      }else {
+
+        if (req.user.local.username) {
+            var user = req.user.local.username;
+        } else if (req.user.facebook.name){
+            var user = req.user.facebook.name;
+        }
+        console.log(user);
+        if(post){
+          console.log(post.author);
+          if(user == post.author){
+              next();
+              //res.redirect('/');
+              return true;
+          }else {
+              res.redirect('/');
+              req.flash('You are not authorized');
+              return false;
+          }
+        }
+        return false;
+
+      }
+    });
+}
