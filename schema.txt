@@ -1,0 +1,58 @@
+﻿user — JENNA
+username	key
+email
+password
+
+group — JENNA
+groupid		key
+ownerid
+name
+
+members — ERIC
+groupid		key
+username
+
+
+decks — MICHAEL
+deckid		key
+deckname
+
+userdeck — ERIC
+username
+deckid
+
+groupdeck — CHRIS
+groupid
+deckid
+
+cuecards— MICHAEL
+cardid		key
+question
+answer
+topic
+endorsed
+
+deckcuecard — MICHAEL
+deckid
+cardid
+
+announcements — CHRIS
+announcmentid	key
+title
+content
+username
+date
+
+groupannouncment — CHRIS
+announcementid
+groupid
+
+notifications — JENNA
+notificationid	key
+title
+sender
+content
+
+usernotification — ERIC
+username
+notificationid
