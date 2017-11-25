@@ -8,7 +8,7 @@ var UserSchema = mongoose.model('User').schema;
 var notification = mongoose.Schema({
 
     id: Number,
-    sender: [UserSchema],
+    sender: UserSchema,
     title: String,
     content: String,
 
