@@ -14,12 +14,11 @@ var cookieParser = require('cookie-parser');
 var path = require('path');
 var mongoose = require('mongoose');
 var app = express();
-var app = express();
 var PORT = process.env.PORT || 3000;
 
 // configuration ======================================================================
-//mongoose.Promise = global.Promise;
-//mongoose.connect(process.env.DB_URI);
+mongoose.Promise = global.Promise;
+mongoose.connect(process.env.DB_URI);
 
 require('./config/passport')(passport); // pass passport for configuration
 
