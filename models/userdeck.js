@@ -1,4 +1,4 @@
-// app/models/member.js
+// app/models/userdeck.js
 
 // load the things we need
 
@@ -8,10 +8,10 @@ var mongoose = require('mongoose');
 
 // define the schema for our user model
 
-var memberSchema = mongoose.Schema({
+var userdeckSchema = mongoose.Schema({
 
     username    : String,
-    groupid     : Number,
+    deckid     : Number,
 
 });
 
@@ -19,4 +19,4 @@ var memberSchema = mongoose.Schema({
 
 // create the model for users and generalize it to our app
 
-module.exports = mongoose.model('Member', memberSchema);
+module.exports = mongoose.model('Userdeck', userdeckSchema);
