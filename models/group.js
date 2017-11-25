@@ -18,7 +18,7 @@ var group = mongoose.Schema({
 });
 
 group.pre('save', function(next) {
-  this.slug = slugify(this.title);
+  this.slug = slugify(this.name);
   next();
 });
 
