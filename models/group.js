@@ -8,7 +8,7 @@ var UserSchema = mongoose.model('User').schema;
 var group = mongoose.Schema({
 
     id: Number,
-    owner: [UserSchema],
+    owner: UserSchema,
     name: String,
     slug: {
       type: String,
