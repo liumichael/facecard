@@ -40,7 +40,7 @@
 		padding:0;
 		margin:0;
 	}
-	
+
 	.popup {
 		width: 100%;
 		position:fixed;
@@ -56,22 +56,22 @@
 		display:none;
 		overflow-y: auto;
 	}
-	
+
 	.content {
 		background: rgba(255,255,255,1);
 		padding: 25px;
 		border-radius:10px;
 		min-height: 18vh;
 	}
-	
+
 	.card {
 		list-style-type:none;
 	}
-	
+
 	.card a button:hover{
 		box-shadow: 0px 10px 10px grey;
 	}
-	
+
 	.card a button {
 		background: white;
 		border: 1px solid gray;
@@ -81,8 +81,8 @@
 		box-shadow: 0px 1px 5px grey;
 		transition:0.2s;
 	}
-	
-	
+
+
 	.close-button {
 		background:none;
 		border:none;
@@ -91,12 +91,12 @@
 		font-size:20px;
 		transition:0.2s;
 	}
-	
+
 	.close-button:hover{
 		background:red;
 		color:white;
 	}
-	
+
 	.add-button {
 		background:none;
 		border:none;
@@ -104,11 +104,11 @@
 		font-size:20px;
 		transition:0.2s;
 	}
-	
+
 	.add-button:hover {
 		background:lightgray;
 	}
-	
+
 	#new-deck-button {
 		background: none;
 		border: 1px solid black;
@@ -118,11 +118,11 @@
 		height:50px;
 		transition:0.2s;
 	}
-	
+
 	#new-deck-button:hover {
 		background: lightgray;
 	}
-	
+
 	.text-box-input {
 		border: none;
 		border-radius: 5px;
@@ -132,39 +132,39 @@
 		font-size: 30px;
 		box-shadow: 0px 1px 5px grey;
 	}
-	
+
 	.create-button {
 		background: none;
 		border: 1px solid black;
 		border-radius: 5px;
 	}
-	
+
 	.create-button:hover {
 		background: lightgray;
 	}
-	
+
 	#notifications {
 		margin-top:2vh;
 		list-style:none;
 		padding-left:0;
 	}
-	
+
 	.notif-card {
 		padding: 20px;
 		margin-top:1vh;
 		margin-left: 0px;
 	}
-	
+
 	.notif-card div {
 		box-shadow: 0px 1px 5px grey;
 		padding: 20px;
 		border-radius:5px;
 	}
-	
+
 	.notif-card div h2 {
 		font-size:20px;
 	}
-	
+
 	#notification-button {
 		background:none;
 		border:none;
@@ -199,7 +199,7 @@
 			</ul>
 		</div>
 	</div>
-	
+
 	<div id="new-card-overlay" class="popup" style="z-index:901;">
 		<div class="content">
 			<button class="close-button" onclick="hideOverlay('new-card-overlay')"> X </button>
@@ -208,7 +208,7 @@
 				<input id="new-card-question" class="text-box-input" type="text" value="Question here.." name="fname"><br></br>
 				<input id="new-card-answer" class="text-box-input" type="text" value="Answer here.." name="fname"><br></br>
 				<input class="create-button" value="CREATE CARD" type="button" onclick="addNewCard()">
-			</form> 
+			</form>
 		</div>
 	</div>
 
@@ -220,15 +220,15 @@
 			</ul>
 		</div>
 	</div>
-	
+
 	<div id="new-deck-overlay" class="popup">
 		<div class="content">
 			<button class="close-button" onclick="hideOverlay('new-deck-overlay')"> X </button>
-			
+
 			<form>
 				<input id="new-deck-name" class="text-box-input" type="text" value="Deck name here.." name="fname"><br></br>
 				<input value="CREATE DECK" class="create-button" type="button" onclick="addNewDeck()">
-			</form> 
+			</form>
 		</div>
 	</div>
 
@@ -242,7 +242,7 @@
 				<ul class="nav navbar-nav">
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a class="menu-writing" href="/"><i class="fa fa-user fa-1x"></i>   John Smith</a></li>
+					<li><a class="menu-writing" href="/"><i class="fa fa-user fa-1x"></i>   <%= user %></a></li>
 				</ul>
 			</div>
 		</div>
@@ -261,7 +261,7 @@
 				<strong>YOUR DECKS</strong>
 				<button id="new-deck-button" onclick="showPopup('new-deck-overlay')">+</button>
 				<button id="notification-button" onclick="showPopup('notification-center'); getNotifications();"><p><span class="glyphicon glyphicon-bell"></span></p></button>
-				
+
 			</h1>
 			  <ul id="deck-list" class="decks">
 

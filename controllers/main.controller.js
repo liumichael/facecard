@@ -36,7 +36,8 @@ function getGroupPage(req, res) {
 
       res.render('group', {
         _id : data._id,
-        title : data.name
+        title : data.name,
+				user: req.user.local.username,
       });
     }
   });

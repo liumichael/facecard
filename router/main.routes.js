@@ -3,8 +3,8 @@ const mainController = require('../controllers/main.controller.js')
 // export router
 module.exports = function(app, passport) {
   app.get('/', function(req, res){
-    if(req.user && req.user.displayName) {
-      res.render('user', {user:req.user.displayName});
+    if(req.user) {
+      res.render('user', {user:req.user.local.username});
     } else {
       res.render('login');
     }
@@ -23,11 +23,11 @@ module.exports = function(app, passport) {
   })
 
   app.get('/group', function(req, res) {
-    res.render('group', {title : "BIO100"});
+    res.render('group', {title : "BIO100", user: req.user.local.username});
   })
 
   app.get('/quiz', function(req, res) {
-    res.render('quiz');
+    res.render('quiz', {user: req.user.local.username});
   })
 
   app.get('/about', function(req, res) {
@@ -39,7 +39,7 @@ module.exports = function(app, passport) {
   })
 
   app.get('/user', function(req, res) {
-    res.render('user');
+    res.render('user', {user: req.user.local.username});
   })
 
   app.get('/auth/logout', function(req, res){
