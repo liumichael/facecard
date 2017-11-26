@@ -6,8 +6,8 @@ var announcementDetails = ["Coverage: Chapter 1 to and including Chapter 3.", "C
 var groups = ["BIO100", "BIO101", "BIO102", "BIO103", "BIO104", "BIO105"];
 
 $(function () {
-    makeAnnouncements(); 
-    makeDecks();
+    makeAnnouncements();
+    // makeDecks();
 });
 
 function makeAnnouncements() {

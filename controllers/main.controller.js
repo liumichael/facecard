@@ -33,18 +33,27 @@ function getGroupPage(req, res) {
     res.redirect('/user');
   }
 
+	Group.find({})
+	.then(function (data) {
+		console.log(data);
+	});
   Group.findOne({name : req.params.name})
   .then(function (data) {
     if (!data) {
       res.send("nothing in the database");
     }
     else {
-
-      res.render('group', {
-        _id : data._id,
-        title : data.name,
-				user: req.user.local.username,
-      });
+			GroupDeck.find({groupid : data.id})
+			.then(function(data2) {
+				res.render('group', {
+	        _id : data._id,
+					id : data.id,
+	        title : data.name,
+					user: req.user.local.username,
+					members: data.members,
+					decks : data2
+	      });
+			});
     }
   });
 }
