@@ -15,7 +15,7 @@ var openedDeck = "";
 
 $(function() {
 	// $.post('/user/post');
-	makeGroupList();
+	//makeGroupList();
 	makeDecks();
 });
 

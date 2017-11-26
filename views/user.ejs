@@ -248,11 +248,14 @@
 			</div>
 		</div>
 	</nav>
-	
+
 	<div class="container">
 		<div class="groups" id="group-pane" style="float:left;">
 			<h1><strong>Groups</strong></h1>
 			<ul id="group-list" style="height:700px;overflow-y:auto;">
+				<% for(var i=0; i < groups.length; i++) { %>
+					<li><a href='group/<%= groups[i].name %>' class='group'><span><strong><%=groups[i].name%></strong></span></a></li>
+				<% } %>
 			</ul>
 
 		</div>

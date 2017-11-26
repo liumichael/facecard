@@ -4,9 +4,9 @@ const mainController = require('../controllers/main.controller.js')
 module.exports = function(app, passport) {
   app.get('/', function(req, res){
     if(req.user) {
-      res.render('user', {user:req.user.local.username});
+      res.redirect('/user');
     } else {
-      res.render('login');
+      res.redirect('/login');
     }
   });
 
@@ -38,9 +38,7 @@ module.exports = function(app, passport) {
     res.render('contact');
   })
 
-  app.get('/user', function(req, res) {
-    res.render('user', {user: req.user.local.username});
-  })
+  app.get('/user', mainController.getUserPage);
 
   app.get('/logout', function(req, res){
     req.logout();
@@ -49,7 +47,7 @@ module.exports = function(app, passport) {
     });
   });
 
-  // app.post('/user/post', mainController.postDeck);
+  //app.get('/user/post', mainController.postDeck);
   app.get('/group/:name', mainController.getGroupPage);
 
   // process the login form

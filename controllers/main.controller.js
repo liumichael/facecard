@@ -4,7 +4,8 @@ var GroupDeck = require ('../models/groupdeck');
 
 module.exports = {
 	postDeck : postDeck,
-  getGroupPage : getGroupPage
+  getGroupPage : getGroupPage,
+	getUserPage : getUserPage,
 }
 
 
@@ -15,8 +16,13 @@ function postDeck(req, res) {
     res.redirect('/group');
   }
 
-  var owner = new User({local : {username : "sushi", password : "hello", email : "hello@gmail.com"}});
-	var item = new Group({id : 7, owner : owner, name : "BIO105"});
+	console.log(req.user);
+  var owner = req.user;
+	var member = req.user;
+	var members = [member];
+	var item = new Group({id : 8, owner : owner, members: members, name : "MAT137"});
+	console.log(item.members);
+	console.log(item.owner);
 	item.save();
 }
 
@@ -41,4 +47,24 @@ function getGroupPage(req, res) {
       });
     }
   });
+}
+
+function getUserPage(req, res) {
+	const errors = req.validationErrors();
+  if (errors) {
+    req.flash('errors', errors.map(err => err.msg));
+    res.redirect('/user');
+  }
+
+	Group.find({ members: { $elemMatch: { "local.username": req.user.local.username } } }, (err, group) => {
+		if (err) {
+			res.status(404);
+			res.send('Posts not found!');
+		}
+
+		res.render('user', {
+			user: req.user.local.username,
+			groups: group
+		});
+	});
 }
