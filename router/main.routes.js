@@ -47,7 +47,9 @@ module.exports = function(app, passport) {
     });
   });
 
-  //app.get('/user/post', mainController.postDeck);
+  //app.get('/user/post', mainController.seedDeck);
+  //app.get('/deck/post', mainController.seedUserDeck);
+  
   app.get('/group/:name', mainController.getGroupPage);
 
   // process the login form

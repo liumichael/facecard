@@ -1,15 +1,17 @@
 var Group = require('../models/group');
 var User = require('../models/users');
+var UserDeck = require('../models/userdeck');
 var GroupDeck = require ('../models/groupdeck');
 
 module.exports = {
-	postDeck : postDeck,
+	seedDeck : seedDeck,
+	seedUserDeck: seedUserDeck,
   getGroupPage : getGroupPage,
 	getUserPage : getUserPage,
 }
 
 
-function postDeck(req, res) {
+function seedDeck(req, res) {
 	const errors = req.validationErrors();
   if (errors) {
     req.flash('errors', errors.map(err => err.msg));
@@ -24,6 +26,28 @@ function postDeck(req, res) {
 	console.log(item.members);
 	console.log(item.owner);
 	item.save();
+	res.redirect('/group');
+
+}
+
+function seedUserDeck(req, res) {
+	const errors = req.validationErrors();
+  if (errors) {
+    req.flash('errors', errors.map(err => err.msg));
+    res.redirect('/user');
+  }
+
+	cuecards = []
+	var item1 = new UserDeck({id : 1, name : "BIO100 test 1", user: req.user, cuecards : cuecards});
+	var item2 = new UserDeck({id : 2, name : "MAT137 test 1", user: req.user, cuecards : cuecards});
+	var item3 = new UserDeck({id : 3, name : "CSC369 test 1", user: req.user, cuecards : cuecards});
+	var item4 = new UserDeck({id : 4, name : "CSC258 test 1", user: req.user, cuecards : cuecards});
+
+	item1.save();
+	item2.save();
+	item3.save();
+	item4.save();
+	res.redirect('/user');
 }
 
 function getGroupPage(req, res) {
@@ -56,15 +80,23 @@ function getUserPage(req, res) {
     res.redirect('/user');
   }
 
-	Group.find({ members: { $elemMatch: { "local.username": req.user.local.username } } }, (err, group) => {
-		if (err) {
+	Group.find({ members: { $elemMatch: { "local.username": req.user.local.username } } }, (err1, groups) => {
+		if (err1) {
 			res.status(404);
 			res.send('Posts not found!');
 		}
 
-		res.render('user', {
-			user: req.user.local.username,
-			groups: group
+		UserDeck.find({ "user.local.username": req.user.local.username }, (err2, userdecks) => {
+			if (err2) {
+				res.status(404);
+				res.send('Posts not found!');
+			}
+
+			res.render('user', {
+				user: req.user.local.username,
+				groups: groups,
+				userdecks: userdecks,
+			});
 		});
 	});
 }
