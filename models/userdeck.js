@@ -3,7 +3,7 @@
 // load the things we need
 
 var mongoose = require('mongoose');
-
+var cueCard = require('./cuecard.js');
 var CuecardSchema = mongoose.model('Cuecard').schema;
 
 
