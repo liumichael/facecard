@@ -1,58 +1,56 @@
-﻿user — JENNA
-username	key
-email
-password
-
-group — JENNA
-groupid		key
-ownerid
-name
-
-members — ERIC
-groupid		key
-username
-
-
-decks — MICHAEL
-deckid		key
-deckname
-
-userdeck — ERIC
-username
-deckid
-
-groupdeck — CHRIS
+announcements
+id
 groupid
-deckid
-
-cuecards— MICHAEL
-cardid		key
-question
-answer
-topic
-endorsed
-
-deckcuecard — MICHAEL
-deckid
-cardid
-
-announcements — CHRIS
-announcmentid	key
 title
 content
 username
 date
 
-groupannouncment — CHRIS
-announcementid
+
+
+cuecard
+id
+question
+answer
+rating
+lastaccessed
+
+
+groupdeck
+id
+name
 groupid
+cuecards [cuecardSchema]
 
-notifications — JENNA
-notificationid	key
-title
+
+
+userdeck
+id
+name
+userid
+cuecards [cuecardSchema]
+
+
+group
+id
+owner
+name
+members [userschema]
+slug
+
+
+
+
+notification
+id
 sender
+title
 content
+sentTo
 
-usernotification — ERIC
+
+
+user
 username
-notificationid
+email
+password
