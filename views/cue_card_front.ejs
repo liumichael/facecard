@@ -14,33 +14,31 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md background">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand menu-writing" href="/" style="font-size:27px;"><strong>facecard</strong></a>
-            </div>
+  <nav class="navbar background">
+      <div class="container-fluid">
+          <div class="navbar-header">
+              <a class="navbar-brand menu-writing" href="/" style="font-size:27pix;"><strong>facecard</strong></a>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                  <li><a class="menu-writing" href="/about"> About</a></li>
+                  <li><a class="menu-writing" href="/contact"> Contact</a></li>
+                  <!--
+<li><a href="#">Home</a></li>
+              <li><a href="#">Profile</a></li>
+              <li><a href="#">Group</a></li>
+              <li class="active"><a href="#">Quiz</a></li>
+              -->
+              </ul>
 
-            <div class="navbar-collapse collapse show" id="navbarsExampleDefault" style="">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-link"><a class="menu-writing" href="/about">   About</a></li>
-                    <li class="nav-link"><a class="menu-writing" href="/contact">   Contact</a></li>
-                    <li class="nav-link"><a class="menu-writing" href="/login">   Log in</a></li>
-                    <li class="nav-link"><a class="menu-writing" href="/signup">   Sign Up</a></li>
-                </ul>
-            </div>
 
-            <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a class="menu-writing" href="/about">   About</a></li>
-                    <li><a class="menu-writing" href="/contact">   Contact</a></li>
-                    <li><a class="menu-writing" href="/login">   Log in</a></li>
-                    <li><a class="menu-writing" href="/signup">   Sign Up</a></li>
-                </ul>
-            </div> -->
-        </div>
-    </nav>
+              <ul class="nav navbar-nav navbar-right">
+                  <li><a class="menu-writing" href="/quiz">   Quiz</a></li>
+      <li><a class="menu-writing" href="/"><i class="fa fa-user fa-1x"></i>   <%= user %></a></li>
+              </ul>
+          </div>
+      </div>
+  </nav>
 
     <br>
     <!-- <div class="intro">
