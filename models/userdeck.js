@@ -12,11 +12,11 @@ var UserSchema = mongoose.model('Cuecard').schema;
 
 var userdeckSchema = mongoose.Schema({
 
-    id: String
+    id: Number,
     name: String,
     username: String,
-    curcards: [cuecardSchema],
-    
+    cuecards: [cuecardSchema],
+
 });
 
 
