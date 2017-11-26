@@ -4,7 +4,7 @@
 
 var mongoose = require('mongoose');
 
-var UserSchema = mongoose.model('Cuecard').schema;
+var CuecardSchema = mongoose.model('Cuecard').schema;
 
 
 
@@ -15,7 +15,7 @@ var userdeckSchema = mongoose.Schema({
     id: Number,
     name: String,
     username: String,
-    cuecards: [cuecardSchema],
+    cuecards: [CuecardSchema],
 
 });
 
