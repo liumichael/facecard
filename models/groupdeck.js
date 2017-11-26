@@ -1,12 +1,16 @@
 // app/models/groupdeck.js
 // load the things we need
 var mongoose = require('mongoose');
+var User = require('./users.js');
+var CueCardSchema = mongoose.model('Cuecard').schema;
 
 // define the schema for our group deck model
 var groupDeckSchema = mongoose.Schema({
 
     id 		 : Number,
-    groupid      : Number, 
+    groupid      : Number,
+    name         : String,
+    cuecards     : [CueCardSchema]
 
 });
 

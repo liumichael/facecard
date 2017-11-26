@@ -10,6 +10,7 @@ var group = mongoose.Schema({
     id: Number,
     owner: UserSchema,
     name: String,
+    members: [UserSchema],
     slug: {
       type: String,
       unique: true

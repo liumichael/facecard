@@ -6,7 +6,8 @@ var mongoose = require('mongoose');
 var announcementSchema = mongoose.Schema({
 
     id 		 : Number,
-    title        : String, 
+    groupid      : Number,
+    title        : String,
     content      : String,
     username     : String,
     date         : Date,
