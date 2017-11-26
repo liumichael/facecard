@@ -42,7 +42,7 @@ module.exports = function(app, passport) {
     res.render('user', {user: req.user.local.username});
   })
 
-  app.get('/auth/logout', function(req, res){
+  app.get('/logout', function(req, res){
     req.logout();
     req.session.save(function(){
       res.redirect('/login');
@@ -79,7 +79,7 @@ module.exports = function(app, passport) {
   }));
 
   app.get('/cue', function(req, res){
-      res.render('cue_card_front');
+      res.render('cue_card_front', {user: req.user.local.username});
   });
 
 };
