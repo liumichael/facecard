@@ -199,10 +199,11 @@
 	<div id="new-deck-overlay" class="popup">
 		<div class="content">
 			<button class="close-button" onclick="hideOverlay('new-deck-overlay')"> X </button>
-
-			<form>
-				<label><strong>Deck Name </strong></label><input id="new-deck-name" class="text-box-input" type="text" value="" name="fname"><br></br>
-				<input value="CREATE DECK" class="create-button" type="button" onclick='addNewDeck()'>
+			<form action="/group/newdeck"  method="post">
+				<label><strong>Deck Name </strong></label><input id="new-deck-name" class="text-box-input" type="text" value="" name="deckname"><br></br>
+				<input type="hidden" name="groupid" value="<%= id %>" />
+				<!-- <input value="CREATE DECK" class="create-button" type="button" onclick='addNewDeck()'> -->
+				<input value="CREATE DECK" class="create-button" type="submit">
 			</form>
 		</div>
 	</div>
@@ -223,9 +224,9 @@
 		<h1><strong>Class Decks</strong><button id="new-deck-button" onclick="showPopup('new-deck-overlay')">+</button></h1>
 
         <ul id="deck-list" class="decks"></ul>
-				<!-- <% for (deck in decks) { %> -->
-					<!-- <div id=deck.name class='cards' onclick='showOverlay(this.id)'><button><h1><strong>deck.name</strong></h1></button></div> -->
-				<!-- <% } %> -->
+				<% for (deck in decks) { %>
+					<div id="<%=decks[deck].name%>" class='cards' onclick='showOverlay(this.id)'><button><h1><strong><%= decks[deck].name %></strong></h1></button></div>
+			 <% } %>
 		</div>
 	</div>
 

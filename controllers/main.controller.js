@@ -2,12 +2,14 @@ var Group = require('../models/group');
 var User = require('../models/users');
 var UserDeck = require('../models/userdeck');
 var GroupDeck = require ('../models/groupdeck');
+var mongoose = require('mongoose');
 
 module.exports = {
 	seedDeck : seedDeck,
 	seedUserDeck: seedUserDeck,
   getGroupPage : getGroupPage,
 	getUserPage : getUserPage,
+	addNewGroupCard : addNewGroupCard,
 }
 
 
@@ -108,4 +110,25 @@ function getUserPage(req, res) {
 			});
 		});
 	});
+}
+
+
+function addNewGroupCard(req, res) {
+	const errors = req.validationErrors();
+  if (errors) {
+    req.flash('errors', errors.map(err => err.msg));
+    res.redirect('/user');
+  }
+	console.log("hello there");
+	var oid = mongoose.Types.ObjectId();
+	var newid = parseInt(oid.valueOf());
+	var deck = new GroupDeck({id : newid, groupid : req.body.groupid, name : req.body.deckname, cuecards : []});
+	deck.save();
+
+	GroupDeck.find({})
+	.then(function (data) {
+		console.log(data);
+	});
+	res.redirect("/group/");
+
 }
