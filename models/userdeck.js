@@ -15,7 +15,7 @@ var userdeckSchema = mongoose.Schema({
     id: Number,
     name: String,
     username: String,
-    curcards: [cuecardSchema],
+    cuecards: [cuecardSchema],
 
 });
 
