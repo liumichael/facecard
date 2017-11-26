@@ -3,7 +3,7 @@ var bcrypt = require('bcrypt-nodejs');
 
 // define the schema for our user model
 var deckSchema = mongoose.Schema({
-    id: String,
+    id: Number,
     name: String,
 });
 

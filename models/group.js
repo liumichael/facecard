@@ -14,7 +14,6 @@ var group = mongoose.Schema({
       type: String,
       unique: true
     },
-
 });
 
 group.pre('save', function(next) {

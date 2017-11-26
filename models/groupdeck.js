@@ -5,8 +5,8 @@ var mongoose = require('mongoose');
 // define the schema for our group deck model
 var groupDeckSchema = mongoose.Schema({
 
-    id 		 : Number,
-    groupid      : Number, 
+    id 		       : Number,
+    groupid      : Number,
 
 });
 

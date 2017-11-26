@@ -1,4 +1,4 @@
-//const mainController = require('../controllers/main.controller.js')
+const mainController = require('../controllers/main.controller.js')
 
 // export router
 module.exports = function(app, passport) {
@@ -23,7 +23,7 @@ module.exports = function(app, passport) {
   })
 
   app.get('/group', function(req, res) {
-    res.render('group');
+    res.render('group', {title : "BIO100"});
   })
 
   app.get('/quiz', function(req, res) {
@@ -49,6 +49,8 @@ module.exports = function(app, passport) {
     });
   });
 
+  // app.post('/user/post', mainController.postDeck);
+  app.get('/group/:name', mainController.getGroupPage);
 
   // process the login form
   app.post('/login', passport.authenticate('local-login', {

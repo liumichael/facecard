@@ -9,7 +9,7 @@
 	}
 
 	.cards {
-		background-image:url('images/card.png');
+		background-image:url('../images/card.png');
 		background-size: 18vw 24.2vh;
 		background-repeat:no-repeat;
 		width: 20%;
@@ -50,21 +50,21 @@
 		display:none;
 		overflow-y: auto;
 	}
-	
+
 	.content {
 		background: rgba(255,255,255,1);
 		padding: 15px;
-		
+
 	}
-	
+
 	.card {
 		list-style-type:none;
 	}
-	
+
 	.card button:hover{
 		box-shadow: 0px 10px 10px grey;
 	}
-	
+
 	.card button {
 		background: none;
 		border: 1px solid gray;
@@ -73,8 +73,8 @@
 		padding: 20%;
 		transition:0.2s;
 	}
-	
-	
+
+
 	#close {
 		background:none;
 		border:none;
@@ -83,12 +83,12 @@
 		font-size:20px;
 		transition:0.2s;
 	}
-	
+
 	#close:hover{
 		background:red;
 		color:white;
 	}
-	
+
 	#add-card {
 		background:none;
 		border:none;
@@ -96,7 +96,7 @@
 		font-size:20px;
 		transition:0.2s;
 	}
-	
+
 	#add-card:hover {
 		background:lightgray;
 	}
@@ -106,13 +106,14 @@
 
 <html>
 <head>
-    <link rel="stylesheet" href="css/style.css" type="text/css">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/style.css" type="text/css">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/font-awesome/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="js/group.js"></script>
+    <script src="../js/group.js"></script>
 </head>
 <body>
+	<% console.log(_id) %>
 	<nav class="navbar background">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -131,9 +132,9 @@
 
 	<div class="container">
 		<div class="announcements" style="float:left;">
-			<h1><strong>Welcome to BIO100!</strong></h1>
+			<h1><strong>Welcome to <%= title %></strong></h1>
 			<h2><strong>Anouncements:</strong></h2>
-			<ul id="announcement-list"> 
+			<ul id="announcement-list">
 			</ul>
 
 		</div>
