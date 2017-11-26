@@ -182,7 +182,48 @@
 		background:lightgray;
 	}
 
+	#shareGroups li{
+		list-style: none;
+	}
 
+	.share-button {
+		background:none;
+		border:none;
+		border-radius:5px;
+		font-size:20px;
+		transition:0.2s;
+		float: center;
+		margin-left: 12vw;
+	}
+	.share-button:hover {
+		background: lightgray;
+	}
+
+	.group-share-select {
+		background : none;
+		border:none;
+		border-radius:5px;
+		box-shadow: 0px 1px 3px grey;
+		width: 100%;
+		height: 6vh;
+		text-align:left;
+		padding-left: 2vw;
+		transition:0.2s;
+	}
+
+	.group-share-select:hover {
+		box-shadow: 0px 2px 6px grey;
+	}
+
+	#shareGroups {
+		margin-top : 10px;
+		padding: 0;
+	}
+	#shareGroups li{
+		margin-top : 6vh;
+		padding-left: 0;
+		font-size:18px;
+	}
 
 </style>
 
@@ -216,10 +257,23 @@
 		</div>
 	</div>
 
+	<div id="deck-share-overlay" class="popup" style="z-index:902;">
+		<div class="content">
+			<h1 style="display:inline;"><strong>Choose a group to share with</strong></h1>
+			<button class="close-button" onclick="hideOverlay('deck-share-overlay')"> X </button>
+			<ul id="shareGroups">
+				<% for(group in groups) {%>
+					<li><button class="group-share-select" onclick="shareDeck(<%=groups[group].id%>)"><span><strong><%=groups[group].name %></strong></span></button></li>
+				<% } %>
+			</ul>
+		</div>
+	</div>
+
 	<div id="deck-overlay" class="popup">
 		<div class="content">
-			<button class="close-button" onclick="hideOverlay('deck-overlay')"> X </button>
-			<button class="add-button" id="add-card" onclick="showPopup('new-card-overlay')"><span><Strong>Add New Card</strong></span></button>
+				<button class="add-button" id="add-card" onclick="showPopup('new-card-overlay')"><span><Strong>Add New Card</strong></span></button>
+				<button class="share-button" onclick="showPopup('deck-share-overlay')"><span> Share Deck </span></button>
+				<button class="close-button" onclick="hideOverlay('deck-overlay')"> X </button>
 			<ul id="catalog">
 			</ul>
 		</div>
@@ -273,7 +327,7 @@
 			</h1>
 			  <ul id="deck-list" class="decks">
 					<% for(var i=0; i < userdecks.length; i++) { %>
-						<div id='<%= userdecks[i].name %>' class='cards' onclick='showOverlay(this.id)'><button><h1><strong><%=userdecks[i].name%></strong></h1></button></div>
+						<div id='<%= userdecks[i].name %>' value='<%= userdecks[i].id %>' class='cards' onclick='showOverlay(this.id)'><button><h1><strong><%=userdecks[i].name%></strong></h1></button></div>
 					<% } %>
 				</ul>
 		</div>
