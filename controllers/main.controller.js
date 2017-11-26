@@ -83,13 +83,13 @@ function getUserPage(req, res) {
 	Group.find({ members: { $elemMatch: { "local.username": req.user.local.username } } }, (err1, groups) => {
 		if (err1) {
 			res.status(404);
-			res.send('Posts not found!');
+			res.send('Groups not found!');
 		}
 
 		UserDeck.find({ "user.local.username": req.user.local.username }, (err2, userdecks) => {
 			if (err2) {
 				res.status(404);
-				res.send('Posts not found!');
+				res.send('UserDecks not found!');
 			}
 
 			res.render('user', {
