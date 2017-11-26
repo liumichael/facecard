@@ -1,7 +1,6 @@
 var Group = require('../models/group');
 var User = require('../models/users');
 var GroupDeck = require ('../models/groupdeck');
-var Deck = require('../models/decks');
 
 module.exports = {
 	postDeck : postDeck,
@@ -19,17 +18,6 @@ function postDeck(req, res) {
   var owner = new User({local : {username : "sushi", password : "hello", email : "hello@gmail.com"}});
 	var item = new Group({id : 7, owner : owner, name : "BIO105"});
 	item.save();
-}
-
-function findDecks(data) {
-  var decks = GroupDeck.find({groupid : data._id}).toArray();
-
-  for (deck in decks) {
-    Deck.findById(deck._id)
-    .then(function (data) {
-      decks.push(data);
-    });
-  }
 }
 
 function getGroupPage(req, res) {
