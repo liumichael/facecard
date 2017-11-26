@@ -203,6 +203,11 @@
 				<label><strong>Deck Name </strong></label><input id="new-deck-name" class="text-box-input" type="text" value="" name="deckname"><br></br>
 				<input type="hidden" name="groupid" value="<%= id %>" />
 				<input type="hidden" name="groupname" value="<%= title %>" />
+
+				<% if (user == owner.username)%>
+					<input type="hidden" name="verfied" value="1" />
+				<% if (user != owner.username)%>
+					<input type="hidden" name="verfied" value="<0" />
 				<!-- <input value="CREATE DECK" class="create-button" type="button" onclick='addNewDeck()'> -->
 				<input value="CREATE DECK" class="create-button" type="submit">
 			</form>
@@ -226,8 +231,14 @@
 
         <ul id="deck-list" class="decks"></ul>
 				<% for (deck in decks) { %>
-					<div id="<%=decks[deck].name%>" class='cards' onclick='showOverlay(this.id)'><button><h1><strong><%= decks[deck].name %></strong></h1></button></div>
-			 <% } %>
+					<div id="<%=decks[deck].name%>" class='cards' onclick='showOverlay(this.id)'>
+						<button><h1><strong><%= decks[deck].name %></strong></h1>
+							<% if (decks[deck].verified == 1) { %>
+								<label>verified </label>
+							<% } %>
+						</button>
+				 </div>
+			  <% } %>
 		</div>
 	</div>
 

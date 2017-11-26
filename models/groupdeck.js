@@ -10,6 +10,7 @@ var groupDeckSchema = mongoose.Schema({
     id 		       : Number,
     groupid      : Number,
     name         : String,
+    verified     : Number,
     cuecards     : [CueCardSchema]
 });
 

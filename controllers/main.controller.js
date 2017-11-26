@@ -77,6 +77,7 @@ function getGroupPage(req, res) {
 	        title : data.name,
 					user: req.user.local.username,
 					members: data.members,
+					owner : data.owner,
 					decks : data2
 	      });
 			});
@@ -121,7 +122,7 @@ function addNewGroupCard(req, res) {
   }
 	var oid = mongoose.Types.ObjectId();
 	var newid = parseInt(oid.valueOf());
-	var deck = new GroupDeck({id : newid, groupid : req.body.groupid, name : req.body.deckname, cuecards : []});
+	var deck = new GroupDeck({verified : req.body.verified, id : newid, groupid : req.body.groupid, name : req.body.deckname, cuecards : []});
 	deck.save();
 
 	var redirectpath = "/group/" + req.body.groupname;
