@@ -17,11 +17,11 @@
 }
 
 .menu-writing {
-  color: #fd5c63;
+  color: #fd5c63 !important;
 }
 
 .menu-writing:hover {
-  color: #fd5c63;
+  color: #fd5c63 !important;
 }
 
 /* contents */
