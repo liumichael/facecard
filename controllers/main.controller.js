@@ -114,6 +114,37 @@ function getUserPage(req, res) {
 	});
 }
 
+function getUserDeck(req, res) {
+    const errors = req.validationErrors();
+    if (errors) {
+        req.flash('errors', errors.map(err => err.msg));
+        res.redirect('/user');
+    }
+
+    UserDeck.find({})
+        .then(function(data) {
+            console.log(data);
+        });
+    UserDeck.findOne({
+            id: req.params.id
+        })
+        .then(function(data) {
+            if (!data) {
+                res.status(404);
+                res.send('Deck not found!');
+            } else {
+                res.render('cue', {
+                    _id: data._id,
+                    id: data.id,
+                    title: data.name,
+                    user: req.user.local.username,
+                    cuecards: data.cuecards,
+
+                })
+            }
+        });
+}
+
 function makeId(timestamp) {
 	var str = "";
 	str += timestamp.getYear();

@@ -72,6 +72,8 @@ module.exports = function(app, passport) {
       failureFlash : true // allow flash messages
   }));
 
+  app.get('/deck/:id', mainController.getGroupPage);
+
   app.get('/cue', function(req, res){
       res.render('cue_card_front', {user: req.user.local.username});
   });
