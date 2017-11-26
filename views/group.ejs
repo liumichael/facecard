@@ -202,6 +202,7 @@
 			<form action="/group/newdeck"  method="post">
 				<label><strong>Deck Name </strong></label><input id="new-deck-name" class="text-box-input" type="text" value="" name="deckname"><br></br>
 				<input type="hidden" name="groupid" value="<%= id %>" />
+				<input type="hidden" name="groupname" value="<%= title %>" />
 				<!-- <input value="CREATE DECK" class="create-button" type="button" onclick='addNewDeck()'> -->
 				<input value="CREATE DECK" class="create-button" type="submit">
 			</form>
