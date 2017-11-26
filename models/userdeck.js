@@ -24,4 +24,4 @@ var userdeckSchema = mongoose.Schema({
 
 // create the model for users and generalize it to our app
 
-module.exports = mongoose.model('Userdeck', userdeckSchema);
+module.exports = mongoose.model('UserDeck', userdeckSchema);

@@ -272,8 +272,10 @@
 
 			</h1>
 			  <ul id="deck-list" class="decks">
-
-			  </ul>
+					<% for(var i=0; i < userdecks.length; i++) { %>
+						<div id='<%= userdecks[i].name %>' class='cards' onclick='showOverlay(this.id)'><button><h1><strong><%=userdecks[i].name%></strong></h1></button></div>
+					<% } %>
+				</ul>
 		</div>
 	</div>
 
