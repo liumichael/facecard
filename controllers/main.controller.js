@@ -10,6 +10,7 @@ module.exports = {
   getGroupPage : getGroupPage,
 	getUserPage : getUserPage,
 	addNewGroupCard : addNewGroupCard,
+	verifyCard : verifyCard
 }
 
 
@@ -113,6 +114,15 @@ function getUserPage(req, res) {
 	});
 }
 
+function makeId(timestamp) {
+	var str = "";
+	str += timestamp.getYear();
+	str+= timestamp.getMonth();
+	str += timestamp.getDay();
+	str += timestamp.getTime();
+
+	return str;
+}
 
 function addNewGroupCard(req, res) {
 	const errors = req.validationErrors();
@@ -121,11 +131,36 @@ function addNewGroupCard(req, res) {
     res.redirect('/user');
   }
 	var oid = mongoose.Types.ObjectId();
-	var newid = parseInt(oid.valueOf());
+	var newid = parseInt(makeId(oid.getTimestamp()));
+	console.log(newid);
 	var deck = new GroupDeck({verified : req.body.verified, id : newid, groupid : req.body.groupid, name : req.body.deckname, cuecards : []});
 	deck.save();
 
 	var redirectpath = "/group/" + req.body.groupname;
 	res.redirect(redirectpath);
 
+}
+
+function verifyCard(req, res) {
+	const errors = req.validationErrors();
+  if (errors) {
+    req.flash('errors', errors.map(err => err.msg));
+    res.redirect('/user');
+  }
+
+	console.log(req.params.deckid);
+	GroupDeck.update({"id": req.params.deckid}, {$set :{verified : 1}} , {upsert:true}, function(err, result) {
+		if (err) {
+			res.status(404);
+			res.send('GroupDecks not found!');
+		}
+    console.log("updated");
+		GroupDeck.find({})
+		.then(function(data) {
+			console.log(data);
+
+			var url = "/group/" + req.body.groupname;
+	    res.redirect(url);
+		});
+  });
 }

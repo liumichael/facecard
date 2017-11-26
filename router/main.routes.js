@@ -44,6 +44,7 @@ module.exports = function(app, passport) {
 
   app.get('/group/:name', mainController.getGroupPage);
   app.post('/group/newdeck', mainController.addNewGroupCard);
+  app.post('/group/verify/:deckid',  mainController.verifyCard);
 
   // process the login form
   app.post('/login', passport.authenticate('local-login', {

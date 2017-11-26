@@ -10,10 +10,10 @@
 
 	.cards {
 		background-image:url('../images/card.png');
-		background-size: 18vw 24.2vh;
+		background-size:16vw 21vh;
 		background-repeat:no-repeat;
-		width: 20%;
-		height:20%;
+		width:16vw;
+		height:21vh;
 		border:none;
 		margin:20px;
 		position:relative;
@@ -25,7 +25,8 @@
 		border:none;
 		height:100%;
 		width:100%;
-		padding:21%;
+		padding:18%;
+		padding-top:10%;
 	}
 
 	.container {
@@ -145,7 +146,13 @@
 		background:red;
 		color:white;
 	}
-
+	.verifyButton{
+		background : white;
+		border-radius: 5px;
+		float:left;
+		padding : 1px;
+		box-shadow: 0px 0px 1px grey;
+	}
 
 </style>
 
@@ -204,10 +211,11 @@
 				<input type="hidden" name="groupid" value="<%= id %>" />
 				<input type="hidden" name="groupname" value="<%= title %>" />
 
-				<% if (user == owner.username)%>
-					<input type="hidden" name="verfied" value="1" />
-				<% if (user != owner.username)%>
-					<input type="hidden" name="verfied" value="<0" />
+				<% if (user == owner.username) {%>
+					<input type="hidden" name="verified" value="1" />
+				<% } else {%>
+					<input type="hidden" name="verified" value="0" />
+				<% } %>
 				<!-- <input value="CREATE DECK" class="create-button" type="button" onclick='addNewDeck()'> -->
 				<input value="CREATE DECK" class="create-button" type="submit">
 			</form>
@@ -231,8 +239,18 @@
 
         <ul id="deck-list" class="decks"></ul>
 				<% for (deck in decks) { %>
-					<div id="<%=decks[deck].name%>" class='cards' onclick='showOverlay(this.id)'>
-						<button><h1><strong><%= decks[deck].name %></strong></h1>
+
+					<div id="<%=decks[deck].id%>" class='cards'>
+						<% if (decks[deck].verified != 1 && user == owner.username) {%>
+							<!-- <a href="/group/verify/<%=decks[deck].id %>/<%=title %>"><span>Verify Card</span></a> -->
+							<form action="/group/verify/<%=decks[deck].id %>" method="post">
+								<input type="hidden" name="groupname" value="<%= title %>" />
+							<input class="verifyButton" value="Verify Card" type="submit">
+							</form>
+						<% } %>
+						<button  onclick='showOverlay(this.id)'>
+							<h1><strong><%= decks[deck].name %></strong></h1>
+
 							<% if (decks[deck].verified == 1) { %>
 								<label>verified </label>
 							<% } %>
