@@ -4,15 +4,19 @@
 
 var mongoose = require('mongoose');
 
+var UserSchema = mongoose.model('Cuecard').schema;
+
 
 
 // define the schema for our user model
 
 var userdeckSchema = mongoose.Schema({
 
-    username    : String,
-    deckid     : Number,
-
+    id: String
+    name: String,
+    username: String,
+    curcards: [cuecardSchema],
+    
 });
 
 
