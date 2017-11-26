@@ -1,5 +1,7 @@
 var decks = { "Test 1": ["midochondria 1", "midochondria 2"], "Test 2": ["membrane 1"], "Test 3": ["enzymes 1"], "Exam": ["virus 1"] };
 
+var cards = {"midochondria 1": {}, "midochondria 2": {}, "membrane 1": {}, "enzymes 1": {}, "virus 1": {}};
+
 var announcements = ["TEST 1: October 31st, 2017", "TEST 2: To be decided", "FINAL EXAM: February 9th, 2018"];
 var announcementDetails = ["Coverage: Chapter 1 to and including Chapter 3.", "Coverage: Chapter 3 to (and including) Chapter 7.", "Coverage: Chapter 1 to and including Chapter 12"]
 
@@ -9,6 +11,18 @@ $(function () {
     makeAnnouncements();
     // makeDecks();
 });
+
+function addNewDeck() {
+	var deckName = document.getElementById("new-deck-name").value;
+
+	decks[deckName] = [];
+
+	document.getElementById("deck-list").innerHTML = '';
+
+	makeDecks();
+
+	hideOverlay('new-deck-overlay');
+}
 
 function makeAnnouncements() {
     for (index in announcements) {
@@ -23,7 +37,37 @@ function makeDecks() {
     }
 }
 
+function showPopup(id) {
+	document.getElementById(id).style.display = "block";
+}
+
+function addNewDeck() {
+	var deckName = document.getElementById("new-deck-name").value;
+
+	decks[deckName] = [];
+
+	document.getElementById("deck-list").innerHTML = '';
+
+	makeDecks();
+
+	hideOverlay('new-deck-overlay');
+}
+
+function addNewCard() {
+	var deckName = document.getElementById("new-card-name").value;
+	var question = document.getElementById("new-card-question").value;
+	var answer = document.getElementById("new-card-answer").value;
+
+
+	decks[openedDeck].push(deckName);
+	cards[deckName] = {"question": question, "answer": answer};
+
+	showOverlay(openedDeck);
+	hideOverlay('new-card-overlay');
+}
+
 function showOverlay(id) {
+    document.getElementById("catalog").innerHTML = '';
     document.getElementById("deck-overlay").style.display = "block";
 
     var listOfCards = decks[id];
@@ -35,9 +79,7 @@ function showOverlay(id) {
     }
 }
 
-function hideOverlay() {
-
-    document.getElementById("catalog").innerHTML = '';
-
-    document.getElementById("deck-overlay").style.display = "none";
+function hideOverlay(overlay) {
+	document.getElementById(overlay).style.display = "none";
+	openedDeck = "";
 }

@@ -57,6 +57,10 @@
 		overflow-y: auto;
 	}
 
+	.popup label {
+		font-size : 35px;
+		padding : 10px;
+	}
 	.content {
 		background: rgba(255,255,255,1);
 		padding: 25px;
@@ -204,9 +208,9 @@
 		<div class="content">
 			<button class="close-button" onclick="hideOverlay('new-card-overlay')"> X </button>
 			<form>
-				<input id="new-card-name" class="text-box-input" type="text" value="Card name here.." name="fname"><br></br>
-				<input id="new-card-question" class="text-box-input" type="text" value="Question here.." name="fname"><br></br>
-				<input id="new-card-answer" class="text-box-input" type="text" value="Answer here.." name="fname"><br></br>
+				<label><strong>Card Name </strong></label><input id="new-card-name" class="text-box-input" type="text" value="" name="fname"><br></br>
+				<label><strong>Question </strong></label><input id="new-card-question" class="text-box-input" type="text" value="" name="fname"><br></br>
+				<label><strong>Answer </strong></label><input id="new-card-answer" class="text-box-input" type="text" value="" name="fname"><br></br>
 				<input class="create-button" value="CREATE CARD" type="button" onclick="addNewCard()">
 			</form>
 		</div>
@@ -226,7 +230,7 @@
 			<button class="close-button" onclick="hideOverlay('new-deck-overlay')"> X </button>
 
 			<form>
-				<input id="new-deck-name" class="text-box-input" type="text" value="Deck name here.." name="fname"><br></br>
+				<label><strong>Deck Name </strong></label><input id="new-deck-name" class="text-box-input" type="text" value="" name="fname"><br></br>
 				<input value="CREATE DECK" class="create-button" type="button" onclick="addNewDeck()">
 			</form>
 		</div>
