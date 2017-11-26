@@ -22,10 +22,6 @@ module.exports = function(app, passport) {
     res.render('signup');
   })
 
-  app.get('/group', function(req, res) {
-    res.render('group', {title : "BIO100", user: req.user.local.username});
-  })
-
   app.get('/quiz', function(req, res) {
     res.render('quiz', {user: req.user.local.username});
   })
@@ -49,7 +45,7 @@ module.exports = function(app, passport) {
 
   //app.get('/user/post', mainController.seedDeck);
   //app.get('/deck/post', mainController.seedUserDeck);
-  
+
   app.get('/group/:name', mainController.getGroupPage);
 
   // process the login form
@@ -84,8 +80,6 @@ module.exports = function(app, passport) {
 
 };
 
-
-
 function loggedIn(req, res, next) {
     if (req.user) {
         next();
@@ -94,39 +88,4 @@ function loggedIn(req, res, next) {
         res.redirect('/login');
         return false;
     }
-}
-
-function authorized(req, res, next) {
-    Post.findOne({slug: req.params.slug}, (err, post) => {
-      if (err) {
-        res.status(404);
-        res.send('Posts not found!');
-      }
-      if(!req.user){
-        res.redirect('/login');
-        return false;
-      }else {
-
-        if (req.user.local.username) {
-            var user = req.user.local.username;
-        } else if (req.user.facebook.name){
-            var user = req.user.facebook.name;
-        }
-        console.log(user);
-        if(post){
-          console.log(post.author);
-          if(user == post.author){
-              next();
-              //res.redirect('/');
-              return true;
-          }else {
-              res.redirect('/');
-              req.flash('You are not authorized');
-              return false;
-          }
-        }
-        return false;
-
-      }
-    });
 }
