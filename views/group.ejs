@@ -211,7 +211,7 @@
 				<input type="hidden" name="groupid" value="<%= id %>" />
 				<input type="hidden" name="groupname" value="<%= title %>" />
 
-				<% if (user == owner.username) {%>
+				<% if (user.username == owner.username) {%>
 					<input type="hidden" name="verified" value="1" />
 				<% } else {%>
 					<input type="hidden" name="verified" value="0" />
