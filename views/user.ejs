@@ -225,6 +225,20 @@
 		font-size:18px;
 	}
 
+	.accept-button {
+		background : #4564a0;
+		color:white;
+		border:1px solid #4564a0;
+		padding: 10px;
+		border-radius:2px;
+		font-weight: bold;
+		transition:0.2s;
+	}
+	.accept-button:hover {
+		background : white;
+		color:#4564a0;
+	}
+
 </style>
 
 <html>
@@ -237,8 +251,8 @@
 	<script src="js/user.js"></script>
 </head>
 <body>
-	
-	<!-- <form action="/user/accept" method="post"><input type="hidden" name="groupid" value="6" /><input value="Accept Invitation" type="submit"></form> -->
+
+	<!-- <form action='/user/accept' method='post'><input type='hidden' name='groupid' value='6' /><input class='accept-button' value='Accept Invitation' type='submit'></form> -->
 
 	<div id="notification-center" class="popup" style="z-index:901;">
 		<div class="content">
