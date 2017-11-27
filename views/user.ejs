@@ -241,6 +241,15 @@
 		<div class="content">
 			<button class="close-button" onclick="hideOverlay('notification-center')"> X </button>
 			<ul id="notifications">
+				<li class='notif-card'>
+					<% for(var i=0; i < notifications.length; i++) { %>
+						<div id='<%= notifications[i].title %>'>
+							<h1><strong><%= notifications[i].title %></strong></h1>
+							<h2><%= notifications[i].sender.local.username %></h2><br></br>
+							<%= notifications[i].content %>
+						</div>
+					<% } %>
+				</li>
 			</ul>
 		</div>
 	</div>

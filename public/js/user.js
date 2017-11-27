@@ -96,7 +96,7 @@ function shareDeck(group_id) {
 	hideOverlay('deck-share-overlay');
 }
 
-function getNotifications() {
+/*function getNotifications() {
 	var notifList = $('#notifications');
 
 	document.getElementById("notifications").innerHTML = '';
@@ -104,4 +104,4 @@ function getNotifications() {
 	for (notif in notifications) {
 		notifList.append("<li class='notif-card'><div id='" + notif + "'><h1><strong>" + notif + "</strong></h1><h2>From " + notifications[notif]["sender"] + "</h2><br></br>" + notifications[notif]["content"] + "</div></li>");
 	}
-}
+}*/

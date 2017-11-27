@@ -11,6 +11,7 @@ var notification = mongoose.Schema({
     sender: UserSchema,
     title: String,
     content: String,
+    invited: [UserSchema],
 
 });
 

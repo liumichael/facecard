@@ -3,11 +3,13 @@ var User = require('../models/users');
 var UserDeck = require('../models/userdeck');
 var GroupDeck = require ('../models/groupdeck');
 var Announcements = require ('../models/announcements');
+var Notifications = require ('../models/notification');
 var mongoose = require('mongoose');
 
 module.exports = {
     seedDeck: seedDeck,
     seedUserDeck: seedUserDeck,
+    seedNotification: seedNotification,
     getGroupPage: getGroupPage,
     getGroupDeck: getGroupDeck,
     getUserPage: getUserPage,
@@ -79,6 +81,33 @@ function seedUserDeck(req, res) {
     item2.save();
     item3.save();
     item4.save();
+    res.redirect('/user');
+}
+
+function seedNotification(req, res) {
+    const errors = req.validationErrors();
+    if (errors) {
+        req.flash('errors', errors.map(err => err.msg));
+        res.redirect('/user');
+    }
+
+    var item1 = new Notifications({
+        id: 1,
+        invited: [req.user],
+        sender: req.user,
+        title: 'Prep-quiz from BIO101',
+        content: 'Click here to start the quiz',
+    });
+    var item2 = new Notifications({
+        id: 2,
+        invited: [req.user],
+        sender: req.user,
+        title: 'Invititation to join BIO106',
+        content: 'Click here accept the invitation',
+    });
+
+    item1.save();
+    item2.save();
     res.redirect('/user');
 }
 
@@ -198,10 +227,24 @@ function getUserPage(req, res) {
                 res.send('UserDecks not found!');
             }
 
-            res.render('user', {
-                user: req.user.local.username,
-                groups: groups,
-                userdecks: userdecks,
+            Notifications.find({
+              invited: {
+                  $elemMatch: {
+                      "local.username": req.user.local.username
+                  }
+              }
+            }, (err3, notifications)=> {
+              if(err3) {
+                res.status(404);
+                res.send('Notifications not found!');
+              }
+
+              res.render('user', {
+                  user: req.user.local.username,
+                  groups: groups,
+                  notifications: notifications,
+                  userdecks: userdecks,
+              });
             });
         });
     });
