@@ -113,17 +113,16 @@
 		background:lightgray;
 	}
 
-	#new-deck-button {
+	.new-entity-button {
 		background: none;
 		border: 1px solid black;
 		border-radius:50;
-		margin-left:2%;
 		width:50px;
 		height:50px;
 		transition:0.2s;
 	}
 
-	#new-deck-button:hover {
+	.new-entity-button:hover {
 		background: lightgray;
 	}
 
@@ -151,6 +150,7 @@
 		margin-top:2vh;
 		list-style:none;
 		padding-left:0;
+		margin-top:10px;
 	}
 
 	.notif-card {
@@ -225,6 +225,20 @@
 		font-size:18px;
 	}
 
+	.accept-button {
+		background : #4564a0;
+		color:white;
+		border:1px solid #4564a0;
+		padding: 10px;
+		border-radius:2px;
+		font-weight: bold;
+		transition:0.2s;
+	}
+	.accept-button:hover {
+		background : white;
+		color:#4564a0;
+	}
+
 </style>
 
 <html>
@@ -237,8 +251,12 @@
 	<script src="js/user.js"></script>
 </head>
 <body>
+
+	<!-- <form action='/user/accept' method='post'><input type='hidden' name='groupid' value='6' /><input class='accept-button' value='Accept Invitation' type='submit'></form> -->
+
 	<div id="notification-center" class="popup" style="z-index:901;">
 		<div class="content">
+			<h1 style="display:inline;"><strong>Notifications</strong></h1>
 			<button class="close-button" onclick="hideOverlay('notification-center')"> X </button>
 			<ul id="notifications">
 				<li class='notif-card'>
@@ -299,6 +317,17 @@
 		</div>
 	</div>
 
+	<div id="new-group-overlay" class="popup">
+		<div class="content">
+			<button class="close-button" onclick="hideOverlay('new-group-overlay')"> X </button>
+
+			<form action="/user/newGroup" method="post">
+				<label><strong>Group Name </strong></label><input id="new-deck-name" class="text-box-input" type="text" value="" name="groupname"><br></br>
+				<input value="CREATE GROUP" class="create-button" type="submit">
+			</form>
+		</div>
+	</div>
+
 	<nav class="navbar background">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -318,7 +347,10 @@
 
 	<div class="container">
 		<div class="groups" id="group-pane" style="float:left;">
-			<h1><strong>Groups</strong></h1>
+			<h1>
+				<strong>Groups</strong>
+				<button id="new-group-button" class="new-entity-button" onclick="showPopup('new-group-overlay')">+</button>
+			</h1>
 			<ul id="group-list" style="height:700px;overflow-y:auto;">
 				<% for(var i=0; i < groups.length; i++) { %>
 					<li><a href='group/<%= groups[i].name %>' class='group'><span><strong><%=groups[i].name%></strong></span></a></li>
@@ -330,7 +362,7 @@
 		<div class="deck-view" style="float:right;width:85%">
 			<h1>
 				<strong>YOUR DECKS</strong>
-				<button id="new-deck-button" onclick="showPopup('new-deck-overlay')">+</button>
+				<button id="new-deck-button" class="new-entity-button" onclick="showPopup('new-deck-overlay')">+</button>
 				<button id="notification-button" onclick="showPopup('notification-center'); getNotifications();"><p><span class="glyphicon glyphicon-bell"></span></p></button>
 
 			</h1>

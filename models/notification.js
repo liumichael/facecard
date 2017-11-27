@@ -11,8 +11,7 @@ var notification = mongoose.Schema({
     sender: UserSchema,
     title: String,
     content: String,
-    invited: [UserSchema],
-
+    invited : [UserSchema],
 });
 
 // create the model for notification and generalize it to our app

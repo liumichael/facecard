@@ -17,7 +17,9 @@ module.exports = {
     addNewGroupCard: addNewGroupCard,
     verifyCard: verifyCard,
     shareDeck: shareDeck,
-    getAnnouncements : getAnnouncements
+    getAnnouncements : getAnnouncements,
+    acceptInvite : acceptInvite,
+    createNewGroup : createNewGroup
 }
 
 
@@ -118,10 +120,6 @@ function getGroupPage(req, res) {
         res.redirect('/user');
     }
 
-    User.find({})
-        .then(function(data) {
-            console.log(data);
-        });
     Group.findOne({
             name: req.params.name
         })
@@ -286,6 +284,27 @@ function addNewGroupCard(req, res) {
 
 }
 
+function addNewUserCard(req, res) {
+    const errors = req.validationErrors();
+    if (errors) {
+        req.flash('errors', errors.map(err => err.msg));
+        res.redirect('/user');
+    }
+
+    var newid = makeId();
+    var deck = new UserDeck({
+        id: newid,
+        user: req.user.local,
+        name: req.body.deckname,
+        cuecards: []
+    });
+    deck.save();
+
+    var redirectpath = "/user/";
+    res.redirect(redirectpath);
+
+}
+
 function verifyCard(req, res) {
     const errors = req.validationErrors();
     if (errors) {
@@ -360,4 +379,46 @@ function getAnnouncements(req, res) {
             }
         });
 
+}
+
+
+function acceptInvite(req, res) {
+	const errors = req.validationErrors();
+  if (errors) {
+    req.flash('errors', errors.map(err => err.msg));
+    res.redirect('/user');
+  }
+
+	Group.update(
+    {id : req.body.groupid},
+    {$push : {members : req.user}},
+    {upsert : true},
+    function(err, result) {
+        if (err) {
+          res.status(404);
+          res.send(err);
+        }
+        else {
+          res.redirect('/user');
+        }
+	});
+}
+
+function createNewGroup(req, res) {
+  const errors = req.validationErrors();
+  if (errors) {
+    req.flash('errors', errors.map(err => err.msg));
+    res.redirect('/user');
+  }
+  var user = req.user;
+
+  var newGroup = new Group({
+    id : makeId(),
+    name : req.body.groupname,
+    owner : req.user,
+    members : [req.user]
+  });
+
+  newGroup.save();
+  res.redirect('/group/' + req.body.groupname);
 }

@@ -211,7 +211,7 @@
 				<input type="hidden" name="groupid" value="<%= id %>" />
 				<input type="hidden" name="groupname" value="<%= title %>" />
 
-				<% if (user.username == owner.username) {%>
+				<% if (user == owner.local.username) {%>
 					<input type="hidden" name="verified" value="1" />
 				<% } else {%>
 					<input type="hidden" name="verified" value="0" />
@@ -241,7 +241,7 @@
 				<% for (deck in decks) { %>
 
 					<div id="<%=decks[deck].id%>" class='cards'>
-						<% if (decks[deck].verified != 1 && user.username == owner.username) {%>
+						<% if (decks[deck].verified != 1 && user == owner.local.username) {%>
 							<!-- <a href="/group/verify/<%=decks[deck].id %>/<%=title %>"><span>Verify Card</span></a> -->
 							<form action="/group/verify/<%=decks[deck].id %>" method="post">
 								<input type="hidden" name="groupname" value="<%= title %>" />
