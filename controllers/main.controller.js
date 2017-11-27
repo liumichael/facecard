@@ -15,7 +15,8 @@ module.exports = {
     addNewGroupCard: addNewGroupCard,
     verifyCard: verifyCard,
     shareDeck: shareDeck,
-    getAnnouncements : getAnnouncements
+    getAnnouncements : getAnnouncements,
+    acceptInvite : acceptInvite
 }
 
 
@@ -89,10 +90,6 @@ function getGroupPage(req, res) {
         res.redirect('/user');
     }
 
-    User.find({})
-        .then(function(data) {
-            console.log(data);
-        });
     Group.findOne({
             name: req.params.name
         })
@@ -338,4 +335,27 @@ function getAnnouncements(req, res) {
             }
         });
 
+}
+
+
+function acceptInvite(req, res) {
+	const errors = req.validationErrors();
+  if (errors) {
+    req.flash('errors', errors.map(err => err.msg));
+    res.redirect('/user');
+  }
+
+	Group.update(
+    {id : req.body.groupid},
+    {$push : {members : req.user}},
+    {upsert : true},
+    function(err, result) {
+        if (err) {
+          res.status(404);
+          res.send(err);
+        }
+        else {
+          res.redirect('/user');
+        }
+	});
 }
