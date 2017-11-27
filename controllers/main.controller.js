@@ -14,7 +14,7 @@ module.exports = {
     getUserDeck: getUserDeck,
     addNewGroupCard: addNewGroupCard,
     verifyCard: verifyCard,
-    shareDeck: shareDeck
+    shareDeck: shareDeck,
     getAnnouncements : getAnnouncements
 }
 
