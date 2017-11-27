@@ -219,7 +219,7 @@ function makeId() {
     return newid;
 }
 
-function addNewGroupCard(req, res) {
+function addNewGroupDeck(req, res) {
     const errors = req.validationErrors();
     if (errors) {
         req.flash('errors', errors.map(err => err.msg));
@@ -241,7 +241,7 @@ function addNewGroupCard(req, res) {
 
 }
 
-function addNewUserCard(req, res) {
+function addNewUserDeck(req, res) {
     const errors = req.validationErrors();
     if (errors) {
         req.flash('errors', errors.map(err => err.msg));
