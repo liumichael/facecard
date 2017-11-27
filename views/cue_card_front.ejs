@@ -4,41 +4,41 @@
 <head>
     <meta charset="utf-8">
     <title>facecard: remembering tool</title>
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="../css/style.css" type="text/css">
     <!-- <link rel="stylesheet" href="css/cue.css" type="text/css"> -->
-    <link href="css/bootstrap4/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+    <link href="../css/bootstrap4/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/font-awesome/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/cue.js"></script>
+    <script type="text/javascript" src="../js/cue.js"></script>
 
 </head>
 
 <body>
-  <nav class="navbar background">
-      <div class="container-fluid">
-          <div class="navbar-header">
-              <a class="navbar-brand menu-writing" href="/" style="font-size:27pix;"><strong>facecard</strong></a>
-          </div>
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav">
-                  <li><a class="menu-writing" href="/about"> About</a></li>
-                  <li><a class="menu-writing" href="/contact"> Contact</a></li>
-                  <!--
+    <nav class="navbar background">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand menu-writing" href="/" style="font-size:27pix;"><strong>facecard</strong></a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a class="menu-writing" href="/about"> About</a></li>
+                    <li><a class="menu-writing" href="/contact"> Contact</a></li>
+                    <!--
 <li><a href="#">Home</a></li>
               <li><a href="#">Profile</a></li>
               <li><a href="#">Group</a></li>
               <li class="active"><a href="#">Quiz</a></li>
               -->
-              </ul>
+                </ul>
 
 
-              <ul class="nav navbar-nav navbar-right">
-                  <li><a class="menu-writing" href="/quiz">   Quiz</a></li>
-      <li><a class="menu-writing" href="/"><i class="fa fa-user fa-1x"></i>   <%= user %></a></li>
-              </ul>
-          </div>
-      </div>
-  </nav>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="menu-writing" href="/quiz">   Quiz</a></li>
+                    <li><a class="menu-writing" href="/"><i class="fa fa-user fa-1x"></i>   <%= user %></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
     <br>
     <!-- <div class="intro">
@@ -177,6 +177,11 @@
 
     </main> -->
 
+    <script type="text/javascript">
+        var content = <%- cuecards %>;
+        ready();
+    </script>
+
 
     <main role="main" class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content col-center">
 
@@ -186,7 +191,7 @@
                 <div class="front" id="cueCardFront">
                     <div class="card">
                         <div class="card-header text-center">
-                            <h1>Biology</h1>
+                            <h1><%= title %></h1>
                         </div>
 
                         <div class="card-body">
@@ -218,7 +223,7 @@
                                         <!-- <form class="form-group" id="revealAnswer">
                                             <buttom class="btn btn-primary col-md-offset-3" id="revealButton" onclick=showAnswer()>Reveal Answer</button>
                                         </form> -->
-                                        <a href="#" class="btn btn-primary col-md-offset-3" id = "revealAnswer" onclick=showAnswer()> Reveal Answer </a>
+                                        <a href="#" class="btn btn-primary col-md-offset-3" id="revealAnswer" onclick=showAnswer()> Reveal Answer </a>
                                     </div>
                                 </div>
 

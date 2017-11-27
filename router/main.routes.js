@@ -39,12 +39,13 @@ module.exports = function(app, passport) {
     });
   });
 
-  //app.get('/user/post', mainController.seedDeck);
-  //app.get('/deck/post', mainController.seedUserDeck);
+  // app.post('/user/post', mainController.seedDeck);
+  // app.get('/deck/post', mainController.seedUserDeck);
 
   app.get('/group/:name', mainController.getGroupPage);
   app.post('/group/newdeck', mainController.addNewGroupCard);
   app.post('/group/verify/:deckid',  mainController.verifyCard);
+  app.post('/user/share', mainController.shareDeck);
 
   // process the login form
   app.post('/login', passport.authenticate('local-login', {
@@ -72,7 +73,7 @@ module.exports = function(app, passport) {
       failureFlash : true // allow flash messages
   }));
 
-  app.get('/deck/:id', mainController.getGroupPage);
+  app.get('/deck/:id', mainController.getUserDeck);
 
   app.get('/cue', function(req, res){
       res.render('cue_card_front', {user: req.user.local.username});

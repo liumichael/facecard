@@ -1,21 +1,27 @@
-var content = [{
-    "question": "What is the powerhouse of the cell?",
-    "answer": "Mitochondria"
-}, {
-    "question": "What type of cells have cell walls?",
-    "answer": "Plant Cells"
-}, {
-    "question": "What type of cells produce energy by Photosynthesis?",
-    "answer": "Plant Cells"
-}]
+// var content = []
+
+// var content = [{
+//     "question": "What is the powerhouse of the cell?",
+//     "answer": "Mitochondria"
+// }, {
+//     "question": "What type of cells have cell walls?",
+//     "answer": "Plant Cells"
+// }, {
+//     "question": "What type of cells produce energy by Photosynthesis?",
+//     "answer": "Plant Cells"
+// }]
 
 var currentId;
 
 $(document).ready(function() {
+
+});
+
+function ready() {
     currentId = 0
     setContent(currentId);
     hideAnswer();
-});
+}
 
 function setContent(id) {
     var num = id + 1;

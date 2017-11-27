@@ -9,8 +9,10 @@ module.exports = {
 	seedUserDeck: seedUserDeck,
   getGroupPage : getGroupPage,
 	getUserPage : getUserPage,
+    getUserDeck : getUserDeck,
 	addNewGroupCard : addNewGroupCard,
-	verifyCard : verifyCard
+	verifyCard : verifyCard,
+	shareDeck : shareDeck
 }
 
 
@@ -20,12 +22,11 @@ function seedDeck(req, res) {
     req.flash('errors', errors.map(err => err.msg));
     res.redirect('/group');
   }
-
 	console.log(req.user);
   var owner = req.user;
 	var member = req.user;
 	var members = [member];
-	var item = new Group({id : 8, owner : owner, members: members, name : "MAT137"});
+	var item = new Group({id : 10, owner : owner, members: members, name : "MAT235"});
 	console.log(item.members);
 	console.log(item.owner);
 	item.save();
@@ -60,7 +61,7 @@ function getGroupPage(req, res) {
     res.redirect('/user');
   }
 
-	Group.find({})
+	User.find({})
 	.then(function (data) {
 		console.log(data);
 	});
@@ -84,6 +85,32 @@ function getGroupPage(req, res) {
 			});
     }
   });
+}
+
+function getUserDeck(req, res) {
+    const errors = req.validationErrors();
+    if (errors) {
+        req.flash('errors', errors.map(err => err.msg));
+        res.redirect('/user');
+    }
+
+    UserDeck.findOne({
+            id: req.params.id
+        })
+        .then(function(data) {
+            if (!data) {
+                res.send('Deck not found!');
+            } else {
+                res.render('cue_card_front', {
+                    _id: data._id,
+                    id: data.id,
+                    title: data.name,
+                    user: req.user.local.username,
+                    cuecards: data.cuecards
+
+                });
+            }
+        });
 }
 
 function getUserPage(req, res) {
@@ -114,45 +141,18 @@ function getUserPage(req, res) {
 	});
 }
 
-function getUserDeck(req, res) {
-    const errors = req.validationErrors();
-    if (errors) {
-        req.flash('errors', errors.map(err => err.msg));
-        res.redirect('/user');
-    }
-
-    UserDeck.find({})
-        .then(function(data) {
-            console.log(data);
-        });
-    UserDeck.findOne({
-            id: req.params.id
-        })
-        .then(function(data) {
-            if (!data) {
-                res.status(404);
-                res.send('Deck not found!');
-            } else {
-                res.render('cue', {
-                    _id: data._id,
-                    id: data.id,
-                    title: data.name,
-                    user: req.user.local.username,
-                    cuecards: data.cuecards,
-
-                })
-            }
-        });
-}
-
-function makeId(timestamp) {
+function makeId() {
+	var oid = mongoose.Types.ObjectId();
+	var timestamp = oid.getTimestamp();
 	var str = "";
 	str += timestamp.getYear();
 	str+= timestamp.getMonth();
 	str += timestamp.getDay();
 	str += timestamp.getTime();
 
-	return str;
+	var newid = parseInt(str);
+
+	return newid;
 }
 
 function addNewGroupCard(req, res) {
@@ -161,9 +161,8 @@ function addNewGroupCard(req, res) {
     req.flash('errors', errors.map(err => err.msg));
     res.redirect('/user');
   }
-	var oid = mongoose.Types.ObjectId();
-	var newid = parseInt(makeId(oid.getTimestamp()));
-	console.log(newid);
+
+	var newid = makeId();
 	var deck = new GroupDeck({verified : req.body.verified, id : newid, groupid : req.body.groupid, name : req.body.deckname, cuecards : []});
 	deck.save();
 
@@ -194,4 +193,16 @@ function verifyCard(req, res) {
 	    res.redirect(url);
 		});
   });
+}
+
+
+function shareDeck(req, res) {
+	UserDeck.findOne({id : req.body.deckid})
+	.then(function(data){
+		var usercuecards = data.cuecards;
+
+		var groupDeck = new GroupDeck({id : makeId(), groupid : req.body.groupid, name : data.name, verified : 0, cuecards : usercuecards});
+		groupDeck.save();
+		res.redirect('/user');
+	})
 }

@@ -3,7 +3,7 @@ var bcrypt = require('bcrypt-nodejs');
 
 // define the schema for our user model
 var cuecardSchema = mongoose.Schema({
-    id: String,
+    id: Number,
     question: String,
     answer: String,
     rating: Number,

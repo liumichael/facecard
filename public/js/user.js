@@ -11,6 +11,7 @@ var notifications = {
 					}
 
 var openedDeck = "";
+var openedDeckId = "";
 
 
 $(function() {
@@ -51,12 +52,18 @@ function showOverlay(id) {
 	}
 
 	openedDeck = id;
+
+	var elem = document.getElementById(id);
+
+	var attr = elem.getAttribute("value");
+	openedDeckId = attr;
 }
 
 
 function hideOverlay(overlay) {
 	document.getElementById(overlay).style.display = "none";
 	openedDeck = "";
+	openedDeckId = "";
 }
 
 function addNewDeck() {
@@ -66,7 +73,7 @@ function addNewDeck() {
 
 	document.getElementById("deck-list").innerHTML = '';
 
-	makeDecks();
+	// makeDecks();
 
 	hideOverlay('new-deck-overlay');
 }
@@ -82,6 +89,11 @@ function addNewCard() {
 
 	showOverlay(openedDeck);
 	hideOverlay('new-card-overlay');
+}
+
+function shareDeck(group_id) {
+	$.post('/user/share', {groupid : group_id, deckid : parseInt(openedDeckId)});
+	hideOverlay('deck-share-overlay');
 }
 
 function getNotifications() {
