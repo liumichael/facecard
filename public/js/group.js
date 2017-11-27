@@ -8,6 +8,11 @@ var groups = ["BIO100", "BIO101", "BIO102", "BIO103", "BIO104", "BIO105"];
 $(function () {
     makeAnnouncements(); 
     makeDecks();
+
+    $(".exit").click(function(){
+        $(".overlay").hide();
+    });
+
 });
 
 function makeAnnouncements() {
@@ -41,3 +46,4 @@ function hideOverlay() {
 
     document.getElementById("deck-overlay").style.display = "none";
 }
+

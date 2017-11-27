@@ -50,6 +50,22 @@
 		display:none;
 		overflow-y: auto;
 	}
+
+	.overlay{
+		width: 100%;
+		position:fixed;
+		left: 0;
+		top: 0;
+		height: 100vh;
+		background: rgba(100,100,100,0.5);
+		padding-left: 25%;
+		padding-right: 25%;
+		padding-top: 25vh;
+		padding-bottom: 25vh;
+		z-index: 900;
+		display:none;
+		overflow-y: auto;
+	}
 	
 	.content {
 		background: rgba(255,255,255,1);
@@ -105,7 +121,18 @@
 
 		margin:5px;
 	}
-
+	.input-group-addon {
+    	padding: 0.375rem 0.75rem;
+    	margin-bottom: 0;
+    	font-size: 1rem;
+    	font-weight: 400;
+    	line-height: 1.5;
+    	color: #495057;
+    	text-align: center;
+    	background-color: #e9ecef;
+    	border: 1px solid #ced4da;
+    	border-radius: 0.25rem;
+   }
 
 </style>
 
@@ -133,7 +160,7 @@
 
 	<div class="container">
 		<div class="announcements" style="float:left;">
-			<button id="new-member-btn" class="btn btn-primary float-right"> + </button>
+			<button id="new-member-btn" class="btn btn-primary float-right" onclick="document.getElementById('member-overlay').style.display='block'"> + </button>
 			<h1><strong>Welcome to BIO100!</strong></h1>
 			<h2><strong>Anouncements:</strong></h2>
 			<ul id="announcement-list"> 
@@ -148,6 +175,17 @@
             <button id="close" onclick="hideOverlay()"> X </button>
             <button id="add-card"><span><Strong>Add New Card</Strong></span></button>
             <ul id="catalog"></ul>
+        </div>
+    </div>
+
+    <div id="member-overlay" class="overlay">
+        <div container class="input-group">
+        	<span class="input-group-addon" id="member-addon">@</span>
+        	<input type="text" class="form-control" paceholder="Username" aria-describedby="member-addon">
+            <div class="input-group-btn">
+                <button class="btn btn-default" type="submit" id="submitSearch"><i class="fa fa-search" aria-hidden="true"></i></button>
+            </div>
+        	<button class="exit" onclick="hideOverlay()"> X </button>
         </div>
     </div>
 
