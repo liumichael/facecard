@@ -243,6 +243,27 @@ function addNewGroupCard(req, res) {
 
 }
 
+function addNewUserCard(req, res) {
+    const errors = req.validationErrors();
+    if (errors) {
+        req.flash('errors', errors.map(err => err.msg));
+        res.redirect('/user');
+    }
+
+    var newid = makeId();
+    var deck = new UserDeck({
+        id: newid,
+        user: req.user.local,
+        name: req.body.deckname,
+        cuecards: []
+    });
+    deck.save();
+
+    var redirectpath = "/user/";
+    res.redirect(redirectpath);
+
+}
+
 function verifyCard(req, res) {
     const errors = req.validationErrors();
     if (errors) {
