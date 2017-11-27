@@ -8,6 +8,7 @@ module.exports = {
     seedDeck: seedDeck,
     seedUserDeck: seedUserDeck,
     getGroupPage: getGroupPage,
+    getGroupDeck: getGroupDeck,
     getUserPage: getUserPage,
     getUserDeck: getUserDeck,
     addNewGroupCard: addNewGroupCard,
@@ -111,6 +112,33 @@ function getGroupPage(req, res) {
                             decks: data2
                         });
                     });
+            }
+        });
+}
+
+function getGroupDeck(req, res) {
+    const errors = req.validationErrors();
+    if (errors) {
+        req.flash('errors', errors.map(err => err.msg));
+        res.redirect('/user');
+    }
+
+    GroupDeck.findOne({
+            id: req.params.id
+        })
+        .then(function(data) {
+            if (!data) {
+                res.send('Deck not found!');
+            } else {
+                res.render('cue_card_front', {
+                    _id: data._id,
+                    id: data.id,
+                    groupid: data.groupid,
+                    title: data.name,
+                    user: req.user.local.username,
+                    cuecards: data.cuecards
+
+                });
             }
         });
 }

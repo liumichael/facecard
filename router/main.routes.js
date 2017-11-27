@@ -76,10 +76,16 @@ module.exports = function(app, passport) {
     }));
 
     app.get('/deck/:id', mainController.getUserDeck);
+    app.get('/group/deck/:id', mainController.getGroupDeck);
 
     app.get('/cue', function(req, res) {
         res.render('cue_card_front', {
-            user: req.user.local.username
+            user: req.user.local.username,
+            title: "test",
+            cuecards: {
+                "question": "What is the powerhouse of the cell?",
+                "answer": "Mitochondria"
+            }
         });
     });
 
