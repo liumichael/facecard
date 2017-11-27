@@ -2,6 +2,7 @@ var Group = require('../models/group');
 var User = require('../models/users');
 var UserDeck = require('../models/userdeck');
 var GroupDeck = require ('../models/groupdeck');
+var Announcements = require ('../models/announcements'); 
 var mongoose = require('mongoose');
 
 module.exports = {
@@ -12,7 +13,8 @@ module.exports = {
     getUserDeck : getUserDeck,
 	addNewGroupCard : addNewGroupCard,
 	verifyCard : verifyCard,
-	shareDeck : shareDeck
+	shareDeck : shareDeck,
+	getAnnouncements : getAnnouncements 
 }
 
 
@@ -206,3 +208,27 @@ function shareDeck(req, res) {
 		res.redirect('/user');
 	})
 }
+
+function getAnnouncements(req, res) { 
+    const errors = req.validationErrors();
+    if (errors) {
+        req.flash('errors', errors.map(err => err.msg));
+        res.redirect('/group');
+    }
+
+    Announcements.findOne({
+            id: req.params.id
+        })
+        .then(function(data) {
+            if (!data) {
+                res.send('Announcement not found!');
+            } else {
+                res.render('group', {
+                    groupid: data.groupid,
+                    title: data.title,
+	            content: data.content
+                });
+            }
+        });
+
+} 
