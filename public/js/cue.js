@@ -1,4 +1,4 @@
-// var content = []
+var content;
 
 // var content = [{
 //     "question": "What is the powerhouse of the cell?",
