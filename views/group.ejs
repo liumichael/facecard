@@ -244,7 +244,7 @@
 						<% if (decks[deck].verified != 1 && user == owner.local.username) {%>
 							<!-- <a href="/group/verify/<%=decks[deck].id %>/<%=title %>"><span>Verify Card</span></a> -->
 							<form action="/group/verify/<%=decks[deck].id %>" method="post">
-								<input type="hidden" name="groupname" value="<%= title %>" />
+								<input type="hidden" name="groupid" value="<%= id %>" />
 							<input class="verifyButton" value="Verify Deck" type="submit">
 							</form>
 						<% } %>

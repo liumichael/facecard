@@ -92,7 +92,7 @@ function getGroupPage(req, res) {
     }
 
     Group.findOne({
-            name: req.params.name
+            id: req.params.id
         })
         .then(function(data) {
             if (!data) {
@@ -236,7 +236,7 @@ function addNewGroupCard(req, res) {
     });
     deck.save();
 
-    var redirectpath = "/group/" + req.body.groupname;
+    var redirectpath = "/group/" + req.body.groupid;
     res.redirect(redirectpath);
 
 }
@@ -288,7 +288,7 @@ function verifyCard(req, res) {
             .then(function(data) {
                 console.log(data);
 
-                var url = "/group/" + req.body.groupname;
+                var url = "/group/" + req.body.groupid;
                 res.redirect(url);
             });
     });
@@ -368,14 +368,15 @@ function createNewGroup(req, res) {
     res.redirect('/user');
   }
   var user = req.user;
+  var newid = makeId();
 
   var newGroup = new Group({
-    id : makeId(),
+    id : newid,
     name : req.body.groupname,
     owner : req.user,
     members : [req.user]
   });
 
   newGroup.save();
-  res.redirect('/group/' + req.body.groupname);
+  res.redirect('/group/' + newid);
 }
