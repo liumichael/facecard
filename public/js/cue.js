@@ -32,7 +32,7 @@ function setContent(id) {
 }
 
 function rate(rating) {
-    if (currentId + 1 < content.length){
+    if (currentId + 1 < content.length) {
         currentId = currentId + 1;
         setContent(currentId);
         hideAnswer();
