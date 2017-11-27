@@ -178,8 +178,11 @@
     </main> -->
 
     <script type="text/javascript">
-        var content = <%- cuecards %>;
-        ready();
+        $(document).ready(function() {
+            console.log([<%- cuecards %>]);
+            content = [<%- cuecards %>];
+            ready();
+        });
     </script>
 
 
