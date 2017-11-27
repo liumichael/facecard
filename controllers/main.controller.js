@@ -16,7 +16,8 @@ module.exports = {
     verifyCard: verifyCard,
     shareDeck: shareDeck,
     getAnnouncements : getAnnouncements,
-    acceptInvite : acceptInvite
+    acceptInvite : acceptInvite,
+    createNewGroup : createNewGroup
 }
 
 
@@ -358,4 +359,23 @@ function acceptInvite(req, res) {
           res.redirect('/user');
         }
 	});
+}
+
+function createNewGroup(req, res) {
+  const errors = req.validationErrors();
+  if (errors) {
+    req.flash('errors', errors.map(err => err.msg));
+    res.redirect('/user');
+  }
+  var user = req.user;
+
+  var newGroup = new Group({
+    id : makeId(),
+    name : req.body.groupname,
+    owner : req.user,
+    members : [req.user]
+  });
+
+  newGroup.save();
+  res.redirect('/group/' + req.body.groupname);
 }
