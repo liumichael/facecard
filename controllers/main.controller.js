@@ -14,7 +14,8 @@ module.exports = {
     getGroupDeck: getGroupDeck,
     getUserPage: getUserPage,
     getUserDeck: getUserDeck,
-    addNewGroupCard: addNewGroupCard,
+    addNewGroupDeck: addNewGroupDeck,
+    addNewUserDeck: addNewUserDeck,
     verifyCard: verifyCard,
     shareDeck: shareDeck,
     getAnnouncements : getAnnouncements,
@@ -121,7 +122,7 @@ function getGroupPage(req, res) {
     }
 
     Group.findOne({
-            name: req.params.name
+            id: req.params.id
         })
         .then(function(data) {
             if (!data) {
@@ -262,7 +263,7 @@ function makeId() {
     return newid;
 }
 
-function addNewGroupCard(req, res) {
+function addNewGroupDeck(req, res) {
     const errors = req.validationErrors();
     if (errors) {
         req.flash('errors', errors.map(err => err.msg));
@@ -279,12 +280,12 @@ function addNewGroupCard(req, res) {
     });
     deck.save();
 
-    var redirectpath = "/group/" + req.body.groupname;
+    var redirectpath = "/group/" + req.body.groupid;
     res.redirect(redirectpath);
 
 }
 
-function addNewUserCard(req, res) {
+function addNewUserDeck(req, res) {
     const errors = req.validationErrors();
     if (errors) {
         req.flash('errors', errors.map(err => err.msg));
@@ -331,7 +332,7 @@ function verifyCard(req, res) {
             .then(function(data) {
                 console.log(data);
 
-                var url = "/group/" + req.body.groupname;
+                var url = "/group/" + req.body.groupid;
                 res.redirect(url);
             });
     });
@@ -411,14 +412,15 @@ function createNewGroup(req, res) {
     res.redirect('/user');
   }
   var user = req.user;
+  var newid = makeId();
 
   var newGroup = new Group({
-    id : makeId(),
+    id : newid,
     name : req.body.groupname,
     owner : req.user,
     members : [req.user]
   });
 
   newGroup.save();
-  res.redirect('/group/' + req.body.groupname);
+  res.redirect('/group/' + newid);
 }
