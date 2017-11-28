@@ -181,22 +181,22 @@ function getUserDeck(req, res) {
     }
 
     UserDeck.findOne({
-            id: req.params.id
-        })
-        .then(function(data) {
-            if (!data) {
-                res.send('Deck not found!');
-            } else {
-                res.render('cue_card_front', {
-                    _id: data._id,
-                    id: data.id,
-                    title: data.name,
-                    user: req.user.local.username,
-                    cuecards: data.cuecards
+        id: req.params.id
+    })
+    .then(function(data) {
+        if (!data) {
+            res.send('Deck not found!');
+        } else {
+            res.render('cue_card_front', {
+                _id: data._id,
+                id: data.id,
+                title: data.name,
+                user: req.user.local.username,
+                cuecards: data.cuecards
 
-                });
-            }
-        });
+            });
+        }
+    });
 }
 
 function getUserPage(req, res) {
@@ -261,6 +261,26 @@ function makeId() {
     var newid = parseInt(str);
 
     return newid;
+}
+
+function addNewUserCuecard(req, res) {
+    const errors = req.validationErrors();
+    if (errors) {
+        req.flash('errors', errors.map(err => err.msg));
+        res.redirect('/user');
+    }
+
+    UserDeck.find({
+        "user.local.username": req.user.local.username
+    }, (err2, userdecks) => {
+        if (err2) {
+            res.status(404);
+            res.send('UserDecks not found!');
+        }
+
+        var newid = makeId();
+        // put request
+    });
 }
 
 function addNewGroupDeck(req, res) {
