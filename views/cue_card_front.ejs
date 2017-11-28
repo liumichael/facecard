@@ -6,37 +6,28 @@
     <title>facecard: remembering tool</title>
     <link rel="stylesheet" href="../css/style.css" type="text/css">
     <!-- <link rel="stylesheet" href="css/cue.css" type="text/css"> -->
-    <link href="../css/bootstrap4/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="../js/cue.js"></script>
 
 </head>
 
 <body>
-    <nav class="navbar background">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand menu-writing" href="/" style="font-size:27pix;"><strong>facecard</strong></a>
-            </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li><a class="menu-writing" href="/about"> About</a></li>
-                    <li><a class="menu-writing" href="/contact"> Contact</a></li>
-                    <!--
-<li><a href="#">Home</a></li>
-              <li><a href="#">Profile</a></li>
-              <li><a href="#">Group</a></li>
-              <li class="active"><a href="#">Quiz</a></li>
-              -->
-                </ul>
-
-
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a class="menu-writing" href="/quiz">   Quiz</a></li>
-                    <li><a class="menu-writing" href="/"><i class="fa fa-user fa-1x"></i>   <%= user %></a></li>
-                </ul>
-            </div>
+    <nav class="navbar navbar-toggleable-md navbar-expand-lg navbar-light bg-light" >
+        <a class="navbar-brand menu-writing" style="font-size:27px;" href="/"><strong>facecard</strong></a>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto"></ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link menu-writing" style="font-size:16px;" href="/"><i class="fa fa-user fa-1x"></i> John Smith </a>
+                    
+                </li>
+                <li class="nav-item">
+                    <a class ="nav-link menu-writing" href="/logout"><i class="fa fa-sign-out fa-1x"></i> Signout</a>
+                </li>
+            </ul>
         </div>
     </nav>
 
