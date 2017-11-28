@@ -4,6 +4,7 @@ var UserDeck = require('../models/userdeck');
 var GroupDeck = require ('../models/groupdeck');
 var Announcements = require ('../models/announcements');
 var Notifications = require ('../models/notification');
+var Cuecard = require ('../models/cuecard');
 var mongoose = require('mongoose');
 
 module.exports = {
@@ -14,6 +15,7 @@ module.exports = {
     getGroupDeck: getGroupDeck,
     getUserPage: getUserPage,
     getUserDeck: getUserDeck,
+    addNewUserCard: addNewUserCard,
     addNewGroupDeck: addNewGroupDeck,
     addNewUserDeck: addNewUserDeck,
     verifyCard: verifyCard,
@@ -263,24 +265,112 @@ function makeId() {
     return newid;
 }
 
-function addNewUserCuecard(req, res) {
+function addNewUserCard(req, res) {
     const errors = req.validationErrors();
     if (errors) {
         req.flash('errors', errors.map(err => err.msg));
         res.redirect('/user');
     }
 
-    UserDeck.find({
-        "user.local.username": req.user.local.username
-    }, (err2, userdecks) => {
-        if (err2) {
-            res.status(404);
-            res.send('UserDecks not found!');
-        }
+    var cId = makeId();
+    var cdate = new Date();
+    var cquestion = req.body.cardQuestion;
+    var canswer = req.body.cardAnswer;
 
-        var newid = makeId();
-        // put request
+
+    var newcard = new Cuecard({
+        id: cId,
+        question: cQuestion,
+        answer: cAnswer,
+        rating: 0,
+        lastAccessed: cDate
     });
+    // newcard.save();
+
+
+    // var currentCards = userdecks.cuecards;
+    // var addedCard = '{ "id": ' + cId + ', "question": "' + cquestion + '"' + ', "answer": "' + canswer + '"' + ', "rating": "' + 0 + '"' + ', "lastAccessed": "' + cdate + '"' + ' }, ';
+    //
+    // var jsoncard = JSON.parse(addedCard);
+    //
+    //
+    // var newCards = currentCards + addedCard;
+
+    UserDeck.update(
+    {id : req.body.deckid},
+    {$push : {cuecards : newcard}},
+    {upsert : true},
+    function(err, result) {
+        if (err) {
+          res.status(404);
+          res.send(err);
+        }
+        else {
+          res.redirect('/user');
+        }
+    });
+
+    // UserDeck.findOne({
+    //     id: req.params.id
+    // })
+    // .then(function(data) {
+    //     if (!data) {
+    //         res.send('Deck not found!');
+    //     } else {
+    //         var cId = makeId();
+    //         var cdate = new Date();
+    //         var cquestion = req.body.cardQuestion;
+    //         var canswer = req.body.cardAnswer;
+    //
+    //         var currentCards = userdecks.cuecards;
+    //         var addedCard = '{ "id": ' + cId + ', "question": "' + cquestion + '"' + ', "answer": "' + canswer + '"' + ', "rating": "' + 0 + '"' + ', "lastAccessed": "' + cdate + '"' + ' }, ';
+    //
+    //         var newCards = currentCards + addedCard;
+    //         // newcards.push(addedCard);
+    //
+    //         // userdecks.cuecards.set(newcards);
+    //         // userdecks.save((err, userdeck) => {
+    //         //     if (err) {
+    //         //         res.status(500).send(err)
+    //         //     }
+    //         //     res.status(200).send(userdeck);
+    //         // });
+    //
+    //         var redirectpath = "/user";
+    //         res.redirect(redirectpath);
+    //     }
+    // });
+
+    // UserDeck.findOne({
+    //     id: req.params.id
+    // }, (err2, userdecks) => {
+    //     if (err2) {
+    //         res.status(404);
+    //         res.send('UserDecks not found!');
+    //     }
+    //
+    //     var cId = makeId();
+    //     var cdate = new Date();
+    //     var cquestion = req.body.cardQuestion;
+    //     var canswer = req.body.cardAnswer;
+    //
+    //     var currentCards = userdecks.cuecards;
+    //     var addedCard = '{ "id": ' + cId + ', "question": "' + cquestion + '"' + ', "answer": "' + canswer + '"' + ', "rating": "' + 0 + '"' + ', "lastAccessed": "' + cdate + '"' + ' }, ';
+    //
+    //     var newCards = currentCards;
+    //     newcards.push(addedCard);
+    //
+    //     userdecks.cuecards = newcards;
+    //     userdecks.save((err, userdeck) => {
+    //         if (err) {
+    //             res.status(500).send(err)
+    //         }
+    //         res.status(200).send(userdeck);
+    //     });
+    //
+    //     var redirectpath = "/user";
+    //     res.redirect(redirectpath);
+    // });
 }
 
 function addNewGroupDeck(req, res) {

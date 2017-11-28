@@ -252,8 +252,8 @@
 <html>
 <head>
 	<link rel="stylesheet" href="css/style.css" type="text/css">
-	
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">  
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="../js/user.js"></script>
@@ -284,9 +284,9 @@
 		<div class="content">
 			<button class="close-button" onclick="hideOverlay('new-card-overlay')"> X </button>
 			<form>
-				<label><strong>Card Name </strong></label><input id="new-card-name" class="text-box-input" type="text" value="" name="fname"><br></br>
-				<label><strong>Question </strong></label><input id="new-card-question" class="text-box-input" type="text" value="" name="fname"><br></br>
-				<label><strong>Answer </strong></label><input id="new-card-answer" class="text-box-input" type="text" value="" name="fname"><br></br>
+				<!-- <label><strong>Card Name </strong></label><input id="new-card-name" class="text-box-input" type="text" value="" name="cardName"><br></br> -->
+				<label><strong>Question </strong></label><input id="new-card-question" class="text-box-input" type="text" value="" name="cardQuestion"><br></br>
+				<label><strong>Answer </strong></label><input id="new-card-answer" class="text-box-input" type="text" value="" name="cardAnswer"><br></br>
 				<input class="create-button" value="CREATE CARD" type="button" onclick="addNewCard()">
 			</form>
 		</div>
@@ -349,7 +349,7 @@
 
     <nav class="navbar navbar-toggleable-md navbar-expand-lg navbar-light bg-light" >
         <a class="navbar-brand menu-writing" style="font-size:27px;" href="/"><strong>facecard</strong></a>
-        
+
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto"></ul>
             <ul class="navbar-nav">
