@@ -26,7 +26,8 @@ function ready() {
 function setContent(id) {
     var num = id + 1;
     $("#card-count").html('<p>' + num + '/' + content.length + '</p>');
-    $("#card-question").html('<h2 class="card-title text-center">' + content[id].question + '</h2>');
+    $("#card-question").html('<h2 class="card-title text-center">' + content[id] + '</h2>');
+    // $("#card-question").html('<h2 class="card-title text-center">' + content[id].question + '</h2>');
     $("#card-answer").html("<h3 class='card-title text-center'>" + content[id].answer + "</h3>");
 
 }

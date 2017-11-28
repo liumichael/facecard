@@ -7,7 +7,7 @@ var cuecardSchema = mongoose.Schema({
     question: String,
     answer: String,
     rating: Number,
-    lastAccessed: Date,
+    lastAccessed: String,
 });
 
 module.exports = mongoose.model('Cuecard', cuecardSchema);
