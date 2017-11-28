@@ -258,7 +258,7 @@ function addNewUserDeck(req, res) {
     });
     deck.save();
 
-    var redirectpath = "/user/";
+    var redirectpath = "/user";
     res.redirect(redirectpath);
 
 }
