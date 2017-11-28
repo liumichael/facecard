@@ -240,7 +240,6 @@ function getUserPage(req, res) {
                 res.status(404);
                 res.send('Notifications not found!');
               }
-              console.log(notifications);
               res.render('user', {
                   user: req.user.local.username,
                   groups: groups,
@@ -460,6 +459,7 @@ function addMember(req, res){
 
             User.findOne({'local.username' : req.body.sender})
             .then(function (send){
+              /**
               var newNotif = new Notifications({
                 id: makeId(),
                 sender: send,
@@ -469,17 +469,17 @@ function addMember(req, res){
               });
 
               newNotif.save();
-
-                // Notifications.create(
-                //     {id: req.body.groupid,
-                //     sender: user,
-                //     title: req.body.groupname,
-                //     content: req.body.content,
-                //     receiver: send
-                // }, function(err, member){
-                //     if(err) return console.error(err);
-                // });
-
+              **/
+                 Notifications.create(
+                     {id: makeId(),
+                     sender: send,
+                     title: "Invidation to join " + req.body.groupname,
+                     content: req.body.content,
+                     receiver: user
+                 }, function(err, member){
+                 if(err) return console.error(err);
+                 });
+            
                 var redirectpath = "/group/" + req.body.groupid;
                 res.redirect(redirectpath);
             });
