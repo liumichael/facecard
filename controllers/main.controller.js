@@ -234,17 +234,13 @@ function getUserPage(req, res) {
             }
 
             Notifications.find({
-              invited: {
-                  $elemMatch: {
-                      "local.username": req.user.local.username
-                  }
-              }
+                  "receiver.local.username" : req.user.local.username
             }, (err3, notifications)=> {
               if(err3) {
                 res.status(404);
                 res.send('Notifications not found!');
               }
-
+              console.log(notifications);
               res.render('user', {
                   user: req.user.local.username,
                   groups: groups,
@@ -461,24 +457,33 @@ function addMember(req, res){
     else{
         User.findOne({'local.username' : req.body.receiver})
         .then(function (user) {
+
             User.findOne({'local.username' : req.body.sender})
             .then(function (send){
-                Notifications.create(
-                    {id: req.body.groupid,
-                    sender: user,
-                    title: req.body.groupname,
-                    content: req.body.content,
-                    receiver: send
-                }, function(err, member){
-                    if(err) return console.error(err);
-                })
+              var newNotif = new Notifications({
+                id: makeId(),
+                sender: send,
+                title: "Invitation to join " + req.body.groupname,
+                content: req.body.content,
+                receiver: user
+              });
+
+              newNotif.save();
+
+                // Notifications.create(
+                //     {id: req.body.groupid,
+                //     sender: user,
+                //     title: req.body.groupname,
+                //     content: req.body.content,
+                //     receiver: send
+                // }, function(err, member){
+                //     if(err) return console.error(err);
+                // });
+
+                var redirectpath = "/group/" + req.body.groupid;
+                res.redirect(redirectpath);
             });
         });
     }
-
-
-
-    var redirectpath = "/group/" + req.body.groupid;
-    res.redirect(redirectpath);
 
 }

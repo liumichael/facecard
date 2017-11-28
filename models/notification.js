@@ -15,6 +15,6 @@ var notification = mongoose.Schema({
 });
 
 // create the model for notification and generalize it to our app
-const notificationModel = mongoose.model('Notification', notification);
+const notificationModel = mongoose.model('Notifications', notification);
 
 module.exports = notificationModel;
