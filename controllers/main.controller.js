@@ -20,7 +20,8 @@ module.exports = {
     shareDeck: shareDeck,
     getAnnouncements : getAnnouncements,
     acceptInvite : acceptInvite,
-    createNewGroup : createNewGroup
+    createNewGroup : createNewGroup,
+    addMember : addMember
 }
 
 
@@ -132,15 +133,21 @@ function getGroupPage(req, res) {
                         groupid: data.id
                     })
                     .then(function(data2) {
-                        res.render('group', {
-                            _id: data._id,
-                            id: data.id,
-                            title: data.name,
-                            user: req.user.local.username,
-                            members: data.members,
-                            owner: data.owner,
-                            decks: data2
-                        });
+                        if(data2){
+                            User.find({})
+                            .then(function (data3) {
+                                res.render('group', {
+                                    _id: data._id,
+                                    id: data.id,
+                                    title: data.name,
+                                    user: req.user.local.username,
+                                    members: data.members,
+                                    owner: data.owner,
+                                    decks: data2,
+                                    users: data3
+                                });
+                            });
+                        }
                     });
             }
         });
@@ -423,4 +430,35 @@ function createNewGroup(req, res) {
 
   newGroup.save();
   res.redirect('/group/' + newid);
+}
+
+function addMember(req, res){
+    const errors = req.validationErrors();
+    if (errors){
+        req.flash('errors', errors.map(err => err.msg));
+        res.redirect('/user');
+    }
+    else{
+        User.findOne({'local.username' : req.body.receiver})
+        .then(function (user) {
+            User.findOne({'local.username' : req.body.sender})
+            .then(function (send){
+                Notifications.create(
+                    {id: req.body.groupid,
+                    sender: user,
+                    title: req.body.groupname,
+                    content: req.body.content,
+                    receiver: send
+                }, function(err, member){
+                    if(err) return console.error(err);
+                })
+            });
+        });
+    }
+
+
+
+    var redirectpath = "/group/" + req.body.groupid;
+    res.redirect(redirectpath);
+
 }

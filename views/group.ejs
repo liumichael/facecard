@@ -267,15 +267,46 @@
 
 	</div>
 
-    <div id="member-overlay" class="overlay">
-        <div container class="input-group">
-        	<span class="input-group-addon" id="member-addon">@</span>
-        	<input type="text" class="form-control" placeholder="Username" aria-describedby="member-addon">
-            
-                <button class="btn btn-default" type="submit" style="margin:0;" id="submitSearch"><i class="fa fa-search" aria-hidden="true"></i></button>
-            
-        	<button class="exit btn btn-default" onclick="hideOverlay()"> X </button>
-        </div>
+    <div id="member-overlay" class="overlay popup">
+    	<div class="container content">
+	        <div container class="input-group">
+	        	<span class="input-group-addon" id="member-addon">@</span>
+	        	<input type="text" class="form-control" placeholder="Username" aria-describedby="member-addon">
+	            
+	                <button class="btn btn-default" type="submit" style="margin:0;" id="submitSearch"><i class="fa fa-search" aria-hidden="true"></i></button>
+	            	
+	        	<button class="exit btn btn-default" onclick="hideOverlay('member-overlay')"> X </button>
+	        </div>
+	        <div  class="container">
+	        	<% var valid_members = [] %>
+	        	<% for (member in members) { %>
+	        		<% if (!isNaN(member)){ %>
+	        			<% valid_members.push(members[member].local.username); %>
+	        		<% } %>
+	        	<% } %>
+
+	        	<% for (mem in users) { %>
+	        		<% if (valid_members.indexOf(users[mem].local.username) == -1) { %>
+
+
+
+	        				
+	        		<form action="/group/newMember" method="post">
+						<input type="hidden" name="groupid" value="<%= id %>" />
+						<input type="hidden" name="sender" value="<%= user %>" />
+						<input type="hidden" name="groupname" value="<%= title %>" />
+						<input type="hidden" name="content" value="<form action='/user/accept' method='post'><input type='hidden' name='groupid' value='<%=id%>'/> 
+						<input class='accept-button' value='Accept Invitation' type='submit'></form>" /> 
+
+						<!--<button class="btn"> <%= users[mem].local.username %></button>-->
+						<input name="receiver" value="<%= users[mem].local.username %>" class="create-button btn" type="submit">
+	        		</form>
+	        		<% } %>
+	        		
+	        	<% } %>
+	        	<div id="output"></div>
+	        </div>
+    	</div>
     </div>
 
 	<div class="container">
@@ -302,6 +333,7 @@
 						</button>
 				 </div>
 			  <% } %>
+		
 		</div>
 	</div>
 

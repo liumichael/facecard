@@ -1,3 +1,4 @@
+
 var decks = { "Test 1": ["midochondria 1", "midochondria 2"], "Test 2": ["membrane 1"], "Test 3": ["enzymes 1"], "Exam": ["virus 1"] };
 
 var cards = {"midochondria 1": {}, "midochondria 2": {}, "membrane 1": {}, "enzymes 1": {}, "virus 1": {}};
@@ -9,11 +10,6 @@ var groups = ["BIO100", "BIO101", "BIO102", "BIO103", "BIO104", "BIO105"];
 
 $(function () {
     makeAnnouncements(); 
-    makeDecks();
-
-    $(".exit").click(function(){
-        $(".overlay").hide();
-    });
 });
 
 function addNewDeck() {
@@ -83,10 +79,10 @@ function showOverlay(id) {
     }
 }
 
-function hideOverlay() {
+function hideOverlay(overlay) {
 
-    document.getElementById("catalog").innerHTML = '';
 
-    document.getElementById("deck-overlay").style.display = "none";
+    document.getElementById(overlay).style.display = "none";
+    openedDeck = "";
 }
 
