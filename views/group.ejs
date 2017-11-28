@@ -132,7 +132,8 @@
     	background-color: #e9ecef;
     	border: 1px solid #ced4da;
     	border-radius: 0.25rem;
-   }
+    }
+
 
 </style>
 
@@ -152,7 +153,11 @@
             <ul class="navbar-nav ml-auto"></ul>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link menu-writing" style="font-size:16px;" href="/"><i class="fa fa-user fa-1x"></i> John Smith</a>
+                    <a class="nav-link menu-writing" style="font-size:16px;" href="/"><i class="fa fa-user fa-1x"></i> John Smith </a>
+                    
+                </li>
+                <li class="nav-item">
+                	<a class ="nav-link menu-writing" href="/logout"><i class="fa fa-sign-out fa-1x"></i> Signout</a>
                 </li>
             </ul>
         </div>
@@ -181,11 +186,11 @@
     <div id="member-overlay" class="overlay">
         <div container class="input-group">
         	<span class="input-group-addon" id="member-addon">@</span>
-        	<input type="text" class="form-control" paceholder="Username" aria-describedby="member-addon">
-            <div class="input-group-btn">
-                <button class="btn btn-default" type="submit" id="submitSearch"><i class="fa fa-search" aria-hidden="true"></i></button>
-            </div>
-        	<button class="exit" onclick="hideOverlay()"> X </button>
+        	<input type="text" class="form-control" placeholder="Username" aria-describedby="member-addon">
+            
+                <button class="btn btn-default" type="submit" style="margin:0;" id="submitSearch"><i class="fa fa-search" aria-hidden="true"></i></button>
+            
+        	<button class="exit btn btn-default" onclick="hideOverlay()"> X </button>
         </div>
     </div>
 
