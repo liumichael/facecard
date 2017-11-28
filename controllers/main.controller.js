@@ -295,7 +295,7 @@ function addNewUserDeck(req, res) {
     var newid = makeId();
     var deck = new UserDeck({
         id: newid,
-        user: req.user.local,
+        user: req.user,
         name: req.body.deckname,
         cuecards: []
     });
