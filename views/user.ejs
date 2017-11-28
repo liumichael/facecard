@@ -318,10 +318,21 @@
 		<div class="content">
 			<button class="close-button" onclick="hideOverlay('new-deck-overlay')"> X </button>
 
-			<form>
+
+            <form action="/user/newdeck"  method="post">
+				<label><strong>Deck Name </strong></label><input id="new-deck-name" class="text-box-input" type="text" value="" name="deckname"><br></br>
+				<input type="hidden" name="username" value="<%= user %>" />
+
+				<!-- <input value="CREATE DECK" class="create-button" type="button" onclick='addNewDeck()'> -->
+				<input value="CREATE DECK" class="create-button" type="submit">
+			</form>
+
+
+
+			<!-- <form>
 				<label><strong>Deck Name </strong></label><input id="new-deck-name" class="text-box-input" type="text" value="" name="fname"><br></br>
 				<input value="CREATE DECK" class="create-button" type="button" onclick="addNewDeck()">
-			</form>
+			</form> -->
 		</div>
 	</div>
 
