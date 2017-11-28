@@ -259,6 +259,15 @@
 			<h1 style="display:inline;"><strong>Notifications</strong></h1>
 			<button class="close-button" onclick="hideOverlay('notification-center')"> X </button>
 			<ul id="notifications">
+					<% for(var i=0; i < notifications.length; i++) { %>
+						<li class='notif-card'>
+							<div id='<%= notifications[i].title %>'>
+								<h1><strong><%= notifications[i].title %></strong></h1>
+								<h2><%= notifications[i].sender.local.username %></h2><br></br>
+								<a href=""><span><%= notifications[i].content %></span></a>
+							</div>
+						</li>
+					<% } %>
 			</ul>
 		</div>
 	</div>
@@ -344,7 +353,7 @@
 			</h1>
 			<ul id="group-list" style="height:700px;overflow-y:auto;">
 				<% for(var i=0; i < groups.length; i++) { %>
-					<li><a href='group/<%= groups[i].name %>' class='group'><span><strong><%=groups[i].name%></strong></span></a></li>
+					<li><a href='group/<%= groups[i].id %>' class='group'><span><strong><%=groups[i].name%></strong></span></a></li>
 				<% } %>
 			</ul>
 

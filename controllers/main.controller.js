@@ -3,11 +3,13 @@ var User = require('../models/users');
 var UserDeck = require('../models/userdeck');
 var GroupDeck = require ('../models/groupdeck');
 var Announcements = require ('../models/announcements');
+var Notifications = require ('../models/notification');
 var mongoose = require('mongoose');
 
 module.exports = {
     seedDeck: seedDeck,
     seedUserDeck: seedUserDeck,
+    seedNotification: seedNotification,
     getGroupPage: getGroupPage,
     getGroupDeck: getGroupDeck,
     getUserPage: getUserPage,
@@ -85,6 +87,33 @@ function seedUserDeck(req, res) {
     res.redirect('/user');
 }
 
+function seedNotification(req, res) {
+    const errors = req.validationErrors();
+    if (errors) {
+        req.flash('errors', errors.map(err => err.msg));
+        res.redirect('/user');
+    }
+
+    var item1 = new Notifications({
+        id: 1,
+        invited: [req.user],
+        sender: req.user,
+        title: 'Prep-quiz from BIO101',
+        content: 'Click here to start the quiz',
+    });
+    var item2 = new Notifications({
+        id: 2,
+        invited: [req.user],
+        sender: req.user,
+        title: 'Invititation to join BIO106',
+        content: 'Click here accept the invitation',
+    });
+
+    item1.save();
+    item2.save();
+    res.redirect('/user');
+}
+
 function getGroupPage(req, res) {
     const errors = req.validationErrors();
     if (errors) {
@@ -93,7 +122,7 @@ function getGroupPage(req, res) {
     }
 
     Group.findOne({
-            name: req.params.name
+            id: req.params.id
         })
         .then(function(data) {
             if (!data) {
@@ -197,10 +226,24 @@ function getUserPage(req, res) {
                 res.send('UserDecks not found!');
             }
 
-            res.render('user', {
-                user: req.user.local.username,
-                groups: groups,
-                userdecks: userdecks,
+            Notifications.find({
+              invited: {
+                  $elemMatch: {
+                      "local.username": req.user.local.username
+                  }
+              }
+            }, (err3, notifications)=> {
+              if(err3) {
+                res.status(404);
+                res.send('Notifications not found!');
+              }
+
+              res.render('user', {
+                  user: req.user.local.username,
+                  groups: groups,
+                  notifications: notifications,
+                  userdecks: userdecks,
+              });
             });
         });
     });
@@ -237,7 +280,7 @@ function addNewGroupDeck(req, res) {
     });
     deck.save();
 
-    var redirectpath = "/group/" + req.body.groupname;
+    var redirectpath = "/group/" + req.body.groupid;
     res.redirect(redirectpath);
 
 }
@@ -289,7 +332,7 @@ function verifyCard(req, res) {
             .then(function(data) {
                 console.log(data);
 
-                var url = "/group/" + req.body.groupname;
+                var url = "/group/" + req.body.groupid;
                 res.redirect(url);
             });
     });
@@ -369,14 +412,15 @@ function createNewGroup(req, res) {
     res.redirect('/user');
   }
   var user = req.user;
+  var newid = makeId();
 
   var newGroup = new Group({
-    id : makeId(),
+    id : newid,
     name : req.body.groupname,
     owner : req.user,
     members : [req.user]
   });
 
   newGroup.save();
-  res.redirect('/group/' + req.body.groupname);
+  res.redirect('/group/' + newid);
 }
