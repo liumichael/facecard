@@ -21,7 +21,8 @@ module.exports = {
     getAnnouncements : getAnnouncements,
     acceptInvite : acceptInvite,
     createNewGroup : createNewGroup,
-    addMember : addMember
+    addMember : addMember,
+    removeNotification : removeNotification
 }
 
 
@@ -240,7 +241,6 @@ function getUserPage(req, res) {
                 res.status(404);
                 res.send('Notifications not found!');
               }
-              console.log(notifications);
               res.render('user', {
                   user: req.user.local.username,
                   groups: groups,
@@ -336,7 +336,6 @@ function verifyCard(req, res) {
         res.redirect('/user');
     }
 
-    console.log(req.params.deckid);
     GroupDeck.update({
         "id": req.params.deckid
     }, {
@@ -353,7 +352,6 @@ function verifyCard(req, res) {
         console.log("updated");
         GroupDeck.find({})
             .then(function(data) {
-                console.log(data);
 
                 var url = "/group/" + req.body.groupid;
                 res.redirect(url);
@@ -460,25 +458,16 @@ function addMember(req, res){
 
             User.findOne({'local.username' : req.body.sender})
             .then(function (send){
-              var newNotif = new Notifications({
-                id: makeId(),
-                sender: send,
-                title: "Invitation to join " + req.body.groupname,
-                content: req.body.content,
-                receiver: user
-              });
 
-              newNotif.save();
-
-                // Notifications.create(
-                //     {id: req.body.groupid,
-                //     sender: user,
-                //     title: req.body.groupname,
-                //     content: req.body.content,
-                //     receiver: send
-                // }, function(err, member){
-                //     if(err) return console.error(err);
-                // });
+                Notifications.create(
+                    {id: makeId(),
+                    sender: send,
+                    title: "Invitation to join " + req.body.groupname,
+                    content: req.body.content,
+                    receiver: user
+                }, function(err, member){
+                    if(err) return console.error(err);
+                });
 
                 var redirectpath = "/group/" + req.body.groupid;
                 res.redirect(redirectpath);
@@ -486,4 +475,22 @@ function addMember(req, res){
         });
     }
 
+}
+
+
+function removeNotification(req, res) {
+  const errors = req.validationErrors();
+  if (errors){
+      req.flash('errors', errors.map(err => err.msg));
+      res.redirect('/user');
+  }
+
+  Notifications.remove({id : req.body.notificationid}, function(err) {
+    if (!err) {
+      res.redirect('/user');
+    }
+    else {
+      res.send("unable to find Notification");
+    }
+  });
 }

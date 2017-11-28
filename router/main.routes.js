@@ -54,6 +54,7 @@ module.exports = function(app, passport) {
     app.post('/user/newgroup', mainController.createNewGroup);
     app.post('/group/newMember', mainController.addMember);
     app.post('/user/newdeck', mainController.addNewUserDeck);
+    app.post('/user/removeNotification', mainController.removeNotification);
 
     // process the login form
     app.post('/login', passport.authenticate('local-login', {
