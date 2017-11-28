@@ -43,8 +43,10 @@ module.exports = function(app, passport) {
 
     // app.post('/user/post', mainController.seedDeck);
     // app.get('/deck/post', mainController.seedUserDeck);
+    app.get('/notify/post', mainController.seedNotification);
 
-    app.get('/group/:name', mainController.getGroupPage);
+
+    app.get('/group/:id', mainController.getGroupPage);
     app.post('/group/newdeck', mainController.addNewGroupDeck);
     app.post('/group/verify/:deckid', mainController.verifyCard);
     app.post('/user/share', mainController.shareDeck);

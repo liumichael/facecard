@@ -239,26 +239,43 @@
 		color:#4564a0;
 	}
 
+	.fa-bell{
+		color: red;
+	}
+
+	.nav-item{
+		font-size:16px;
+	}
+
 </style>
 
 <html>
 <head>
 	<link rel="stylesheet" href="css/style.css" type="text/css">
-	<link href="css/bootstrap.min.css"rel="stylesheet">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">  
 	<link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="js/user.js"></script>
+	<script src="../js/user.js"></script>
 </head>
 <body>
 
-	<!-- <form action='/user/accept' method='post'><input type='hidden' name='groupid' value='6' /><input class='accept-button' value='Accept Invitation' type='submit'></form> -->
+
 
 	<div id="notification-center" class="popup" style="z-index:901;">
 		<div class="content">
 			<h1 style="display:inline;"><strong>Notifications</strong></h1>
 			<button class="close-button" onclick="hideOverlay('notification-center')"> X </button>
 			<ul id="notifications">
+					<% for(var i=0; i < notifications.length; i++) { %>
+						<li class='notif-card'>
+							<div id='<%= notifications[i].title %>'>
+								<h1><strong><%= notifications[i].title %></strong></h1>
+								<h2><%= notifications[i].sender.local.username %></h2><br></br>
+								<a href=""><span><%= notifications[i].content %></span></a>
+							</div>
+						</li>
+					<% } %>
 			</ul>
 		</div>
 	</div>
@@ -330,22 +347,21 @@
 		</div>
 	</div>
 
-	<nav class="navbar background">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand menu-writing" href="/" style="font-size:27px;"><strong>facecard</strong></a>
-			</div>
-
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav">
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li><a class="menu-writing" href="/"><i class="fa fa-user fa-1x"></i>   <%= user %></a></li>
-					<li><a class="menu-writing" href="/logout"><i class="fa fa-sign-out fa-1x"></i>   Signout</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+    <nav class="navbar navbar-toggleable-md navbar-expand-lg navbar-light bg-light" >
+        <a class="navbar-brand menu-writing" style="font-size:27px;" href="/"><strong>facecard</strong></a>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto"></ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link menu-writing" style="font-size:16px;" href="/"><i class="fa fa-user fa-1x"></i> <%= user %></a>
+                </li>
+                <li class="nav-item">
+                    <a class ="nav-link menu-writing" href="/logout"><i class="fa fa-sign-out fa-1x"></i> Signout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
 	<div class="container">
 		<div class="groups" id="group-pane" style="float:left;">
@@ -355,7 +371,7 @@
 			</h1>
 			<ul id="group-list" style="height:700px;overflow-y:auto;">
 				<% for(var i=0; i < groups.length; i++) { %>
-					<li><a href='group/<%= groups[i].name %>' class='group'><span><strong><%=groups[i].name%></strong></span></a></li>
+					<li><a href='group/<%= groups[i].id %>' class='group'><span><strong><%=groups[i].name%></strong></span></a></li>
 				<% } %>
 			</ul>
 
@@ -364,9 +380,8 @@
 		<div class="deck-view" style="float:right;width:85%">
 			<h1>
 				<strong>YOUR DECKS</strong>
-				<button id="new-deck-button" class="new-entity-button" onclick="showPopup('new-deck-overlay')">+</button>
-				<button id="notification-button" onclick="showPopup('notification-center'); getNotifications();"><p><span class="glyphicon glyphicon-bell"></span></p></button>
-
+				<button id="new-deck-button" onclick="showPopup('new-deck-overlay')">+</button>
+				<button id="notification-button" onclick="showPopup('notification-center'); getNotifications();"><p><i class="fa fa-bell" aria-hidden="true"></i></span></p></button>
 			</h1>
 			  <ul id="deck-list" class="decks">
 					<% for(var i=0; i < userdecks.length; i++) { %>

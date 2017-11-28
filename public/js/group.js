@@ -8,8 +8,12 @@ var announcementDetails = ["Coverage: Chapter 1 to and including Chapter 3.", "C
 var groups = ["BIO100", "BIO101", "BIO102", "BIO103", "BIO104", "BIO105"];
 
 $(function () {
-    makeAnnouncements();
-    // makeDecks();
+    makeAnnouncements(); 
+    makeDecks();
+
+    $(".exit").click(function(){
+        $(".overlay").hide();
+    });
 });
 
 function addNewDeck() {
@@ -79,7 +83,10 @@ function showOverlay(id) {
     }
 }
 
-function hideOverlay(overlay) {
-	document.getElementById(overlay).style.display = "none";
-	openedDeck = "";
+function hideOverlay() {
+
+    document.getElementById("catalog").innerHTML = '';
+
+    document.getElementById("deck-overlay").style.display = "none";
 }
+
