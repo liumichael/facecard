@@ -280,10 +280,10 @@ function addNewUserCard(req, res) {
 
     var newcard = new Cuecard({
         id: cId,
-        question: cQuestion,
-        answer: cAnswer,
+        question: cquestion,
+        answer: canswer,
         rating: 0,
-        lastAccessed: cDate
+        lastAccessed: cdate
     });
     // newcard.save();
 

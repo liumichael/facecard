@@ -53,7 +53,7 @@ module.exports = function(app, passport) {
     app.post('/user/accept', mainController.acceptInvite);
     app.post('/user/newgroup', mainController.createNewGroup);
     app.post('/user/newdeck', mainController.addNewUserDeck);
-    app.put('/user/newcard/:deckid', mainController.addNewUserCard);
+    app.post('/user/newcard', mainController.addNewUserCard);
 
     // process the login form
     app.post('/login', passport.authenticate('local-login', {

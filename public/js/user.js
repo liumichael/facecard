@@ -86,8 +86,8 @@ function addNewCard() {
 
 	// decks[openedDeck].push(deckName);
 	// cards[deckName] = {"question": question, "answer": answer};
-    var link = '/user/newcard/' + openedDeckId;
-    $.post(link, {cardQuestion : question, cardAnswer : answer, deckid : parseInt(openedDeckId)});
+  var link = '/user/newcard';
+  $.post(link, {cardQuestion : question, cardAnswer : answer, deckid : parseInt(openedDeckId)});
 
 	showOverlay(openedDeck);
 	hideOverlay('new-card-overlay');
