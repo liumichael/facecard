@@ -268,10 +268,10 @@
 			<ul id="notifications">
 					<% for(var i=0; i < notifications.length; i++) { %>
 						<li class='notif-card'>
-							<form action="/user/removeNotification" method="post">
+							<!-- <form action="/user/removeNotification" method="post">
 								<input type="hidden" name="notificationid" value="<%= notifications[i].id %>" />
 								<input class="close-button" type="submit" value="X">
-							<form>
+							<form> -->
 							<div id='<%= notifications[i].title %>'>
 								<h1><strong><%= notifications[i].title %></strong></h1>
 								<h2><%= notifications[i].sender.local.username %></h2><br></br>
