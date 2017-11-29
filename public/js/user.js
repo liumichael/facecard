@@ -53,7 +53,7 @@ function showOverlay(id) {
 
 	openedDeck = id;
 
-	var elem = document.getElementById(id);
+	var elem = document.getElementById(openedDeck);
 
 	var attr = elem.getAttribute("value");
 	openedDeckId = attr;

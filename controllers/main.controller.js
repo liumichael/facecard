@@ -300,15 +300,6 @@ function addNewUserCard(req, res) {
     });
     // newcard.save();
 
-
-    // var currentCards = userdecks.cuecards;
-    // var addedCard = '{ "id": ' + cId + ', "question": "' + cquestion + '"' + ', "answer": "' + canswer + '"' + ', "rating": "' + 0 + '"' + ', "lastAccessed": "' + cdate + '"' + ' }, ';
-    //
-    // var jsoncard = JSON.parse(addedCard);
-    //
-    //
-    // var newCards = currentCards + addedCard;
-
     UserDeck.update({
             id: req.body.deckid
         }, {
@@ -326,68 +317,6 @@ function addNewUserCard(req, res) {
                 res.redirect('/user');
             }
         });
-
-    // UserDeck.findOne({
-    //     id: req.params.id
-    // })
-    // .then(function(data) {
-    //     if (!data) {
-    //         res.send('Deck not found!');
-    //     } else {
-    //         var cId = makeId();
-    //         var cdate = new Date();
-    //         var cquestion = req.body.cardQuestion;
-    //         var canswer = req.body.cardAnswer;
-    //
-    //         var currentCards = userdecks.cuecards;
-    //         var addedCard = '{ "id": ' + cId + ', "question": "' + cquestion + '"' + ', "answer": "' + canswer + '"' + ', "rating": "' + 0 + '"' + ', "lastAccessed": "' + cdate + '"' + ' }, ';
-    //
-    //         var newCards = currentCards + addedCard;
-    //         // newcards.push(addedCard);
-    //
-    //         // userdecks.cuecards.set(newcards);
-    //         // userdecks.save((err, userdeck) => {
-    //         //     if (err) {
-    //         //         res.status(500).send(err)
-    //         //     }
-    //         //     res.status(200).send(userdeck);
-    //         // });
-    //
-    //         var redirectpath = "/user";
-    //         res.redirect(redirectpath);
-    //     }
-    // });
-
-    // UserDeck.findOne({
-    //     id: req.params.id
-    // }, (err2, userdecks) => {
-    //     if (err2) {
-    //         res.status(404);
-    //         res.send('UserDecks not found!');
-    //     }
-    //
-    //     var cId = makeId();
-    //     var cdate = new Date();
-    //     var cquestion = req.body.cardQuestion;
-    //     var canswer = req.body.cardAnswer;
-    //
-    //     var currentCards = userdecks.cuecards;
-    //     var addedCard = '{ "id": ' + cId + ', "question": "' + cquestion + '"' + ', "answer": "' + canswer + '"' + ', "rating": "' + 0 + '"' + ', "lastAccessed": "' + cdate + '"' + ' }, ';
-    //
-    //     var newCards = currentCards;
-    //     newcards.push(addedCard);
-    //
-    //     userdecks.cuecards = newcards;
-    //     userdecks.save((err, userdeck) => {
-    //         if (err) {
-    //             res.status(500).send(err)
-    //         }
-    //         res.status(200).send(userdeck);
-    //     });
-    //
-    //     var redirectpath = "/user";
-    //     res.redirect(redirectpath);
-    // });
 }
 
 function addNewGroupDeck(req, res) {
