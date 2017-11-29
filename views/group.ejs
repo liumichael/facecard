@@ -257,7 +257,7 @@
 	<div class="container">
 		<div class="announcements" style="float:left;">
 			<h1><strong>Welcome to <%= title %></strong></h1>
-			<button id="new-member-btn" class="btn btn-primary float-right" onclick="document.getElementById('member-overlay').style.display='block'"> + </button>
+
 
 			<h2><strong>Anouncements:</strong></h2>
 			<ul id="announcement-list">
@@ -311,7 +311,10 @@
 
 	<div class = "container" style="float:right">
     	<div class="container content">
-	        <h2> Members: </h2> 
+	        <h2 style="display: inline"> Members: </h2>
+	        
+	        <button id="new-member-btn" class="btn btn-primary" onclick="document.getElementById('member-overlay').style.display='block'">Invite + </button> 
+	        
 	        <div  class="container">
 			<% var valid_members = [] %>
 	        	<% for (member in members) { %>
