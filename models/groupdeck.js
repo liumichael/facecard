@@ -7,7 +7,7 @@ var CueCardSchema = mongoose.model('Cuecard').schema;
 // define the schema for our group deck model
 var groupDeckSchema = mongoose.Schema({
 
-    id 		       : Number,
+    id 		     : Number,
     groupid      : Number,
     name         : String,
     verified     : Number,

@@ -55,6 +55,7 @@ module.exports = function(app, passport) {
     app.post('/group/newMember', mainController.addMember);
     app.post('/user/newdeck', mainController.addNewUserDeck);
     app.post('/user/newcard', mainController.addNewUserCard);
+    app.post('/group/newcard', mainController.addNewGroupCard);
     app.post('/user/removeNotification', mainController.removeNotification);
 
     // process the login form
