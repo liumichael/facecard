@@ -74,6 +74,10 @@ function showOverlay(id) {
 
     var attr = elem.getAttribute("value");
     openedDeckId = attr;
+
+    var link = "<a href='/deck/" + openedDeckId + "'><button class='open-button'><span> Open Deck </span></button></a>";
+
+    $('#deck-overlay-content').append(link);
 }
 
 
@@ -120,6 +124,12 @@ function shareDeck(group_id) {
         deckid: parseInt(openedDeckId)
     });
     hideOverlay('deck-share-overlay');
+}
+
+function showdeck() {
+
+    var decklink = '/deck/' + openedDeckId;
+    $.get(decklink);
 }
 
 /*function getNotifications() {

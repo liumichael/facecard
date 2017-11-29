@@ -228,7 +228,7 @@
 	</div>
 
 	<div id="deck-overlay" class="popup">
-			<div class="content">
+			<div class="content" id="deck-overlay-content">
 					<button id="close" onclick="hideOverlay('deck-overlay')"> X </button>
 					<button id="add-card" onclick="showPopup('new-card-overlay')"><span><Strong>Add New Card</Strong></span></button>
 					<ul id="catalog"></ul>
@@ -312,9 +312,9 @@
 	<div class = "container" style="float:right">
     	<div class="container content">
 	        <h2 style="display: inline"> Members: </h2>
-	        
-	        <button id="new-member-btn" class="btn btn-primary" onclick="document.getElementById('member-overlay').style.display='block'">Invite + </button> 
-	        
+
+	        <button id="new-member-btn" class="btn btn-primary" onclick="document.getElementById('member-overlay').style.display='block'">Invite + </button>
+
 	        <div  class="container">
 			<% var valid_members = [] %>
 	        	<% for (member in members) { %>
@@ -325,11 +325,11 @@
 
 	        	<% for (mem in users) { %>
 	        		<% if (valid_members.indexOf(users[mem].local.username) != -1) { %>
- 		
+
 					<!--<button class="btn"> <%= users[mem].local.username %></button>-->
 					<input name="receiver" value="<%= users[mem].local.username %>" class="create-button btn" type="submit">
 
-	        		
+
 	        		<% } %>
 
 	        	<% } %>
@@ -355,7 +355,7 @@
 							<input class="verifyButton" value="Verify Deck" type="submit">
 							</form>
 						<% } %>
-						<button  onclick='showOverlay(this.id)'>
+						<button  onclick='showOverlay(<%=decks[deck].id%>)'>
 							<h1><strong><%= decks[deck].name %></strong></h1>
 
 							<% if (decks[deck].verified == 1) { %>

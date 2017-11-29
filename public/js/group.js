@@ -75,7 +75,8 @@ function addNewCard() {
     // decks[openedDeck].push(deckName);
     // cards[deckName] = {"question": question, "answer": answer};
 
-    $.post('/group/newcard', {
+    var link = '/group/newcard';
+    $.post(link, {
         cardQuestion: question,
         cardAnswer: answer,
         deckid: parseInt(openedDeckId)
@@ -103,6 +104,10 @@ function showOverlay(id) {
 	var elem = document.getElementById(openedDeck);
 
 	openedDeckId = id;
+
+    var link = "<a href='/group/deck/" + id + "'><button class='open-button'><span> Open Deck </span></button></a>";
+
+    $('#deck-overlay-content').append(link);
 }
 
 function hideOverlay(overlay) {
