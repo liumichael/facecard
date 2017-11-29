@@ -309,6 +309,37 @@
     	</div>
     </div>
 
+	<div class = "container" style="float:right">
+    	<div class="container content">
+	        <p> Members: </p> 
+	        <div  class="container">
+			<% var valid_members = [] %>
+	        	<% for (member in members) { %>
+	        		<% if (!isNaN(member)){ %>
+					<% valid_members.push(members[member].local.username); %>
+	        		<% } %>
+	        	<% } %>
+
+	        	<% for (mem in users) { %>
+	        		<% if (valid_members.indexOf(users[mem].local.username) != -1) { %>
+
+
+
+
+	        		
+						<!--<button class="btn"> <%= users[mem].local.username %></button>-->
+						<input name="receiver" value="<%= users[mem].local.username %>" class="create-button btn" type="submit">
+	        		
+	        		<% } %>
+
+	        	<% } %>
+	        	<div id="output"></div>
+	        </div>
+    	</div>
+    </div>
+
+    </div>
+
 	<div class="container">
 	<div class="deck-view" style="float:right;width: 100%;height: auto;">
 		<h1><strong>Class Decks</strong><button id="new-deck-button" onclick="showPopup('new-deck-overlay')">+</button></h1>
