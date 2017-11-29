@@ -252,8 +252,7 @@
 <html>
 <head>
 	<link rel="stylesheet" href="css/style.css" type="text/css">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="../js/user.js"></script>
@@ -269,10 +268,14 @@
 			<ul id="notifications">
 					<% for(var i=0; i < notifications.length; i++) { %>
 						<li class='notif-card'>
+							<form action="/user/removeNotification" method="post">
+								<input type="hidden" name="notificationid" value="<%= notifications[i].id %>" />
+								<input class="close-button" type="submit" value="X">
+							<form>
 							<div id='<%= notifications[i].title %>'>
 								<h1><strong><%= notifications[i].title %></strong></h1>
 								<h2><%= notifications[i].sender.local.username %></h2><br></br>
-								<a href=""><span><%= notifications[i].content %></span></a>
+								<%- notifications[i].content %>
 							</div>
 						</li>
 					<% } %>
@@ -381,7 +384,7 @@
 			<h1>
 				<strong>YOUR DECKS</strong>
 				<button id="new-deck-button" onclick="showPopup('new-deck-overlay')">+</button>
-				<button id="notification-button" onclick="showPopup('notification-center'); getNotifications();"><p><i class="fa fa-bell" aria-hidden="true"></i></span></p></button>
+				<button id="notification-button" onclick="showPopup('notification-center')"><p><i class="fa fa-bell" aria-hidden="true"></i></span></p></button>
 			</h1>
 			  <ul id="deck-list" class="decks">
 					<% for(var i=0; i < userdecks.length; i++) { %>

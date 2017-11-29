@@ -20,9 +20,11 @@ module.exports = {
     addNewUserDeck: addNewUserDeck,
     verifyCard: verifyCard,
     shareDeck: shareDeck,
-    getAnnouncements: getAnnouncements,
-    acceptInvite: acceptInvite,
-    createNewGroup: createNewGroup
+    getAnnouncements : getAnnouncements,
+    acceptInvite : acceptInvite,
+    createNewGroup : createNewGroup,
+    addMember : addMember,
+    removeNotification : removeNotification
 }
 
 
@@ -134,15 +136,21 @@ function getGroupPage(req, res) {
                         groupid: data.id
                     })
                     .then(function(data2) {
-                        res.render('group', {
-                            _id: data._id,
-                            id: data.id,
-                            title: data.name,
-                            user: req.user.local.username,
-                            members: data.members,
-                            owner: data.owner,
-                            decks: data2
-                        });
+                        if(data2){
+                            User.find({})
+                            .then(function (data3) {
+                                res.render('group', {
+                                    _id: data._id,
+                                    id: data.id,
+                                    title: data.name,
+                                    user: req.user.local.username,
+                                    members: data.members,
+                                    owner: data.owner,
+                                    decks: data2,
+                                    users: data3
+                                });
+                            });
+                        }
                     });
             }
         });
@@ -229,23 +237,18 @@ function getUserPage(req, res) {
             }
 
             Notifications.find({
-                invited: {
-                    $elemMatch: {
-                        "local.username": req.user.local.username
-                    }
-                }
-            }, (err3, notifications) => {
-                if (err3) {
-                    res.status(404);
-                    res.send('Notifications not found!');
-                }
-
-                res.render('user', {
-                    user: req.user.local.username,
-                    groups: groups,
-                    notifications: notifications,
-                    userdecks: userdecks,
-                });
+                  "receiver.local.username" : req.user.local.username
+            }, (err3, notifications)=> {
+              if(err3) {
+                res.status(404);
+                res.send('Notifications not found!');
+              }
+              res.render('user', {
+                  user: req.user.local.username,
+                  groups: groups,
+                  notifications: notifications,
+                  userdecks: userdecks,
+              });
             });
         });
     });
@@ -369,7 +372,6 @@ function verifyCard(req, res) {
         res.redirect('/user');
     }
 
-    console.log(req.params.deckid);
     GroupDeck.update({
         "id": req.params.deckid
     }, {
@@ -386,7 +388,6 @@ function verifyCard(req, res) {
         console.log("updated");
         GroupDeck.find({})
             .then(function(data) {
-                console.log(data);
 
                 var url = "/group/" + req.body.groupid;
                 res.redirect(url);
@@ -483,4 +484,53 @@ function createNewGroup(req, res) {
 
     newGroup.save();
     res.redirect('/group/' + newid);
+}
+
+function addMember(req, res){
+    const errors = req.validationErrors();
+    if (errors){
+        req.flash('errors', errors.map(err => err.msg));
+        res.redirect('/user');
+    }
+    else{
+        User.findOne({'local.username' : req.body.receiver})
+        .then(function (user) {
+
+            User.findOne({'local.username' : req.body.sender})
+            .then(function (send){
+
+                Notifications.create(
+                    {id: makeId(),
+                    sender: send,
+                    title: "Invitation to join " + req.body.groupname,
+                    content: req.body.content,
+                    receiver: user
+                }, function(err, member){
+                    if(err) return console.error(err);
+                });
+
+                var redirectpath = "/group/" + req.body.groupid;
+                res.redirect(redirectpath);
+            });
+        });
+    }
+
+}
+
+
+function removeNotification(req, res) {
+  const errors = req.validationErrors();
+  if (errors){
+      req.flash('errors', errors.map(err => err.msg));
+      res.redirect('/user');
+  }
+
+  Notifications.remove({id : req.body.notificationid}, function(err) {
+    if (!err) {
+      res.redirect('/user');
+    }
+    else {
+      res.send("unable to find Notification");
+    }
+  });
 }
