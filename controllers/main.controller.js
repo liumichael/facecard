@@ -16,6 +16,7 @@ module.exports = {
     getUserPage: getUserPage,
     getUserDeck: getUserDeck,
     addNewUserCard: addNewUserCard,
+    addNewGroupCard: addNewGroupCard,
     addNewGroupDeck: addNewGroupDeck,
     addNewUserDeck: addNewUserDeck,
     verifyCard: verifyCard,
@@ -318,6 +319,61 @@ function addNewUserCard(req, res) {
                 res.send(err);
             } else {
                 res.redirect('/user');
+            }
+        });
+}
+
+function addNewGroupCard(req, res) {
+    const errors = req.validationErrors();
+    if (errors) {
+        req.flash('errors', errors.map(err => err.msg));
+        res.redirect('/user');
+    }
+
+    var cId = makeId();
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1; //January is 0!
+    var yyyy = today.getFullYear();
+
+    if (dd < 10) {
+        dd = '0' + dd
+    }
+
+    if (mm < 10) {
+        mm = '0' + mm
+    }
+
+    today = mm + '/' + dd + '/' + yyyy;
+    var cquestion = req.body.cardQuestion;
+    var canswer = req.body.cardAnswer;
+
+
+    var newcard = new Cuecard({
+        id: cId,
+        question: cquestion,
+        answer: canswer,
+        rating: 0,
+        lastAccessed: today
+    });
+    // newcard.save();
+
+    GroupDeck.update({
+            id: req.body.deckid
+        }, {
+            $push: {
+                cuecards: newcard
+            }
+        }, {
+            upsert: true
+        },
+        function(err, result) {
+            if (err) {
+                res.status(404);
+                res.send(err);
+            } else {
+                var redirectpath = "/group/" + req.body.groupid;
+                res.redirect(redirectpath);
             }
         });
 }
