@@ -311,7 +311,7 @@
 
 	<div class = "container" style="float:right">
     	<div class="container content">
-	        <p> Members: </p> 
+	        <h2> Members: </h2> 
 	        <div  class="container">
 			<% var valid_members = [] %>
 	        	<% for (member in members) { %>
@@ -322,13 +322,10 @@
 
 	        	<% for (mem in users) { %>
 	        		<% if (valid_members.indexOf(users[mem].local.username) != -1) { %>
+ 		
+					<!--<button class="btn"> <%= users[mem].local.username %></button>-->
+					<input name="receiver" value="<%= users[mem].local.username %>" class="create-button btn" type="submit">
 
-
-
-
-	        		
-						<!--<button class="btn"> <%= users[mem].local.username %></button>-->
-						<input name="receiver" value="<%= users[mem].local.username %>" class="create-button btn" type="submit">
 	        		
 	        		<% } %>
 
