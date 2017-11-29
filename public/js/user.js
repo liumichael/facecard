@@ -53,7 +53,7 @@ function showOverlay(id) {
 
 	openedDeck = id;
 
-	var elem = document.getElementById(id);
+	var elem = document.getElementById(openedDeck);
 
 	var attr = elem.getAttribute("value");
 	openedDeckId = attr;
@@ -79,13 +79,15 @@ function addNewDeck() {
 }
 
 function addNewCard() {
-	var deckName = document.getElementById("new-card-name").value;
+	// var deckName = document.getElementById("new-card-name").value;
 	var question = document.getElementById("new-card-question").value;
 	var answer = document.getElementById("new-card-answer").value;
 
 
-	decks[openedDeck].push(deckName);
-	cards[deckName] = {"question": question, "answer": answer};
+	// decks[openedDeck].push(deckName);
+	// cards[deckName] = {"question": question, "answer": answer};
+  var link = '/user/newcard';
+  $.post(link, {cardQuestion : question, cardAnswer : answer, deckid : parseInt(openedDeckId)});
 
 	showOverlay(openedDeck);
 	hideOverlay('new-card-overlay');

@@ -1,9 +1,10 @@
 var Group = require('../models/group');
 var User = require('../models/users');
 var UserDeck = require('../models/userdeck');
-var GroupDeck = require ('../models/groupdeck');
-var Announcements = require ('../models/announcements');
-var Notifications = require ('../models/notification');
+var GroupDeck = require('../models/groupdeck');
+var Announcements = require('../models/announcements');
+var Notifications = require('../models/notification');
+var Cuecard = require('../models/cuecard');
 var mongoose = require('mongoose');
 
 module.exports = {
@@ -14,6 +15,7 @@ module.exports = {
     getGroupDeck: getGroupDeck,
     getUserPage: getUserPage,
     getUserDeck: getUserDeck,
+    addNewUserCard: addNewUserCard,
     addNewGroupDeck: addNewGroupDeck,
     addNewUserDeck: addNewUserDeck,
     verifyCard: verifyCard,
@@ -189,22 +191,22 @@ function getUserDeck(req, res) {
     }
 
     UserDeck.findOne({
-        id: req.params.id
-    })
-    .then(function(data) {
-        if (!data) {
-            res.send('Deck not found!');
-        } else {
-            res.render('cue_card_front', {
-                _id: data._id,
-                id: data.id,
-                title: data.name,
-                user: req.user.local.username,
-                cuecards: data.cuecards
+            id: req.params.id
+        })
+        .then(function(data) {
+            if (!data) {
+                res.send('Deck not found!');
+            } else {
+                res.render('cue_card_front', {
+                    _id: data._id,
+                    id: data.id,
+                    title: data.name,
+                    user: req.user.local.username,
+                    cuecards: data.cuecards
 
-            });
-        }
-    });
+                });
+            }
+        });
 }
 
 function getUserPage(req, res) {
@@ -266,24 +268,58 @@ function makeId() {
     return newid;
 }
 
-function addNewUserCuecard(req, res) {
+function addNewUserCard(req, res) {
     const errors = req.validationErrors();
     if (errors) {
         req.flash('errors', errors.map(err => err.msg));
         res.redirect('/user');
     }
 
-    UserDeck.find({
-        "user.local.username": req.user.local.username
-    }, (err2, userdecks) => {
-        if (err2) {
-            res.status(404);
-            res.send('UserDecks not found!');
-        }
+    var cId = makeId();
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1; //January is 0!
+    var yyyy = today.getFullYear();
 
-        var newid = makeId();
-        // put request
+    if (dd < 10) {
+        dd = '0' + dd
+    }
+
+    if (mm < 10) {
+        mm = '0' + mm
+    }
+
+    today = mm + '/' + dd + '/' + yyyy;
+    var cquestion = req.body.cardQuestion;
+    var canswer = req.body.cardAnswer;
+
+
+    var newcard = new Cuecard({
+        id: cId,
+        question: cquestion,
+        answer: canswer,
+        rating: 0,
+        lastAccessed: today
     });
+    // newcard.save();
+
+    UserDeck.update({
+            id: req.body.deckid
+        }, {
+            $push: {
+                cuecards: newcard
+            }
+        }, {
+            upsert: true
+        },
+        function(err, result) {
+            if (err) {
+                res.status(404);
+                res.send(err);
+            } else {
+                res.redirect('/user');
+            }
+        });
 }
 
 function addNewGroupDeck(req, res) {
@@ -396,7 +432,7 @@ function getAnnouncements(req, res) {
                 res.render('group', {
                     groupid: data.groupid,
                     title: data.title,
-	            content: data.content
+                    content: data.content
                 });
             }
         });
@@ -405,45 +441,49 @@ function getAnnouncements(req, res) {
 
 
 function acceptInvite(req, res) {
-	const errors = req.validationErrors();
-  if (errors) {
-    req.flash('errors', errors.map(err => err.msg));
-    res.redirect('/user');
-  }
+    const errors = req.validationErrors();
+    if (errors) {
+        req.flash('errors', errors.map(err => err.msg));
+        res.redirect('/user');
+    }
 
-	Group.update(
-    {id : req.body.groupid},
-    {$push : {members : req.user}},
-    {upsert : true},
-    function(err, result) {
-        if (err) {
-          res.status(404);
-          res.send(err);
-        }
-        else {
-          res.redirect('/user');
-        }
-	});
+    Group.update({
+            id: req.body.groupid
+        }, {
+            $push: {
+                members: req.user
+            }
+        }, {
+            upsert: true
+        },
+        function(err, result) {
+            if (err) {
+                res.status(404);
+                res.send(err);
+            } else {
+                res.redirect('/user');
+            }
+        });
 }
 
 function createNewGroup(req, res) {
-  const errors = req.validationErrors();
-  if (errors) {
-    req.flash('errors', errors.map(err => err.msg));
-    res.redirect('/user');
-  }
-  var user = req.user;
-  var newid = makeId();
+    const errors = req.validationErrors();
+    if (errors) {
+        req.flash('errors', errors.map(err => err.msg));
+        res.redirect('/user');
+    }
+    var user = req.user;
+    var newid = makeId();
 
-  var newGroup = new Group({
-    id : newid,
-    name : req.body.groupname,
-    owner : req.user,
-    members : [req.user]
-  });
+    var newGroup = new Group({
+        id: newid,
+        name: req.body.groupname,
+        owner: req.user,
+        members: [req.user]
+    });
 
-  newGroup.save();
-  res.redirect('/group/' + newid);
+    newGroup.save();
+    res.redirect('/group/' + newid);
 }
 
 function addMember(req, res){
