@@ -162,6 +162,13 @@
 		background:red;
 		color:white;
 	}
+	.deleteButton{
+		background : white;
+		border-radius: 5px;
+		float:right;
+		padding : 1px;
+		box-shadow: 0px 0px 1px grey;
+	}
 	.verifyButton{
 		background : white;
 		border-radius: 5px;
@@ -309,6 +316,7 @@
     	</div>
     </div>
 
+
 	<div class = "container" style="float:right">
     	<div class="container content">
 	        <h2 style="display: inline"> Members: </h2>
@@ -339,15 +347,19 @@
     </div>
 
     </div>
+	
 
 	<div class="container">
 	<div class="deck-view" style="float:right;width: 100%;height: auto;">
 		<h1><strong>Class Decks</strong><button id="new-deck-button" onclick="showPopup('new-deck-overlay')">+</button></h1>
 
         <ul id="deck-list" class="decks"></ul>
-				<% for (deck in decks) { %>
+				<% for (deck in decks) { %>			
+
 
 					<div id="<%=decks[deck].id%>" value='<%= decks[deck].id %>' class='cards'>
+
+
 						<% if (decks[deck].verified != 1 && user == owner.local.username) {%>
 							<!-- <a href="/group/verify/<%=decks[deck].id %>/<%=title %>"><span>Verify Card</span></a> -->
 							<form action="/group/verify/<%=decks[deck].id %>" method="post">
