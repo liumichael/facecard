@@ -366,6 +366,7 @@
 
 
 					<div id="<%=decks[deck].id%>" value='<%= decks[deck].id %>' class='cards'>
+						<input class="deleteButton" value="Delete Deck" type="submit" onclick="showPopup('delete_confirm_overlay')">
 
 
 						<% if (decks[deck].verified != 1 && user == owner.local.username) {%>
