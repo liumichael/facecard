@@ -57,16 +57,16 @@ function showPopup(id) {
 }
 
 function showOverlay(id) {
-    document.getElementById("catalog").innerHTML = '';
+    document.getElementById("open-deck").innerHTML = '';
     document.getElementById("deck-overlay").style.display = "block";
 
     var listOfCards = decks[id];
 
-
-    for (index in listOfCards) {
-        console.log(listOfCards[index]);
-        $('#catalog').append("<li class='card' id='" + listOfCards[index] + "'><a href='/cue'><button><h1><strong>Click to show card</strong></h1></button></a></li>");
-    }
+    //
+    // for (index in listOfCards) {
+    //     console.log(listOfCards[index]);
+    //     $('#catalog').append("<li class='card' id='" + listOfCards[index] + "'><a href='/cue'><button><h1><strong>Click to show card</strong></h1></button></a></li>");
+    // }
 
     openedDeck = id;
 
@@ -75,9 +75,9 @@ function showOverlay(id) {
     var attr = elem.getAttribute("value");
     openedDeckId = attr;
 
-    var link = "<a href='/deck/" + openedDeckId + "'><button class='open-button'><span> Open Deck </span></button></a>";
+    var link = "<a href='/deck/" + openedDeckId + "'><button class='open-deck-button'><strong>Open Deck</strong></button></a>";
 
-    $('#deck-overlay-content').append(link);
+    $('#open-deck').append(link);
 }
 
 

@@ -126,6 +126,20 @@
 		background: lightgray;
 	}
 
+	.open-deck-button {
+		background:none;
+		border:none;
+		border-radius: 5px;
+		margin-left:20vw;
+		margin-top:4vh;
+		padding: 1%;
+		box-shadow: 0px 1px 5px grey;
+		transition:0.2s;
+	}
+	.open-deck-button:hover{
+		box-shadow: 0px 10px 10px grey;
+	}
+
 	.text-box-input {
 		border: none;
 		border-radius: 5px;
@@ -193,7 +207,7 @@
 		font-size:20px;
 		transition:0.2s;
 		float: center;
-		margin-left: 12vw;
+		margin-left: 10vw;
 	}
 	.share-button:hover {
 		background: lightgray;
@@ -259,7 +273,10 @@
 </head>
 <body>
 
-
+	<!-- <form action="/drop" method="post">
+	<input value="drop table" class="create-button" type="submit">
+	</form> -->
+	<!-- <a href="/get">hi</a> -->
 
 	<div id="notification-center" class="popup" style="z-index:901;">
 		<div class="content">
@@ -312,8 +329,10 @@
 				<button class="add-button" id="add-card" onclick="showPopup('new-card-overlay')"><span><Strong>Add New Card</strong></span></button>
 				<button class="share-button" onclick="showPopup('deck-share-overlay')"><span> Share Deck </span></button>
 				<button class="close-button" onclick="hideOverlay('deck-overlay')"> X </button>
-			<ul id="catalog">
-			</ul>
+			<!-- <ul id="catalog">
+			</ul> -->
+			<div id='open-deck'>
+			</div>
 		</div>
 	</div>
 
@@ -382,8 +401,8 @@
 
 		<div class="deck-view" style="float:right;width:85%">
 			<h1>
-				<strong>YOUR DECKS</strong>
-				<button id="new-deck-button" onclick="showPopup('new-deck-overlay')">+</button>
+				<strong>Your Decks</strong>
+				<button id="new-deck-button" class="new-entity-button" onclick="showPopup('new-deck-overlay')">+</button>
 				<button id="notification-button" onclick="showPopup('notification-center')"><p><i class="fa fa-bell" aria-hidden="true"></i></span></p></button>
 			</h1>
 			  <ul id="deck-list" class="decks">

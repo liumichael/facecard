@@ -25,7 +25,9 @@ module.exports = {
     acceptInvite : acceptInvite,
     createNewGroup : createNewGroup,
     addMember : addMember,
-    removeNotification : removeNotification
+    removeNotification : removeNotification,
+    dropData : dropData,
+    getData : getData
 }
 
 
@@ -588,5 +590,32 @@ function removeNotification(req, res) {
     else {
       res.send("unable to find Notification");
     }
+  });
+}
+
+
+function dropData(req, res) {
+  const errors = req.validationErrors();
+  if (errors){
+      req.flash('errors', errors.map(err => err.msg));
+      res.redirect('/user');
+  }
+
+  User.remove({}, function(err) {
+    console.log("removed data");
+  })
+}
+
+function getData(req, res) {
+  const errors = req.validationErrors();
+  if (errors){
+      req.flash('errors', errors.map(err => err.msg));
+      res.redirect('/user');
+  }
+
+  User.find({})
+  .then(function(data) {
+    console.log(data);
+
   });
 }
