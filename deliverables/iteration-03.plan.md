@@ -6,8 +6,8 @@
 
 ## Iteration 3
 
- * Start date: FILL IN THE DATE WHEN YOU HAD YOUR FIRST TEAM PLANNING MEETING
- * End date: FILL IN THE DATE WHEN YOU ARE PLANNING TO HAVE YOUR REVIEW MEETING
+ * Start date: Nov 22, 2017
+ * End date: Dec 01, 2017
 
 ## Process
 
@@ -27,7 +27,26 @@ List the most significant changes you made to your process (if any).
 
 #### Roles & responsibilities
 
-Describe the different roles on the team and the responsibilities associated with each role.
+Product Owner: Zhen Bang Liu (liumichael)
+* Has a vision of the end product and decides on the direction of the project. Creates tasks that the team needs to complete to move in the direction of the project. Responsible for merging pull requests after making sure the code in the pull request works in everyone members' machines.
+
+
+Scrum Master: Bryan Tung (BryanTung97)
+* The scrum master facilitates the project in order to ensure that each individual is completing their tasks as required by taking requests from the product owner. This is to allow smoother progression.
+
+Development Team: Hyewon Choi (jenachoi), Eric Hu (EricHu214), Zhen Bang Liu (liumichael), Bryan Tung (BryanTung97), Chris Wan (wanchris)
+* The development team is responsible for developing, debugging and implementing the program and frameworks of the product. Each member will be assigned specific tasks based on their skill set (i.e. backend, frontend) in order to promote efficiency.
+
+Deliverable specific responsibilities
+* For this deliverable, Zhen is responsible for implementing The database implementation and integration of the cue-card decks with features such as create decks, create cue-cards in a deck, and display cue-card deck given an id. He is also responsible for writing the script for the video along with Chris.
+
+* Bryan is responsible for developing the feature to create groups and add members to a group along with Eric. He is also responsible for editing the video.
+
+* Jenna is responsible for developing features for displaying the proper username based on login, populating the notification center populating the group list of a user and populating the decks the user have. She is also responsible for the screen recording of the video.
+
+* Eric is responsible for developing features like add members to a group along with Bryan, show group members in the group, show shared decks in the group, and display group name on the group page. He is also responsible for doing the voice-over for the video.
+
+* Chris is responsible for developing the abilty to fetch and add announcements to a group, populate members in a group, and delete decks. She is also responsible for writing the script for the video along with Zhen.
 
 #### Events
 
@@ -63,9 +82,9 @@ For example, "we use pull-requests" is not a precise statement since it leaves t
 
 #### Goals and tasks
 
-1) Delete function 
+1) Delete function
 
-A user may realize after creating a deck that they have inputted the wrong information, or added a duplicate of a deck that may already exist. This will result in confusion towards the rest of the group and the incorrect cards may mislead other users, resulting in the group studying false facts. In order to avoid this scenario, we are planning on implementing a delete decks within groups, where users are able remove decks these various reasons. The tasks that we will have to complete in order to achieve this goal is to implement a delete function that will take in the id (key) of the deck, and remove it from the database so that it can no longer be viewed by other users. The delete button and pop up prompt to delete the deck has already been implemented. The removal function must be implemented in the database controller. 
+A user may realize after creating a deck that they have inputted the wrong information, or added a duplicate of a deck that may already exist. This will result in confusion towards the rest of the group and the incorrect cards may mislead other users, resulting in the group studying false facts. In order to avoid this scenario, we are planning on implementing a delete decks within groups, where users are able remove decks these various reasons. The tasks that we will have to complete in order to achieve this goal is to implement a delete function that will take in the id (key) of the deck, and remove it from the database so that it can no longer be viewed by other users. The delete button and pop up prompt to delete the deck has already been implemented. The removal function must be implemented in the database controller.
 Programs and languages used: HTML, JavaScript, MongoDB
 
 2) Progress report
@@ -78,9 +97,9 @@ Programs and Languages used: HTML, JavaScript, MongoDB
 Users may forget to come back to review their cards. Spaced repetition relies on users coming back after certain intervals of time to test their knowledge in order to aid with memorization of the fact. This method of studying will fail if the user cannot remember which cards they have done poorly on. Based on the average rating of the cue cards (as selected by the user after they test themselves using the card), FaceCard will alert the user through notifications that it is time to review a certain card. This relies on the progress report to be completed. Notifications will be sent periodically, with these periods of time depending on the average rating of the card. For example, a user would receive a notification to study a certain card after 1 day if they have an average rating of 1 on the card, but receive a notification to study another card after 5 days for a card rated 5.
 Programs and Languages used: HTML, JavaScript, MongoDB  
 
-4) Front end and Consistency 
+4) Front end and Consistency
 
-We will work on making our website more consistent (i.e. headers and buttons will not vary across pages) for a cleaner and more professional look. This can be done through comparison between the physical appearance of pages and the comparison of code. 
+We will work on making our website more consistent (i.e. headers and buttons will not vary across pages) for a cleaner and more professional look. This can be done through comparison between the physical appearance of pages and the comparison of code.
 Programs and Languages used: HTML, JavaScript
 
 #### Artifacts
