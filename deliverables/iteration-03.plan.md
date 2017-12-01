@@ -7,12 +7,12 @@
 
 ## Iteration 3
 
- * Start date: Nov 22, 2017
- * End date: Dec 01, 2017
+ * Start date: Nov 18, 2017
+ * End date: Nov 29, 2017
 
 ## Process
 
-(Optional:) Quick introduction
+There are not much changes on our processes compared to last time
 
 #### Changes from previous iteration
 
@@ -47,7 +47,7 @@ Deliverable specific responsibilities
 
 * Eric is responsible for developing features like add members to a group along with Bryan, show group members in the group, show shared decks in the group, and display group name on the group page. He is also responsible for doing the voice-over for the video.
 
-* Chris is responsible for developing the abilty to fetch and add announcements to a group, populate members in a group, and delete decks. She is also responsible for writing the script for the video along with Zhen.
+* Chris is responsible for developing the ability to fetch and add announcements to a group, populate members in a group, and delete decks. She is also responsible for writing the script for the video along with Zhen.
 
 #### Events
 
@@ -56,12 +56,12 @@ Describe meetings (and other events) you are planning to have:
  * When and where? In-person or online?
  * What's the **purpose** of each meeting?
  * Other events could be coding sessions, code reviews, quick weekly sync' meeting online, etc.
- 
-We generally have 2 meeting a week held on Discord voice chat. One meeting on Friday and one on Saturday. The Friday meeting allows us 
-to update other members members of the group about our progress. This allows us to determine the current status of the application 
+
+We generally have 2 meeting a week held on Discord voice chat. One meeting on Friday and one on Saturday. The Friday meeting allows us
+to update other members members of the group about our progress. This allows us to determine the current status of the application
 and help determine our goals for the next week. During our Satuday meeting, we discuss our goals for the next week. What each member
 will implement and how they will implement it. For this specific deliverable, some extra meetings were made. We had started implementing the back-end of our application, and since most of the members lacked previous experience in back-end development, some extra events were needed to ensure everyone was working at the same pace.
- 
+
 planned events:
 
 - Saturday November 18: Discord
@@ -70,7 +70,7 @@ We decided that it was time to implement the back-end. Since most of the members
 
 - Friday November 24: Discord
 
-We discuss our learnings of back-end development for the week. Many of our members still had some confusion with back-end development, so we planned extra time for our meeting on Saturday for members to teach each other how to develop back-end.
+We discuss our learnings of back-end development for the week. Many of our members still had some confusion with back-end development, so we planned extra time for our meeting on Saturday for members to teach each other how to develop back-end. We also discussed our roles in this sprint in this meeting.
 
 - Saturday November 25: Discord
 
@@ -78,7 +78,7 @@ on top of our usual planning meeting, we devoted a lot of time in this meeting t
 
 - Sunday November 26: Discord
 
-We further discussed our progress on the back-end. We also needed to redesign our schema since our schema was designed around a relational database, where as Mongoose, the database we were using, was not relational. We also discussed our plans for making the demo video, and decided that most of our roles would be the same as before. We also set a deadline of Tuesday to have all our demo features done for the video.
+We further discussed our progress on the back-end. We also needed to redesign our schema since our schema was designed around a relational database, where as Mongoose, the database we were using, was not relational. We assigned each other the tasks for the demo features for the next few days and we also discussed our plans for making the demo video, and decided that most of our roles would be the same as before. We also set a deadline of Tuesday to have all our demo features done for the video.
 
 - Wednesday November 29: Discord
 
@@ -94,6 +94,28 @@ List/describe the artifacts you will produce in order to organize your team.
    * How do you keep track of what needs to get done?
    * How do you prioritize tasks?
    * How do tasks get assigned to team members?
+
+
+   * TaskLists:
+
+    - Nov. 24:
+        - Zhen: getting cuecard info from the database and creating the page, create cuecards and decks and pushing to the database
+        - Chris: Fetching the announcments from the database and making the announcments, making announcments and pushing to database
+        - Jenna: populates the user decks from the database, display proper username based on login, show groups list on the side of user page
+        - Bryan: Adding group and adding to the database for new group, add members (just front end for now), search for a user and add them
+        - Eric: sharing, show group members, show group decks, show group name
+
+    - Nov. 26:
+        - Zhen: add cuecard to deck
+        - Bryan and Eric: add members of group
+        - Jenna: populate notifications
+        - Chris: populate members of a group and ability to delete decks
+        - +++ everyone refine front end if have time
+
+    - Nov. 26:
+        - Deliverable and Video roles as before
+
+   * We have a google docs of our script which we use to coordinate between the script writers and screen recorders for the video.
 
 #### Git / GitHub workflow
 
@@ -114,7 +136,7 @@ For example, "we use pull-requests" is not a precise statement since it leaves t
 - If a member needs help with implementing their part, they will create a new branch with "test" appended to the end. They will ask on messenger for assistance and the the other members can checkout that branch and attempt to work on it together.
 
 
-We decided to follow this workflow because it ensures changes made by the individual will not break the main branch. Before adopting this workflow, we ran into issues where the changes made only worked on the PR owner's computer. This lead to the program breaking for other members of the group, forcing us to roll back the main branch. After adopting this method, this became a non-issue. 
+We decided to follow this workflow because it ensures changes made by the individual will not break the main branch. Before adopting this workflow, we ran into issues where the changes made only worked on the PR owner's computer. This lead to the program breaking for other members of the group, forcing us to roll back the main branch. After adopting this method, this became a non-issue.
 
 The test branch was brought up when we started developing the backend. Since most of the members are new to NodeJS and backend developement in general, some assistance was needed from other members to help debug certain problems.
 
