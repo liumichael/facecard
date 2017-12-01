@@ -5,7 +5,7 @@
  > _Suggestion:_ Have your review meeting a day or two before the due date. This way you will have some time to go over (and edit) this document, and all team members should have a chance to make their contribution.
 
 
-## Iteration XX - Review & Retrospect
+## Iteration 03 - Review & Retrospect
 
  * When: FILL IN THE DATE WHEN YOU ACTUALLY HAD YOUR REVIEW MEETING
  * Where: PHYSICAL LOCATION AND/OR ONLINE
@@ -14,31 +14,32 @@
 
 (Optional) Short introduction
 
+* [`Demo video`](https://)
+
 #### Decisions that turned out well
 
-List process-related (i.e. team organization) decisions that, in retrospect, turned out to be successful.
-
+<!-- List process-related (i.e. team organization) decisions that, in retrospect, turned out to be successful.
 
  * 2 - 4 decisions.
  * Ordered from most to least important.
  * Explain why (i.e. give a supporting argument) you consider a decision to be successful.
- * Feel free to refer/link to process artifact(s).
+ * Feel free to refer/link to process artifact(s). -->
 
 #### Decisions that did not turn out as well as we hoped
 
-List process-related (i.e. team organization) decisions that, in retrospect, were not as successful as you thought they would be.
+<!-- List process-related (i.e. team organization) decisions that, in retrospect, were not as successful as you thought they would be.
 
  * 2 - 4 decisions.
  * Ordered from most to least important.
- * Feel free to refer/link to process artifact(s).
+ * Feel free to refer/link to process artifact(s).-->
 
 
 #### Planned changes
 
-List any process-related changes you are planning to make (if there are any)
+<!-- List any process-related changes you are planning to make (if there are any)
 
  * Ordered from most to least important.
- * Explain why you are making a change.
+ * Explain why you are making a change. -->
 
 
 ## Product - Review
