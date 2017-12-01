@@ -57,7 +57,18 @@ For example, "we use pull-requests" is not a precise statement since it leaves t
  * If applicable, specify any naming conventions or standards you decide to adopt.
  * Don't forget to **explain why** you chose this workflow.
 
+ Our Git workflow works as follows:
+- Each member has their own branch to work on. They are free to make commits and push to it.
+- When a member feels their work is ready to be merged with the main branch, they will make a pull request and message on Facebook messenger
+- At least 2 other members will do a checkout of the requested branch. They will test the changes on their machine to ensure that the code will not break existing work. The two other members also must have different machines to ensure the change works on different subsystems (Mac or Windows)
+- When at least 2 people confirm that the pull request is safe, our product owner merges the pull request with the main branch
+- Then every other member will update their branch with the new changes from main.
+- If a member needs help with implementing their part, they will create a new branch with "test" appended to the end. They will ask on messenger for assistance and the the other members can checkout that branch and attempt to work on it together.
 
+
+We decided to follow this workflow because it ensures changes made by the individual will not break the main branch. Before adopting this workflow, we ran into issues where the changes made only worked on the PR owner's computer. This lead to the program breaking for other members of the group, forcing us to roll back the main branch. After adopting this method, this became a non-issue. 
+
+The test branch was brought up when we started developing the backend. Since most of the members are new to NodeJS and backend developement in general, some assistance was needed from other members to help debug certain problems.
 
 ## Product
 
