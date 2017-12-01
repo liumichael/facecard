@@ -1,22 +1,25 @@
+<!DOCTYPE HTML>
 <html>
     <head>
         <title> Quiz </title>
-        <link rel="stylesheet" href="css/style.css" type="text/css">
+        
         <!--<link href="css/bootstrap.min.css"rel="stylesheet">-->
-        <link href="css/bootstrap4/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css" type="text/css">
       	<link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="js.cue.js"></script>
         <script>
             $(function(){
                 $(".view").hide();
                 $("#quiz-example").show();
                 $("#view-quiz-page").show();
                 var x = timerFunc();
-                
+
                 $("#cont-skip-btn").click(function(){
-                    //var timer = document.getElementById("timer-quiz"); 
+                    //var timer = document.getElementById("timer-quiz");
                     $("#timer-quiz").text("30");
-                    var timer = document.getElementById("timer-quiz"); 
+                    var timer = document.getElementById("timer-quiz");
                     var page = parseInt($("#page_number").text().trim().split("/", 1)) + 1;
                     timer.style.color = "black";
                     clearInterval(x);
@@ -29,17 +32,17 @@
                     $("#a3").text("Vacuole");
                     $("#a4").text("Cell Wall");
                     $("#page_number").text(page + "/30");
-                     
+
                 });
-                
+
                 $(".btn-quiz").click(function(event){
-                    var ans = $("#" + event.target.id).text().trim(); 
+                    var ans = $("#" + event.target.id).text().trim();
                     var quest = $(".card-title").text().trim();
                     if (quest == "What is the powerhouse of the cell?" && ans != "Mitochondria"){
                         $(".card-title").text("Incorrect: Mitochondria");
                     }
-                    else if (quest == "What does an animal cell not have?" && ans != "Cell Wall"){    
-                        var timer = document.getElementById("timer-quiz"); 
+                    else if (quest == "What does an animal cell not have?" && ans != "Cell Wall"){
+                        var timer = document.getElementById("timer-quiz");
                         timer.style.color = "black";
                     }
                     else if (quest == "What is the powerhouse of the cell?"){
@@ -49,19 +52,19 @@
                         $(".card-title").text("Correct: Cell Wall");
                     }
                     $(".btn-quiz").attr("disabled", "disabled");
-                    
-                    document.getElementById("cont-skip-btn").textContent = "Continue";    
+
+                    document.getElementById("cont-skip-btn").textContent = "Continue";
                     clearInterval(x)
-                });                     
+                });
             });
-            
+
             function timerFunc(){
                 var x = setInterval(function(){
-                    var timer = document.getElementById("timer-quiz"); 
-                    timer.innerHTML = parseInt(timer.textContent) - 1;    
+                    var timer = document.getElementById("timer-quiz");
+                    timer.innerHTML = parseInt(timer.textContent) - 1;
                     if (timer.textContent == "0"){
                         clearInterval(x);
-                        document.getElementById("cont-skip-btn").textContent = "Continue";    
+                        document.getElementById("cont-skip-btn").textContent = "Continue";
                         $(".btn-quiz").addClass("disabled");
                         $(".btn-quiz").attr("disabled", "disabled");
                         $(".card-title").text("Incorrect: Mitochondria");
@@ -71,14 +74,14 @@
                     }
                 }, 1000);
                 return x;
-            }            
+            }
             /**
             var x = setInterval(function(){
-                var timer = document.getElementById("timer-quiz"); 
-                timer.innerHTML = parseInt(timer.textContent) - 1;    
+                var timer = document.getElementById("timer-quiz");
+                timer.innerHTML = parseInt(timer.textContent) - 1;
                 if (timer.textContent == "0"){
                     clearInterval(x);
-                    document.getElementById("cont-skip-btn").textContent = "Continue";    
+                    document.getElementById("cont-skip-btn").textContent = "Continue";
                     $(".btn-quiz").addClass("disabled");
                     $(".btn-quiz").attr("disabled", "disabled");
                     $(".card-title").text("Incorrect: Mitochondria");
@@ -102,10 +105,10 @@
                 margin-right:5px;
                 margin-left:5px;
             }
-            
+
             #card-count h3{
                 margin:0;
-                display:inline-block;               
+                display:inline-block;
             }
 
             .btn-quiz{
@@ -114,34 +117,28 @@
             }
 
         </style>
-    
+
     </head>
     <body>
-        <nav class="navbar background">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand menu-writing" href="/" style="font-size:27pix;"><strong>facecard</strong></a>
-                </div>
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li><a class="menu-writing" href="/about"> About</a></li>
-                        <li><a class="menu-writing" href="/contact"> Contact</a></li>
-                        <!--
-			<li><a href="#">Home</a></li>
-                    <li><a href="#">Profile</a></li>
-                    <li><a href="#">Group</a></li>
-                    <li class="active"><a href="#">Quiz</a></li>
-                    -->
-                    </ul>
 
+        <nav class="navbar navbar-toggleable-md navbar-expand-lg navbar-light bg-light" >
+            <a class="navbar-brand menu-writing" style="font-size:27px;" href="/"><strong>facecard</strong></a>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto"></ul>
+                <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link menu-writing" style="font-size:16px;" href="/"><i class="fa fa-user fa-1x"></i> <%= user %></a>
+                    
+                </li>
+                <li class="nav-item">
+                    <a class ="nav-link menu-writing" href="/logout"><i class="fa fa-sign-out fa-1x"></i> Signout</a>
+                </li>
+                </ul>
 
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a class="menu-writing" href="/quiz">   Quiz</a></li>
-       			<li><a class="menu-writing" href="/"><i class="fa fa-user fa-1x"></i>   John Smith</a></li>
-       	            </ul>               
-                </div>
             </div>
         </nav>
+        
 
         <div class="view" id="view-main">
 
@@ -168,19 +165,19 @@
                                 <!--<div class="text-right">
                                     <a href="#" class="btn btn-primary float-right">Skip</a>
                                 </div>
-                                -->  
+                                -->
                                 <div class="view" id="view-begin-quiz">
-                                
+
                                 </div>
 
                                 <div class="view" id="view-quiz-page">
                                 <div id="card-count">
-                                    
+
                                     <h3 style="float:left;width:33%" id="timer-quiz" class="text-left">30</h3>
                                     <a href="#" class="btn btn-primary float-right" id="cont-skip-btn">Skip</a>
                                     <h3 style="float:left;width:33%" class="text-center" id="page_number">1/30</h3>
                                 </div>
-                                <div class="text-right"> 
+                                <div class="text-right">
                                 </div>
                                 <br> <br> <br> <br>
                                 <div id="card-content">

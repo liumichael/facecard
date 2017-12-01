@@ -40,7 +40,7 @@
 		padding:0;
 		margin:0;
 	}
-	
+
 	.popup {
 		width: 100%;
 		position:fixed;
@@ -56,22 +56,26 @@
 		display:none;
 		overflow-y: auto;
 	}
-	
+
+	.popup label {
+		font-size : 35px;
+		padding : 10px;
+	}
 	.content {
 		background: rgba(255,255,255,1);
 		padding: 25px;
 		border-radius:10px;
 		min-height: 18vh;
 	}
-	
+
 	.card {
 		list-style-type:none;
 	}
-	
+
 	.card a button:hover{
 		box-shadow: 0px 10px 10px grey;
 	}
-	
+
 	.card a button {
 		background: white;
 		border: 1px solid gray;
@@ -81,8 +85,8 @@
 		box-shadow: 0px 1px 5px grey;
 		transition:0.2s;
 	}
-	
-	
+
+
 	.close-button {
 		background:none;
 		border:none;
@@ -91,12 +95,12 @@
 		font-size:20px;
 		transition:0.2s;
 	}
-	
+
 	.close-button:hover{
 		background:red;
 		color:white;
 	}
-	
+
 	.add-button {
 		background:none;
 		border:none;
@@ -104,25 +108,24 @@
 		font-size:20px;
 		transition:0.2s;
 	}
-	
+
 	.add-button:hover {
 		background:lightgray;
 	}
-	
-	#new-deck-button {
+
+	.new-entity-button {
 		background: none;
 		border: 1px solid black;
 		border-radius:50;
-		margin-left:2%;
 		width:50px;
 		height:50px;
 		transition:0.2s;
 	}
-	
-	#new-deck-button:hover {
+
+	.new-entity-button:hover {
 		background: lightgray;
 	}
-	
+
 	.text-box-input {
 		border: none;
 		border-radius: 5px;
@@ -132,39 +135,40 @@
 		font-size: 30px;
 		box-shadow: 0px 1px 5px grey;
 	}
-	
+
 	.create-button {
 		background: none;
 		border: 1px solid black;
 		border-radius: 5px;
 	}
-	
+
 	.create-button:hover {
 		background: lightgray;
 	}
-	
+
 	#notifications {
 		margin-top:2vh;
 		list-style:none;
 		padding-left:0;
+		margin-top:10px;
 	}
-	
+
 	.notif-card {
 		padding: 20px;
 		margin-top:1vh;
 		margin-left: 0px;
 	}
-	
+
 	.notif-card div {
 		box-shadow: 0px 1px 5px grey;
 		padding: 20px;
 		border-radius:5px;
 	}
-	
+
 	.notif-card div h2 {
 		font-size:20px;
 	}
-	
+
 	#notification-button {
 		background:none;
 		border:none;
@@ -178,80 +182,200 @@
 		background:lightgray;
 	}
 
+	#shareGroups li{
+		list-style: none;
+	}
 
+	.share-button {
+		background:none;
+		border:none;
+		border-radius:5px;
+		font-size:20px;
+		transition:0.2s;
+		float: center;
+		margin-left: 12vw;
+	}
+	.share-button:hover {
+		background: lightgray;
+	}
+
+	.group-share-select {
+		background : none;
+		border:none;
+		border-radius:5px;
+		box-shadow: 0px 1px 3px grey;
+		width: 100%;
+		height: 6vh;
+		text-align:left;
+		padding-left: 2vw;
+		transition:0.2s;
+	}
+
+	.group-share-select:hover {
+		box-shadow: 0px 2px 6px grey;
+	}
+
+	#shareGroups {
+		margin-top : 10px;
+		padding: 0;
+	}
+	#shareGroups li{
+		margin-top : 6vh;
+		padding-left: 0;
+		font-size:18px;
+	}
+
+	.accept-button {
+		background : #4564a0;
+		color:white;
+		border:1px solid #4564a0;
+		padding: 10px;
+		border-radius:2px;
+		font-weight: bold;
+		transition:0.2s;
+	}
+	.accept-button:hover {
+		background : white;
+		color:#4564a0;
+	}
+
+	.fa-bell{
+		color: red;
+	}
+
+	.nav-item{
+		font-size:16px;
+	}
 
 </style>
 
 <html>
 <head>
 	<link rel="stylesheet" href="css/style.css" type="text/css">
-	<link href="css/bootstrap.min.css"rel="stylesheet">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="js/user.js"></script>
+	<script src="../js/user.js"></script>
 </head>
 <body>
+
+
+
 	<div id="notification-center" class="popup" style="z-index:901;">
 		<div class="content">
+			<h1 style="display:inline;"><strong>Notifications</strong></h1>
 			<button class="close-button" onclick="hideOverlay('notification-center')"> X </button>
 			<ul id="notifications">
+					<% for(var i=0; i < notifications.length; i++) { %>
+						<li class='notif-card'>
+							<!-- <form action="/user/removeNotification" method="post">
+								<input type="hidden" name="notificationid" value="<%= notifications[i].id %>" />
+								<input class="close-button" type="submit" value="X">
+							<form> -->
+							<div id='<%= notifications[i].title %>'>
+								<h1><strong><%= notifications[i].title %></strong></h1>
+								<h2><%= notifications[i].sender.local.username %></h2><br></br>
+								<%- notifications[i].content %>
+							</div>
+						</li>
+					<% } %>
 			</ul>
 		</div>
 	</div>
-	
+
 	<div id="new-card-overlay" class="popup" style="z-index:901;">
 		<div class="content">
 			<button class="close-button" onclick="hideOverlay('new-card-overlay')"> X </button>
 			<form>
-				<input id="new-card-name" class="text-box-input" type="text" value="Card name here.." name="fname"><br></br>
-				<input id="new-card-question" class="text-box-input" type="text" value="Question here.." name="fname"><br></br>
-				<input id="new-card-answer" class="text-box-input" type="text" value="Answer here.." name="fname"><br></br>
+				<!-- <label><strong>Card Name </strong></label><input id="new-card-name" class="text-box-input" type="text" value="" name="cardName"><br></br> -->
+				<label><strong>Question </strong></label><input id="new-card-question" class="text-box-input" type="text" value="" name="cardQuestion"><br></br>
+				<label><strong>Answer </strong></label><input id="new-card-answer" class="text-box-input" type="text" value="" name="cardAnswer"><br></br>
 				<input class="create-button" value="CREATE CARD" type="button" onclick="addNewCard()">
-			</form> 
+			</form>
+		</div>
+	</div>
+
+	<div id="deck-share-overlay" class="popup" style="z-index:902;">
+		<div class="content">
+			<h1 style="display:inline;"><strong>Choose a group to share with</strong></h1>
+			<button class="close-button" onclick="hideOverlay('deck-share-overlay')"> X </button>
+			<ul id="shareGroups">
+				<% for(group in groups) {%>
+					<li><button class="group-share-select" onclick="shareDeck(<%=groups[group].id%>)"><span><strong><%=groups[group].name %></strong></span></button></li>
+				<% } %>
+			</ul>
 		</div>
 	</div>
 
 	<div id="deck-overlay" class="popup">
-		<div class="content">
-			<button class="close-button" onclick="hideOverlay('deck-overlay')"> X </button>
-			<button class="add-button" id="add-card" onclick="showPopup('new-card-overlay')"><span><Strong>Add New Card</strong></span></button>
+		<div class="content" id="deck-overlay-content">
+				<button class="add-button" id="add-card" onclick="showPopup('new-card-overlay')"><span><Strong>Add New Card</strong></span></button>
+				<button class="share-button" onclick="showPopup('deck-share-overlay')"><span> Share Deck </span></button>
+				<button class="close-button" onclick="hideOverlay('deck-overlay')"> X </button>
 			<ul id="catalog">
 			</ul>
 		</div>
 	</div>
-	
+
 	<div id="new-deck-overlay" class="popup">
 		<div class="content">
 			<button class="close-button" onclick="hideOverlay('new-deck-overlay')"> X </button>
-			
-			<form>
-				<input id="new-deck-name" class="text-box-input" type="text" value="Deck name here.." name="fname"><br></br>
+
+
+            <form action="/user/newdeck"  method="post">
+				<label><strong>Deck Name </strong></label><input id="new-deck-name" class="text-box-input" type="text" value="" name="deckname"><br></br>
+				<input type="hidden" name="username" value="<%= user %>" />
+
+				<!-- <input value="CREATE DECK" class="create-button" type="button" onclick='addNewDeck()'> -->
+				<input value="CREATE DECK" class="create-button" type="submit">
+			</form>
+
+
+
+			<!-- <form>
+				<label><strong>Deck Name </strong></label><input id="new-deck-name" class="text-box-input" type="text" value="" name="fname"><br></br>
 				<input value="CREATE DECK" class="create-button" type="button" onclick="addNewDeck()">
-			</form> 
+			</form> -->
 		</div>
 	</div>
 
-	<nav class="navbar background">
-		<div  id="navbar" class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand menu-writing" href="/" style="font-size:27px;"><strong>facecard</strong></a>
-			</div>
+	<div id="new-group-overlay" class="popup">
+		<div class="content">
+			<button class="close-button" onclick="hideOverlay('new-group-overlay')"> X </button>
 
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav">
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li><a class="menu-writing" href="/"><i class="fa fa-user fa-1x"></i>   John Smith</a></li>
-				</ul>
-			</div>
+			<form action="/user/newGroup" method="post">
+				<label><strong>Group Name </strong></label><input id="new-deck-name" class="text-box-input" type="text" value="" name="groupname"><br></br>
+				<input value="CREATE GROUP" class="create-button" type="submit">
+			</form>
 		</div>
-	</nav>
+	</div>
+
+    <nav class="navbar navbar-toggleable-md navbar-expand-lg navbar-light bg-light" >
+        <a class="navbar-brand menu-writing" style="font-size:27px;" href="/"><strong>facecard</strong></a>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto"></ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link menu-writing" style="font-size:16px;" href="/"><i class="fa fa-user fa-1x"></i> <%= user %></a>
+                </li>
+                <li class="nav-item">
+                    <a class ="nav-link menu-writing" href="/logout"><i class="fa fa-sign-out fa-1x"></i> Signout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
 	<div class="container">
 		<div class="groups" id="group-pane" style="float:left;">
-			<h1><strong>Groups</strong></h1>
+			<h1>
+				<strong>Groups</strong>
+				<button id="new-group-button" class="new-entity-button" onclick="showPopup('new-group-overlay')">+</button>
+			</h1>
 			<ul id="group-list" style="height:700px;overflow-y:auto;">
+				<% for(var i=0; i < groups.length; i++) { %>
+					<li><a href='group/<%= groups[i].id %>' class='group'><span><strong><%=groups[i].name%></strong></span></a></li>
+				<% } %>
 			</ul>
 
 		</div>
@@ -260,12 +384,13 @@
 			<h1>
 				<strong>YOUR DECKS</strong>
 				<button id="new-deck-button" onclick="showPopup('new-deck-overlay')">+</button>
-				<button id="notification-button" onclick="showPopup('notification-center'); getNotifications();"><p><span class="glyphicon glyphicon-bell"></span></p></button>
-				
+				<button id="notification-button" onclick="showPopup('notification-center')"><p><i class="fa fa-bell" aria-hidden="true"></i></span></p></button>
 			</h1>
 			  <ul id="deck-list" class="decks">
-
-			  </ul>
+					<% for(var i=0; i < userdecks.length; i++) { %>
+						<div id='<%= userdecks[i].name %>' value='<%= userdecks[i].id %>' class='cards' onclick='showOverlay(this.id)'><button><h1><strong><%=userdecks[i].name%></strong></h1></button></div>
+					<% } %>
+				</ul>
 		</div>
 	</div>
 
