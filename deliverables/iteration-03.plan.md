@@ -4,6 +4,7 @@
  > It does not really make sense for you to edit this document much (if at all) while working on the project - Instead, at the end of the planning phase, you can refer back to this document and decide which parts of your plan you are happy with and which parts you would like to change.
 
 
+
 ## Iteration 3
 
  * Start date: Nov 22, 2017
@@ -55,6 +56,34 @@ Describe meetings (and other events) you are planning to have:
  * When and where? In-person or online?
  * What's the **purpose** of each meeting?
  * Other events could be coding sessions, code reviews, quick weekly sync' meeting online, etc.
+ 
+We generally have 2 meeting a week held on Discord voice chat. One meeting on Friday and one on Saturday. The Friday meeting allows us 
+to update other members members of the group about our progress. This allows us to determine the current status of the application 
+and help determine our goals for the next week. During our Satuday meeting, we discuss our goals for the next week. What each member
+will implement and how they will implement it. For this specific deliverable, some extra meetings were made. We had started implementing the back-end of our application, and since most of the members lacked previous experience in back-end development, some extra events were needed to ensure everyone was working at the same pace.
+ 
+planned events:
+
+- Saturday November 18: Discord
+
+We decided that it was time to implement the back-end. Since most of the members had no experience with back-end development, we the next week would be spent understanding the basis of NodeJs and Mongoose database
+
+- Friday November 24: Discord
+
+We discuss our learnings of back-end development for the week. Many of our members still had some confusion with back-end development, so we planned extra time for our meeting on Saturday for members to teach each other how to develop back-end.
+
+- Saturday November 25: Discord
+
+on top of our usual planning meeting, we devoted a lot of time in this meeting to teach each other back-end development. We also took this time to develop a schema for the database and discuss how each member will use the schema to implement certain features. We also planned another meeting on Sunday to ensure everyone was on the same page
+
+- Sunday November 26: Discord
+
+We further discussed our progress on the back-end. We also needed to redesign our schema since our schema was designed around a relational database, where as Mongoose, the database we were using, was not relational. We also discussed our plans for making the demo video, and decided that most of our roles would be the same as before. We also set a deadline of Tuesday to have all our demo features done for the video.
+
+- Wednesday November 29: Discord
+
+A quick meeting to ensure everything was ready for recording. Also ensuring everyone knows their part for the deliverable.
+
 
 #### Artifacts
 
@@ -76,7 +105,18 @@ For example, "we use pull-requests" is not a precise statement since it leaves t
  * If applicable, specify any naming conventions or standards you decide to adopt.
  * Don't forget to **explain why** you chose this workflow.
 
+ Our Git workflow works as follows:
+- Each member has their own branch to work on. They are free to make commits and push to it.
+- When a member feels their work is ready to be merged with the main branch, they will make a pull request and message on Facebook messenger
+- At least 2 other members will do a checkout of the requested branch. They will test the changes on their machine to ensure that the code will not break existing work. The two other members also must have different machines to ensure the change works on different subsystems (Mac or Windows)
+- When at least 2 people confirm that the pull request is safe, our product owner merges the pull request with the main branch
+- Then every other member will update their branch with the new changes from main.
+- If a member needs help with implementing their part, they will create a new branch with "test" appended to the end. They will ask on messenger for assistance and the the other members can checkout that branch and attempt to work on it together.
 
+
+We decided to follow this workflow because it ensures changes made by the individual will not break the main branch. Before adopting this workflow, we ran into issues where the changes made only worked on the PR owner's computer. This lead to the program breaking for other members of the group, forcing us to roll back the main branch. After adopting this method, this became a non-issue. 
+
+The test branch was brought up when we started developing the backend. Since most of the members are new to NodeJS and backend developement in general, some assistance was needed from other members to help debug certain problems.
 
 ## Product
 
