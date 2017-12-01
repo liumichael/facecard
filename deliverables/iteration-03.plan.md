@@ -4,6 +4,7 @@
  > It does not really make sense for you to edit this document much (if at all) while working on the project - Instead, at the end of the planning phase, you can refer back to this document and decide which parts of your plan you are happy with and which parts you would like to change.
 
 
+
 ## Iteration 3
 
  * Start date: FILL IN THE DATE WHEN YOU HAD YOUR FIRST TEAM PLANNING MEETING
@@ -36,6 +37,34 @@ Describe meetings (and other events) you are planning to have:
  * When and where? In-person or online?
  * What's the **purpose** of each meeting?
  * Other events could be coding sessions, code reviews, quick weekly sync' meeting online, etc.
+ 
+We generally have 2 meeting a week held on Discord voice chat. One meeting on Friday and one on Saturday. The Friday meeting allows us 
+to update other members members of the group about our progress. This allows us to determine the current status of the application 
+and help determine our goals for the next week. During our Satuday meeting, we discuss our goals for the next week. What each member
+will implement and how they will implement it. For this specific deliverable, some extra meetings were made. We had started implementing the back-end of our application, and since most of the members lacked previous experience in back-end development, some extra events were needed to ensure everyone was working at the same pace.
+ 
+planned events:
+
+- Saturday November 18: Discord
+
+We decided that it was time to implement the back-end. Since most of the members had no experience with back-end development, we the next week would be spent understanding the basis of NodeJs and Mongoose database
+
+- Friday November 24: Discord
+
+We discuss our learnings of back-end development for the week. Many of our members still had some confusion with back-end development, so we planned extra time for our meeting on Saturday for members to teach each other how to develop back-end.
+
+- Saturday November 25: Discord
+
+on top of our usual planning meeting, we devoted a lot of time in this meeting to teach each other back-end development. We also took this time to develop a schema for the database and discuss how each member will use the schema to implement certain features. We also planned another meeting on Sunday to ensure everyone was on the same page
+
+- Sunday November 26: Discord
+
+We further discussed our progress on the back-end. We also needed to redesign our schema since our schema was designed around a relational database, where as Mongoose, the database we were using, was not relational. We also discussed our plans for making the demo video, and decided that most of our roles would be the same as before. We also set a deadline of Tuesday to have all our demo features done for the video.
+
+- Wednesday November 29: Discord
+
+A quick meeting to ensure everything was ready for recording. Also ensuring everyone knows their part for the deliverable.
+
 
 #### Artifacts
 
