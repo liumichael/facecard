@@ -12,8 +12,6 @@
 
 ## Process - Reflection
 
-(Optional) Short introduction
-
 * [`Demo video`](https://)
 
 #### Decisions that turned out well
@@ -50,6 +48,19 @@ actual final demo and deliverable 3.
  * Ordered from most to least important.
  * Feel free to refer/link to process artifact(s).-->
 
+1. More constructive brainstorming on design
+
+The front-end of the product is visually appealing, but considering the phase of the development, we still
+have a lot of things to improve. It clearly shows the purpose and features of the website to us, but since
+we haven't got any constructive, honest feedback from other potential users, we don't know how the interface of the website serves to other potential users. We could have done more constructive brainstorming and mockup on the design of the website, but since we were so busy working on back-end side of the website, we weren't able to focus as much on the visual aspect of the website. Some team members did make some commits to improve the design of the website. However, there are definitely more improvement needed in order to make sure that the buttons and input fields in the website successfully deliver the purpose of the websites to those who will potentially use the website.
+
+2. Git workflow: Use of branches
+
+Previously...
+When we were working on the website for deliverable 2, each team member had his or her own branch to commit and push their work. After they complete their own assigned task, a team member made a pull request for their work to be merged. After other team members tested out the branch and saw if the team member successfully implemented the task and it didn’t break any existing work, they decided to merge the requests.
+
+We made sure to use small pull requests and regularly made a merge requests. But this time, when we were
+working on our tasks for deliverable 3, we instead decided to go with another git workflow. What we did was we had this huge pull requests with branch named as 'databases', and everyone pushed their own work to the branch. This was decision that turned out very efficient, but at the same time, there were definitely some problems. Since we were so busy handling our own tasks and this was the only branch used for implementing everything we need for this deliverable, other work that was not necessarily related to 'database', such as improving interface of the website, was also pushed to this branch. This is not a good way of handling our workflow, because if we want to revert this merged pull requests, then other work that we pushed to this branch and was also not necessarily related to 'database', will also be reverted.
 
 #### Planned changes
 
@@ -57,7 +68,13 @@ actual final demo and deliverable 3.
 
  * Ordered from most to least important.
  * Explain why you are making a change. -->
+1. More small and frequent pull requests rather than huge pull requests
 
+As mentioned above, one huge pull requests won't help us if we want to revert the pull request. Therefore, it is crucial that we use small and frequent pull requests in stead of huge chunk of one PR.
+
+2. More frequent feedback on each other's work
+
+Each person succesfully managed to finish their own work but we have to give honest feedback on each other work as soon as possible so that we can give out the best product for the final demo in the future.
 
 ## Product - Review
 
