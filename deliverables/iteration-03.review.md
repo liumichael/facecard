@@ -1,4 +1,4 @@
-#FaceCard
+# FaceCard
 
 <!--
  > _Note:_ This document is meant to be written during (or shortly after) your review meeting, which should happen fairly close to the due date.      
@@ -28,7 +28,7 @@
 
 It hasn't been long time since we have finished deliverable 2, and deadline for finishing deliverable 3
 was approaching faster than we expected. We still had a lot of things to implement in our website, such
-as setting up the MongoDB database and making the website functional with the database so it was crucial that each member deliberately does all work for the website to successfully function. We had many meetings to make sure everyone knew what they were doing with their own assigned tasks, and asked each other a lot of questions through various forms such as Facebook Messenger and Discord Chat whenever we were stuck on some problems regarding our tasks. Since not a lot of team members were directly experienced with Node.js framework we are using in our project, there was initially some difficulties along the way, but we successfully managed to finish a lot of tasks in short period of time.
+as setting up the MongoDB database and making the website functional with the database so it was crucial that each member deliberately does all work for the website to successfully function. We had many meetings to make sure everyone knew what they were doing with their own assigned tasks, and asked each other a lot of questions through various forms such as Facebook Messenger and Discord Chat whenever we were stuck on some problems regarding our tasks. Since not a lot of team members were directly e xperienced with Node.js framework we are using in our project, there was initially some difficulties along the way, but we successfully managed to finish a lot of tasks in short period of time.
 
 2. Time management
 
@@ -86,13 +86,13 @@ Each person succesfully managed to finish their own work but we have to give hon
  * If a goal/task was not part of the original iteration plan, please mention it.
 -->
 
-* Connect front end of website to a database [`controller`](/controllers/main.controller.js) [`router`](/router/main.router.js) [`models`](/models)
-	* Used mongodb with mongoose for object modeling
-	* Pages are now linked together and accessed through user accounts
+* Connect front end of website to a database [`controller`](/controllers/main.controller.js) [`router`](/router/main.routes.js) [`models`](/models)
+	* Used mongodb as our database program, using mongoose for object modeling
+	* Pages are now linked together and can accessed through user accounts
 
-* Create User [`decks`](/controllers/main.controller.js#L272-L324) and [`cuecards`](/controllers/main.controller.js#L403-L422)  
+* Create User [`decks`](/controllers/main.controller.js#L403-L422) and [`cuecards`](/controllers/main.controller.js#L272-L324)  
 	* Users can now create decks and cuecards
-	* Cuecards are linked to their respective decks and created after creating a deck
+	* Cuecards are linked to their respective decks and created by accessing an existing
 
 * Create groups, [`group-decks`](/controllers/main.controller.js#L381-L401) and [`group-cuecards`](/controllers/main.controller.js#L326-L379) 
 	* Users can now create and join groups 
@@ -100,11 +100,12 @@ Each person succesfully managed to finish their own work but we have to give hon
 	* Cuecards accessible by the group are either created inside of the group or users can share existing cuecards with the group
 
 * Invite to [`groups`](/controllers/main.controller.js#L545-L574)
-	* Members of a group can send invitations to users of FaceCard 
+	* Members of a group can send invitations to other FaceCard users
 	* Users receive invites in their notifications and can accept or decline invitations
 
 * Consistent [`front-end`](/views)
-	* Front-end is now more visually fluent. Navbars are now all consistent and utilize bootstrap 4.0+
+	* Front-end appears more consistent now (i.e. navbars)
+	* Switched all views to bootstrap 4.0.0 and referenced through cdn 
 
 
 #### Goals and/or tasks that were planned but not met/completed:
@@ -115,17 +116,17 @@ Each person succesfully managed to finish their own work but we have to give hon
 -->
 
 * Modify/delete cue cards and add annoucements
-	* We found difficulties in modifying data on the database and the time cost to fix these issues exceeded the time we had available. 
+	* We found difficulties in modifying data on the database and the time cost to fix these issues exceeded the time we had available
 
 * Spaced repitition
-	* We wanted to focus on the implementation of FaceCard's main features of cuecard creation and user interaction. 
-	* Without a clear understanding of how we wanted to implement the algorithm, we decided to delay this feature. 
+	* We wanted to focus on the implementation of FaceCard's main features of cuecard creation and user interaction
+	* Without a clear understanding of how we wanted to implement the algorithm, we decided to delay the production of this feature 
 
 * Quiz and Comments
-	* Due to time restraints, we could not finish implementing thses features and decided to cut it from this deliverable.
+	* Due to time restraints, we could not finish implementing thses features and decided to cut it from this deliverable
 
 * Duels
-	* Ultimately, this feature was not as vital to our MVP as quiz or comments so we decdied to cut it out. 
+	* Ultimately, this feature was not a vital component of our MVP so it was cut
 
 
 ## Meeting Highlights
@@ -143,5 +144,6 @@ Going into the next iteration, our main insights are:
 	By implementing theses features, user experience should significantly improve due to the reduction of clutter and easier access to important information. 
 
 * Space repitition
-	* Alongside the sharing and group aspect of our website, this feature represents the core identity of our application. We plan on implementing this feature
-	by utilizing the already completed notifications utility and combining it with an algorithm that keeps track of the users performance and time interval between attempts. 
+	* Alongside the sharing and group aspect of our website, this feature represents a core component of our application. We plan on implementing this feature
+	by utilizing the already completed notifications function and combining it with an algorithm that tracks user performance and frequency to calculate when 
+	users should study a cue card. 
